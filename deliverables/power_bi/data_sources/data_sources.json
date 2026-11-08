@@ -1,0 +1,20 @@
+{
+ "dataSources": [
+  {"path": "../../data/fact_flight_operations.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/fact_disruptions.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/fact_customer_feedback.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_airline.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_airport.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_route.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_date.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_aircraft.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_aircraft_type.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_customer.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_disruption_type.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_booking_channel.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_currency.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/dim_fare_class.csv", "type": "csv", "kind": "Text/CSV"}
+ ],
+ "refresh": "Power BI Desktop > Refresh; data files are static exports of data/03_curated (11 dims, 3 facts). Re-export via build_deliverables.py.",
+ "disclosure": "Synthetic Simulation - Not Actual Airline Performance"
+}

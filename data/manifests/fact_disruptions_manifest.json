@@ -1,0 +1,107 @@
+{
+  "business_key": "DisruptionID",
+  "column_count": 16,
+  "columns": [
+    "DisruptionKey",
+    "DisruptionID",
+    "FlightOperationKey",
+    "AirlineKey",
+    "RouteKey",
+    "EventLocationAirportKey",
+    "DisruptionTypeKey",
+    "EventSequence",
+    "EventDateKey",
+    "EventStartTimestampUTC",
+    "EventEndTimestampUTC",
+    "DelayMinutes",
+    "PrimaryCauseFlag",
+    "ReactionaryFlag",
+    "ReactionaryEvidenceID",
+    "RecoveryStatus"
+  ],
+  "dataset": "FactDisruptions",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance",
+  "files": {
+    "csv": {
+      "path": "data/03_curated/fact_disruptions.csv",
+      "sha256": "faf1dd91f2b9a194f764397fbfecd2b341b9ec460708889f088e07b8db2a421e"
+    },
+    "parquet": {
+      "path": "data/03_curated/fact_disruptions.parquet",
+      "sha256": "c74cc3cd4b7a3550c966483bcfc1a8ee88a38279a28290f12718934d3ccec67d"
+    }
+  },
+  "generated_at_utc": "2026-11-04T13:00:50.429025+00:00",
+  "generation": {
+    "event_delay_partition": "Exact partition of flight arrival delay",
+    "method": "Deterministic NumPy random generator",
+    "n_cancelled_flights_selected": 150,
+    "n_delayed_flights_selected": 800,
+    "random_seed": 3602026
+  },
+  "governance": {
+    "od_09_otp_threshold": "Proposed 15-minute on-time threshold under OD-09; formal owner approval pending. Not applied in FactDisruptions beyond the documented contract Section 5.5 rules.",
+    "reactionary_rule": "ReactionaryFlag=True only when disruption type is reactionary-eligible, ReactionaryEvidenceID exists, and the event is classified as reactionary in the source. Not guessed."
+  },
+  "grain": "One row per disruption event for one flight leg and one disruption type",
+  "primary_key": "DisruptionKey",
+  "project": "AEROVISION 360",
+  "row_count": 1754,
+  "source_dimensions": {
+    "dim_airline": {
+      "path": "data/03_curated/dim_airline.parquet",
+      "rows": 10,
+      "sha256": "bbe8ac80b53dd493dc600c7b57e39e31c842f30a86bdcb12b528b9aee0802468"
+    },
+    "dim_airport": {
+      "path": "data/03_curated/dim_airport.parquet",
+      "rows": 72,
+      "sha256": "c7a065991a9947d1c8a6df7aa8fd3a8f4349fd1e4446c9b96a347bfdb2b02633"
+    },
+    "dim_date": {
+      "path": "data/03_curated/dim_date.parquet",
+      "rows": 761,
+      "sha256": "f0931b178cf9f56edce13af79bc5d72d5cc9e192d10af10fdbc653c209227064"
+    },
+    "dim_disruption_type": {
+      "path": "data/03_curated/dim_disruption_type.parquet",
+      "rows": 9,
+      "sha256": "3a935b75dc20169a48de4e77cbcf3258a1e3c40228c650c9de0f7ed046d9c296"
+    },
+    "dim_route": {
+      "path": "data/03_curated/dim_route.parquet",
+      "rows": 320,
+      "sha256": "e372eda055b27f0eb212fb0763bb9dc34606101ad3c5db5345406520c9691f27"
+    },
+    "fact_flight_operations": {
+      "path": "data/03_curated/fact_flight_operations.parquet",
+      "rows": 5000,
+      "sha256": "5ab3833d353dd0af1d8c203a67318f08df50a80c2ab63dfc6e5bd989b60abb21"
+    }
+  },
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "validation": {
+    "airline_foreign_keys_resolve": true,
+    "airport_foreign_keys_resolve": true,
+    "cancelled_flight_delay_zero": true,
+    "csv_round_trip": true,
+    "date_key_foreign_keys_resolve": true,
+    "delay_minutes_non_negative": true,
+    "delay_partition_sums_to_arrival_delay": true,
+    "disruption_type_foreign_keys_resolve": true,
+    "event_location_is_route_origin_or_destination": true,
+    "event_sequence_contiguous_per_flight": true,
+    "event_sequence_positive": true,
+    "event_sequence_unique_with_flight": true,
+    "exact_column_order": true,
+    "flight_operation_keys_resolve": true,
+    "parquet_round_trip": true,
+    "primary_cause_flag_one_per_flight": true,
+    "reactionary_evidence_null_when_flag_false": true,
+    "reactionary_requires_eligible_type": true,
+    "reactionary_requires_evidence_id": true,
+    "route_foreign_keys_resolve": true,
+    "unique_disruption_ids": true,
+    "unique_disruption_keys": true
+  }
+}

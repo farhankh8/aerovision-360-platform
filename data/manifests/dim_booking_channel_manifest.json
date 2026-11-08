@@ -1,0 +1,43 @@
+{
+  "dataset": "DimBookingChannel",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "grain": "One row per booking channel",
+  "primary_key": "BookingChannelKey",
+  "row_count": 7,
+  "column_count": 6,
+  "columns": [
+    "BookingChannelKey",
+    "ChannelCode",
+    "ChannelName",
+    "ChannelCategory",
+    "IsDirect",
+    "IsActive"
+  ],
+  "taxonomy_status": "Provisional baseline taxonomy",
+  "direct_channel_rule": "True only for airline-owned Direct Web and Mobile App channels",
+  "validation": {
+    "exact_column_order": true,
+    "unique_primary_key": true,
+    "unique_channel_code": true,
+    "unique_channel_name": true,
+    "all_contract_categories_present": true,
+    "category_values_unique": true,
+    "direct_flag_consistency": true,
+    "all_baseline_channels_active": true,
+    "no_null_values": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_booking_channel.csv",
+      "sha256": "910c9f0b7be131227f27d0df001fc7f4065394cc4fbd5c2250b1af3ae17aa769"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_booking_channel.parquet",
+      "sha256": "0e7887873c89bc9c06420f5748784b729a4e1f1fff88dd7c423bce1948ffe533"
+    }
+  },
+  "generated_at_utc": "2026-11-04T04:46:43.789817+00:00"
+}

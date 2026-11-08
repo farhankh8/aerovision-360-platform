@@ -1,0 +1,79 @@
+{
+  "dataset": "DimRoute",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance",
+  "grain": "One row per directional origin-destination airport pair",
+  "primary_key": "RouteKey",
+  "row_count": 320,
+  "column_count": 9,
+  "undirected_connection_count": 160,
+  "directional_route_count": 320,
+  "columns": [
+    "RouteKey",
+    "RouteCode",
+    "OriginAirportKey",
+    "DestinationAirportKey",
+    "DistanceKM",
+    "DistanceMiles",
+    "RouteRegion",
+    "IsInternational",
+    "IsActive"
+  ],
+  "distance_method": "Haversine great-circle distance",
+  "earth_mean_radius_km": 6371.0088,
+  "distance_tolerance_percent": 2,
+  "distance_miles_conversion": "DistanceKM * 0.621371, rounded to 2 decimals",
+  "route_region_rule": "Same-region routes retain the airport region; cross-region routes are labelled Interregional.",
+  "source": {
+    "path": "data/03_curated/dim_airport.parquet",
+    "sha256": "c7a065991a9947d1c8a6df7aa8fd3a8f4349fd1e4446c9b96a347bfdb2b02633"
+  },
+  "route_key_registry": {
+    "path": "data/04_reference/DIM_ROUTE_KEYMAP_V1.csv",
+    "version": "V1",
+    "row_count": 320,
+    "sha256": "c410627a1c6c377333ca301ee2acc4ee10b05261cd7c3e595503ee3356482199"
+  },
+  "route_regions": [
+    "Europe",
+    "Interregional",
+    "Middle East",
+    "North America",
+    "Oceania",
+    "South Asia"
+  ],
+  "validation": {
+    "exact_column_order": true,
+    "unique_route_keys": true,
+    "unique_directional_route_codes": true,
+    "unique_directional_airport_pairs": true,
+    "different_origin_and_destination": true,
+    "positive_distances": true,
+    "great_circle_distance_within_2_percent": true,
+    "miles_conversion": true,
+    "route_code_consistency": true,
+    "airport_referential_integrity": true,
+    "all_airports_used": true,
+    "reciprocal_directional_routes": true,
+    "international_flag_consistency": true,
+    "controlled_route_regions": true,
+    "all_baseline_routes_active": true,
+    "no_null_values": true,
+    "parquet_int32_keys": true,
+    "parquet_decimal_9_2_distances": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_route.csv",
+      "sha256": "c552414eb185c151c90ebd42658848647fa114e4f013ac277cd9b258f9395c63"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_route.parquet",
+      "sha256": "e372eda055b27f0eb212fb0763bb9dc34606101ad3c5db5345406520c9691f27"
+    }
+  },
+  "generated_at_utc": "2026-11-04T08:33:28.826873+00:00"
+}

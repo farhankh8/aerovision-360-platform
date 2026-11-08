@@ -1,0 +1,53 @@
+{
+  "column_count": 12,
+  "columns": [
+    "AirlineKey",
+    "AirlineId",
+    "AirlineIATACode",
+    "AirlineICAOCode",
+    "AirlineName",
+    "AirlineGroup",
+    "HomeCountry",
+    "HomeCountryCode",
+    "BusinessModelClass",
+    "IsActive",
+    "StatusEffectiveDate",
+    "ReferenceVersion"
+  ],
+  "dataset": "DimAirline",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance",
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_airline.csv",
+      "sha256": "faa75056b7d70093f2ed206ab5e5107f2e8ec90fdcfd9809bc3cf35eab2dcf0b"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_airline.parquet",
+      "sha256": "bbe8ac80b53dd493dc600c7b57e39e31c842f30a86bdcb12b528b9aee0802468"
+    }
+  },
+  "generated_at_utc": "2026-11-04T12:35:48.265925+00:00",
+  "grain": "One row per airline identity",
+  "primary_key": "AirlineKey",
+  "project": "AEROVISION 360",
+  "row_count": 10,
+  "source": {
+    "path": "data/04_reference/AEROVISION_360_AIRLINE_REFERENCE_WORKBOOK.xlsx",
+    "sha256": "6f9d21365e69b540b8a99cdb461cc5280e570853d5d4ebd5a4f03f7945231c25",
+    "sheet": "DimAirline"
+  },
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "validation": {
+    "airline_ids_air_0001_through_air_0010": true,
+    "airline_keys_one_through_ten": true,
+    "all_baseline_airlines_active": true,
+    "csv_round_trip": true,
+    "exact_column_order": true,
+    "no_uninferred_values": true,
+    "nullable_fields_preserved": true,
+    "parquet_round_trip": true,
+    "ten_airline_records": true,
+    "unique_airline_ids": true,
+    "unique_airline_keys": true
+  }
+}

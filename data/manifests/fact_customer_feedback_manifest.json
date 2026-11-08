@@ -1,0 +1,107 @@
+{
+  "business_key": "FeedbackID",
+  "column_count": 14,
+  "columns": [
+    "FeedbackKey",
+    "FeedbackID",
+    "CustomerKey",
+    "AirlineKey",
+    "FlightOperationKey",
+    "RouteKey",
+    "FeedbackDateKey",
+    "FeedbackType",
+    "SatisfactionScore",
+    "ComplaintCategory",
+    "ServiceRecoveryFlag",
+    "ResolutionStatus",
+    "ResolutionDateKey",
+    "FeedbackChannel"
+  ],
+  "dataset": "FactCustomerFeedback",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance",
+  "files": {
+    "csv": {
+      "path": "data/03_curated/fact_customer_feedback.csv",
+      "sha256": "01487d25737f0623b8aecaf7677a3aeab3cabdccfa9c4e8978ba1d636c12c04c"
+    },
+    "parquet": {
+      "path": "data/03_curated/fact_customer_feedback.parquet",
+      "sha256": "6dd58defd50fa869aef1e1f69f088a0a795b6f97d935b53510a2cd4be320af7b"
+    }
+  },
+  "generated_at_utc": "2026-11-04T13:10:05.257382+00:00",
+  "generation": {
+    "feedback_types": [
+      "Survey",
+      "Complaint",
+      "Compliment",
+      "Claim"
+    ],
+    "method": "Deterministic NumPy random generator",
+    "n_feedback_events": 2500,
+    "random_seed": 3602026,
+    "resolution_statuses": [
+      "Open",
+      "In Progress",
+      "Resolved",
+      "Closed - No Action"
+    ],
+    "satisfaction_score_scale": "1-5 (OD-11, proposed, formal owner approval pending)"
+  },
+  "governance": {
+    "od_11_satisfaction_scale": "Proposed satisfaction score scale of 1 through 5 under OD-11; formal owner approval pending. Applied as documented in contract Section 5.6 / 6.3.5, not claimed as an approved rule.",
+    "od_17_service_recovery": "Service-recovery case is a complaint with ServiceRecoveryFlag = TRUE; recovered means ResolutionStatus = Resolved. Proposed under OD-17, formal owner approval pending."
+  },
+  "grain": "One row per customer feedback event",
+  "primary_key": "FeedbackKey",
+  "project": "AEROVISION 360",
+  "row_count": 2500,
+  "source_dimensions": {
+    "dim_airline": {
+      "path": "data/03_curated/dim_airline.parquet",
+      "rows": 10,
+      "sha256": "bbe8ac80b53dd493dc600c7b57e39e31c842f30a86bdcb12b528b9aee0802468"
+    },
+    "dim_customer": {
+      "path": "data/03_curated/dim_customer.parquet",
+      "rows": 5000,
+      "sha256": "eac10a91c94a0e23cf8e80006c27fc002455629613468a1068b4f11ebd384e05"
+    },
+    "dim_date": {
+      "path": "data/03_curated/dim_date.parquet",
+      "rows": 761,
+      "sha256": "f0931b178cf9f56edce13af79bc5d72d5cc9e192d10af10fdbc653c209227064"
+    },
+    "dim_route": {
+      "path": "data/03_curated/dim_route.parquet",
+      "rows": 320,
+      "sha256": "e372eda055b27f0eb212fb0763bb9dc34606101ad3c5db5345406520c9691f27"
+    },
+    "fact_flight_operations": {
+      "path": "data/03_curated/fact_flight_operations.parquet",
+      "rows": 5000,
+      "sha256": "5ab3833d353dd0af1d8c203a67318f08df50a80c2ab63dfc6e5bd989b60abb21"
+    }
+  },
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "validation": {
+    "airline_foreign_keys_resolve": true,
+    "complaint_category_null_for_non_complaint": true,
+    "complaint_category_required_for_complaint": true,
+    "csv_round_trip": true,
+    "customer_foreign_keys_resolve": true,
+    "exact_column_order": true,
+    "feedback_date_key_foreign_key_resolves": true,
+    "flight_operation_keys_resolve": true,
+    "no_duplicate_feedback_events": true,
+    "parquet_round_trip": true,
+    "resolution_date_key_on_or_after_feedback_date": true,
+    "resolution_date_key_required_when_resolved": true,
+    "route_foreign_keys_resolve": true,
+    "route_key_agrees_with_flight_leg": true,
+    "satisfaction_score_range_1_to_5": true,
+    "service_recovery_flag_boolean": true,
+    "unique_feedback_ids": true,
+    "unique_feedback_keys": true
+  }
+}

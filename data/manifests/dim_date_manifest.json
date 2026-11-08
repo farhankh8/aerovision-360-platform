@@ -1,0 +1,69 @@
+{
+  "dataset": "DimDate",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "grain": "One row per calendar date",
+  "primary_key": "DateKey",
+  "row_count": 761,
+  "column_count": 19,
+  "columns": [
+    "DateKey",
+    "FullDate",
+    "Year",
+    "Quarter",
+    "MonthNumber",
+    "MonthName",
+    "MonthShortName",
+    "YearMonth",
+    "YearMonthSort",
+    "WeekNumber",
+    "WeekStartDate",
+    "DayOfMonth",
+    "DayName",
+    "DayOfWeekNumber",
+    "IsWeekend",
+    "IsReportingPeriod",
+    "FiscalYear",
+    "FiscalQuarter",
+    "FiscalMonthNumber"
+  ],
+  "date_range": {
+    "start": "2024-10-01",
+    "end": "2026-10-31",
+    "inclusive": true
+  },
+  "reporting_period": {
+    "start": "2025-10-01",
+    "end": "2026-09-30",
+    "expected_days": 365
+  },
+  "calendar_rules": {
+    "week_number": "ISO 8601",
+    "week_start": "Monday",
+    "fiscal_year_start_month": "October",
+    "fiscal_year_label": "Ending calendar year"
+  },
+  "validation": {
+    "exact_column_order": true,
+    "row_count": true,
+    "unique_date_key": true,
+    "unique_full_date": true,
+    "continuous_dates": true,
+    "no_null_values": true,
+    "reporting_period_days": true,
+    "fiscal_year_boundaries": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_date.csv",
+      "sha256": "fb9109399a8bf4527f9e532f92ae7dc9f1373ea8dafdd5705b1b434ed85c347f"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_date.parquet",
+      "sha256": "f0931b178cf9f56edce13af79bc5d72d5cc9e192d10af10fdbc653c209227064"
+    }
+  },
+  "generated_at_utc": "2026-11-04T04:42:12.298010+00:00"
+}

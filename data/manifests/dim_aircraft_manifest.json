@@ -1,0 +1,105 @@
+{
+  "dataset": "DimAircraft",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "disclosure": "Synthetic Simulation \u2014 Not Actual Airline Performance",
+  "grain": "One row per fictional aircraft",
+  "primary_key": "AircraftKey",
+  "row_count": 440,
+  "column_count": 9,
+  "columns": [
+    "AircraftKey",
+    "AircraftRegistration",
+    "AirlineKey",
+    "AircraftTypeKey",
+    "FleetEntryDate",
+    "FleetStatus",
+    "SeatCapacity",
+    "PlannedDailyAvailableHours",
+    "IsActive"
+  ],
+  "aircraft_allocation": {
+    "airline_count": 10,
+    "aircraft_per_airline": 44,
+    "total_aircraft_records": 440,
+    "baseline_active_records": 400,
+    "active_per_airline": 40,
+    "maintenance_records": 40,
+    "maintenance_per_airline": 4,
+    "aircraft_type_count": 12,
+    "category_allocation_per_airline": {
+      "Narrowbody": 13,
+      "Widebody": 12,
+      "Regional Jet": 9,
+      "Turboprop": 10
+    },
+    "type_counts_per_airline": {
+      "1": 5,
+      "2": 5,
+      "3": 4,
+      "4": 4,
+      "5": 3,
+      "6": 3,
+      "7": 4,
+      "8": 3,
+      "9": 3,
+      "10": 4,
+      "11": 3,
+      "12": 3
+    },
+    "maintenance_policy": "One maintenance aircraft per airline in each of the four aircraft categories."
+  },
+  "synthetic_fleet_disclaimer": "Aircraft registrations, assignments, capacities, and fleet records are synthetic. They do not describe actual airline fleets.",
+  "planned_daily_available_hours": {
+    "value": "14.00",
+    "status": "PROVISIONAL \u2014 OD-10 FORMAL APPROVAL PENDING"
+  },
+  "fleet_status_rule": "Active records are marked IsActive=true. Maintenance records remain in the dimension but are marked IsActive=false.",
+  "source_files": {
+    "airline_reference_workbook": {
+      "path": "data/04_reference/AEROVISION_360_AIRLINE_REFERENCE_WORKBOOK.xlsx",
+      "sha256": "6f9d21365e69b540b8a99cdb461cc5280e570853d5d4ebd5a4f03f7945231c25"
+    },
+    "dim_aircraft_type": {
+      "path": "data/03_curated/dim_aircraft_type.parquet",
+      "sha256": "e49ee42cf4a02d3a857f5f693b7c98e164133b13155149038b51babb6d2e011f"
+    }
+  },
+  "validation": {
+    "exact_column_order": true,
+    "440_aircraft_records": true,
+    "ten_airline_keys_resolved": true,
+    "44_aircraft_per_airline": true,
+    "400_active_aircraft_records": true,
+    "40_maintenance_aircraft_records": true,
+    "maintenance_one_per_category_per_airline": true,
+    "twelve_aircraft_types_assigned": true,
+    "unique_aircraft_keys": true,
+    "unique_fictional_registrations": true,
+    "aircraft_type_foreign_keys_resolve": true,
+    "seat_capacity_positive": true,
+    "seat_capacity_within_type_maximum": true,
+    "fleet_status_controlled": true,
+    "active_flag_consistent_with_status": true,
+    "fleet_entry_dates_before_reporting_period": true,
+    "planned_hours_consistent": true,
+    "no_null_values": true,
+    "parquet_int32_keys": true,
+    "parquet_date32_fleet_entry_date": true,
+    "parquet_int16_seat_capacity": true,
+    "parquet_decimal_4_2_planned_hours": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_aircraft.csv",
+      "sha256": "25ab7f334a623f9e6dd3d570215806ec3175fda1781929a3927b6c49d7e37225"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_aircraft.parquet",
+      "sha256": "254d730ced620c8b5ae2d88fc4a5f8b45ad15bdfcf3f6f5ef0f43945510b2075"
+    }
+  },
+  "generated_at_utc": "2026-11-04T06:38:33.244033+00:00"
+}

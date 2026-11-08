@@ -1,0 +1,582 @@
+{
+  ".platform": {
+    "$schema": "https://developer.microsoft.com/json-schemas/fabric/git/1.1/fabric.platform.schema.json"
+  },
+  "config": {
+    "culture": "en-US",
+    "tables": {
+      "fact_flight_operations": {
+        "columns": [
+          "FlightOperationKey",
+          "FlightLegID",
+          "FlightNumber",
+          "AirlineKey",
+          "RouteKey",
+          "AircraftKey",
+          "ScheduledDepartureTimestampUTC",
+          "ActualDepartureTimestampUTC",
+          "ScheduledArrivalTimestampUTC",
+          "ActualArrivalTimestampUTC",
+          "ScheduledDepartureDateKey",
+          "ScheduledArrivalDateKey",
+          "AvailableSeats",
+          "BookedPassengers",
+          "RevenuePassengers",
+          "NonRevenuePassengers",
+          "FlightDistanceKM",
+          "FlightStatus",
+          "DepartureDelayMinutes",
+          "ArrivalDelayMinutes",
+          "BlockMinutes",
+          "CancellationFlag",
+          "CompletionFlag",
+          "OnTimeFlag",
+          "OnTimeArrivalFlag"
+        ],
+        "measures": [
+          "FL01",
+          "FL02",
+          "FL03",
+          "FL04",
+          "OP01",
+          "OP03",
+          "OP04"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "AirlineKey",
+            "toTable": "dim_airline",
+            "toColumn": "AirlineKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "RouteKey",
+            "toTable": "dim_route",
+            "toColumn": "RouteKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "AircraftKey",
+            "toTable": "dim_aircraft",
+            "toColumn": "AircraftKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "ScheduledDepartureDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "ScheduledArrivalDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "inactive"
+          }
+        ]
+      },
+      "fact_disruptions": {
+        "columns": [
+          "DisruptionKey",
+          "DisruptionID",
+          "FlightOperationKey",
+          "AirlineKey",
+          "RouteKey",
+          "EventLocationAirportKey",
+          "DisruptionTypeKey",
+          "EventSequence",
+          "EventDateKey",
+          "EventStartTimestampUTC",
+          "EventEndTimestampUTC",
+          "DelayMinutes",
+          "PrimaryCauseFlag",
+          "ReactionaryFlag",
+          "ReactionaryEvidenceID",
+          "RecoveryStatus"
+        ],
+        "measures": [
+          "DS01",
+          "DS02",
+          "DS03"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "AirlineKey",
+            "toTable": "dim_airline",
+            "toColumn": "AirlineKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "RouteKey",
+            "toTable": "dim_route",
+            "toColumn": "RouteKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "DisruptionTypeKey",
+            "toTable": "dim_disruption_type",
+            "toColumn": "DisruptionTypeKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "EventLocationAirportKey",
+            "toTable": "dim_airport",
+            "toColumn": "AirportKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "EventDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "inactive"
+          }
+        ]
+      },
+      "fact_customer_feedback": {
+        "columns": [
+          "FeedbackKey",
+          "FeedbackID",
+          "CustomerKey",
+          "AirlineKey",
+          "FlightOperationKey",
+          "RouteKey",
+          "FeedbackDateKey",
+          "FeedbackType",
+          "SatisfactionScore",
+          "ComplaintCategory",
+          "ServiceRecoveryFlag",
+          "ResolutionStatus",
+          "ResolutionDateKey",
+          "FeedbackChannel"
+        ],
+        "measures": [
+          "CF01",
+          "CF02",
+          "CF03",
+          "CF04",
+          "CF05",
+          "CF06",
+          "CF07",
+          "CF08",
+          "CF09",
+          "CF10",
+          "CF11",
+          "CF12",
+          "CF13",
+          "CF14"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "CustomerKey",
+            "toTable": "dim_customer",
+            "toColumn": "CustomerKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "AirlineKey",
+            "toTable": "dim_airline",
+            "toColumn": "AirlineKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "RouteKey",
+            "toTable": "dim_route",
+            "toColumn": "RouteKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "FeedbackDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "inactive"
+          },
+          {
+            "fromColumn": "ResolutionDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "inactive"
+          }
+        ]
+      },
+      "dim_airline": {
+        "columns": [
+          "AirlineKey",
+          "AirlineId",
+          "AirlineIATACode",
+          "AirlineICAOCode",
+          "AirlineName",
+          "AirlineGroup",
+          "HomeCountry",
+          "HomeCountryCode",
+          "BusinessModelClass",
+          "IsActive",
+          "StatusEffectiveDate",
+          "ReferenceVersion"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_airport": {
+        "columns": [
+          "AirportKey",
+          "AirportCode",
+          "AirportName",
+          "City",
+          "Country",
+          "CountryCode",
+          "Region",
+          "Latitude",
+          "Longitude",
+          "TimeZoneIANA",
+          "IsActive"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_route": {
+        "columns": [
+          "RouteKey",
+          "RouteCode",
+          "OriginAirportKey",
+          "DestinationAirportKey",
+          "DistanceKM",
+          "DistanceMiles",
+          "RouteRegion",
+          "IsInternational",
+          "IsActive"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "OriginAirportKey",
+            "toTable": "dim_airport",
+            "toColumn": "AirportKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "DestinationAirportKey",
+            "toTable": "dim_airport",
+            "toColumn": "AirportKey",
+            "role": "inactive"
+          }
+        ],
+        "measures": []
+      },
+      "dim_date": {
+        "columns": [
+          "DateKey",
+          "FullDate",
+          "Year",
+          "Quarter",
+          "MonthNumber",
+          "MonthName",
+          "MonthShortName",
+          "YearMonth",
+          "YearMonthSort",
+          "WeekNumber",
+          "WeekStartDate",
+          "DayOfMonth",
+          "DayName",
+          "DayOfWeekNumber",
+          "IsWeekend",
+          "IsReportingPeriod",
+          "FiscalYear",
+          "FiscalQuarter",
+          "FiscalMonthNumber"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_aircraft": {
+        "columns": [
+          "AircraftKey",
+          "AircraftRegistration",
+          "AirlineKey",
+          "AircraftTypeKey",
+          "FleetEntryDate",
+          "FleetStatus",
+          "SeatCapacity",
+          "PlannedDailyAvailableHours",
+          "IsActive"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "AirlineKey",
+            "toTable": "dim_airline",
+            "toColumn": "AirlineKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "AircraftTypeKey",
+            "toTable": "dim_aircraft_type",
+            "toColumn": "AircraftTypeKey",
+            "role": "active"
+          }
+        ],
+        "measures": []
+      },
+      "dim_aircraft_type": {
+        "columns": [
+          "AircraftTypeKey",
+          "Manufacturer",
+          "AircraftModel",
+          "AircraftCategory",
+          "TypicalSeatCapacity",
+          "MaximumSeatCapacity",
+          "RangeKM",
+          "BodyType"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_disruption_type": {
+        "columns": [
+          "DisruptionTypeKey",
+          "DisruptionCode",
+          "DisruptionName",
+          "DisruptionCategory",
+          "ControllableFlag",
+          "ReactionaryEligibleFlag",
+          "IsActive"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_customer": {
+        "columns": [
+          "CustomerKey",
+          "CustomerID",
+          "CustomerSegment",
+          "LoyaltyTier",
+          "HomeCountry",
+          "HomeCountryCode",
+          "RegistrationDate",
+          "IsActive"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_booking_channel": {
+        "columns": [
+          "BookingChannelKey",
+          "ChannelCode",
+          "ChannelName",
+          "ChannelCategory",
+          "IsDirect",
+          "IsActive"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_currency": {
+        "columns": [
+          "CurrencyKey",
+          "CurrencyCode",
+          "CurrencyName",
+          "CurrencySymbol",
+          "DecimalPlaces",
+          "IsReportingCurrency"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "dim_fare_class": {
+        "columns": [
+          "FareClassKey",
+          "FareClassCode",
+          "FareClassName",
+          "CabinClass",
+          "RefundabilityCategory",
+          "IsAncillaryEligible",
+          "DisplayOrder"
+        ],
+        "relationships": [],
+        "measures": []
+      },
+      "fact_booking_transactions": {
+        "columns": [
+          "BookingTransactionKey",
+          "BookingReference",
+          "TicketNumber",
+          "TicketCouponNumber",
+          "CustomerKey",
+          "AirlineKey",
+          "FlightOperationKey",
+          "RouteKey",
+          "FareClassKey",
+          "BookingChannelKey",
+          "BookingDateKey",
+          "TravelDateKey",
+          "PassengerCount",
+          "IsRevenuePassenger",
+          "BaseFareAmount",
+          "DiscountAmount",
+          "TaxAmount",
+          "FeeAmount",
+          "AncillaryRevenueAmount",
+          "RefundAmount",
+          "AncillaryRefundAmount",
+          "FeeRefundAmount",
+          "CancellationFeeAmount",
+          "NoShowFeeAmount",
+          "TransactionCurrencyKey",
+          "ExchangeRateToUSD",
+          "RateDateKey",
+          "RateVersion",
+          "BaseFareUSD",
+          "DiscountUSD",
+          "TaxUSD",
+          "FeeUSD",
+          "AncillaryRevenueUSD",
+          "RefundUSD",
+          "AncillaryRefundUSD",
+          "FeeRefundUSD",
+          "CancellationFeeUSD",
+          "NoShowFeeUSD",
+          "NetPassengerRevenueUSD",
+          "NetFeeRevenueUSD",
+          "NetAncillaryRevenueUSD",
+          "TransactionStatus",
+          "IsRefunded",
+          "BookingLeadTimeDays",
+          "SyntheticProvenance"
+        ],
+        "measures": [
+          "RV_BookingCount",
+          "RV_DistinctBookings",
+          "RV_RevenuePassengers",
+          "RV_NonRevenuePassengers",
+          "RV_GrossBookingValueUSD",
+          "RV_RefundAmountUSD",
+          "RV_NetPassengerRevenueUSD",
+          "RV_NetFeeRevenueUSD",
+          "RV_NetAncillaryRevenueUSD",
+          "RV_TotalOperatingRevenueUSD",
+          "RV_AvgRevenuePerRevenuePassenger",
+          "RV_AvgBookingValueUSD",
+          "RV_RevenueCurrentPeriodUSD",
+          "RV_RevenuePriorPeriodUSD",
+          "RV_RevenueGrowthPercent",
+          "RV_RevenueYTDUSD",
+          "RV_RevenueByBookingDateUSD",
+          "NC_NetOperatingContributionUSD",
+          "NC_RevenueToCostRatio",
+          "NC_RevenuePerRevenuePassengerUSD"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "AirlineKey",
+            "toTable": "dim_airline",
+            "toColumn": "AirlineKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "RouteKey",
+            "toTable": "dim_route",
+            "toColumn": "RouteKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "CustomerKey",
+            "toTable": "dim_customer",
+            "toColumn": "CustomerKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "FareClassKey",
+            "toTable": "dim_fare_class",
+            "toColumn": "FareClassKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "BookingChannelKey",
+            "toTable": "dim_booking_channel",
+            "toColumn": "BookingChannelKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "TravelDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "BookingDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "inactive"
+          },
+          {
+            "fromColumn": "TransactionCurrencyKey",
+            "toTable": "dim_currency",
+            "toColumn": "CurrencyKey",
+            "role": "active"
+          }
+        ]
+      },
+      "fact_operating_costs": {
+        "columns": [
+          "OperatingCostKey",
+          "CostLineID",
+          "FlightOperationKey",
+          "AirlineKey",
+          "RouteKey",
+          "CostDateKey",
+          "CostCategory",
+          "CostSubcategory",
+          "CostAmount",
+          "CurrencyKey",
+          "ExchangeRateToUSD",
+          "RateDateKey",
+          "RateVersion",
+          "CostAmountUSD",
+          "CostDescription",
+          "SourceDocumentNumber",
+          "IsAllocated",
+          "SyntheticProvenance"
+        ],
+        "measures": [
+          "CX_TotalOperatingCostsUSD",
+          "CX_PositiveCostsUSD",
+          "CX_CostReversalsUSD",
+          "CX_NetOperatingCostsUSD",
+          "CX_CostPerFlightOperationUSD",
+          "CX_CostPerRevenuePassengerUSD",
+          "CX_CostsCurrentPeriodUSD",
+          "CX_CostsPriorPeriodUSD",
+          "CX_CostGrowthPercent",
+          "CX_CostsYTDUSD"
+        ],
+        "relationships": [
+          {
+            "fromColumn": "AirlineKey",
+            "toTable": "dim_airline",
+            "toColumn": "AirlineKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "RouteKey",
+            "toTable": "dim_route",
+            "toColumn": "RouteKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "CostDateKey",
+            "toTable": "dim_date",
+            "toColumn": "DateKey",
+            "role": "active"
+          },
+          {
+            "fromColumn": "CurrencyKey",
+            "toTable": "dim_currency",
+            "toColumn": "CurrencyKey",
+            "role": "active"
+          }
+        ]
+      }
+    },
+    "disclosure": "Synthetic Simulation - Not Actual Airline Performance"
+  },
+  "metadata": {
+    "type": "SemanticModel"
+  }
+}

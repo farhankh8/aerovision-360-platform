@@ -1,0 +1,65 @@
+{
+  "patch_id": "DATA-SOURCES-INTEGRATION-2026-11-08",
+  "description": "Add missing financial data sources to data_sources.json. Pending OD-04g signature and G4 authorization before execution.",
+  "base_file": "deliverables/power_bi/data_sources/data_sources.json",
+  "current_sources": 14,
+  "sources_to_add": [
+    {
+      "path": "../../data/03_curated/fact_booking_transactions.csv",
+      "type": "csv",
+      "kind": "Text/CSV",
+      "dataset": "FactBookingTransactions",
+      "grain": "One row per passenger ticket coupon",
+      "row_count": 9956,
+      "sha256": "14556fd8002a0a10020a3346d0ad11017facfb1866a059ba5a2c36a2880e84d0",
+      "manifest": "data/manifests/fact_booking_transactions_manifest.json",
+      "governance": "OD-04a-f currency scope; OD-04b conversion convention; OD-04c rate source; OD-04d rate version; OD-04e missing-date behaviour; OD-04f generation methodology",
+      "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION — NOT production-authorized",
+      "blocked_by": "OD-04g formal approval; G4 authorization"
+    },
+    {
+      "path": "../../data/03_curated/fact_operating_costs.csv",
+      "type": "csv",
+      "kind": "Text/CSV",
+      "dataset": "FactOperatingCosts",
+      "grain": "One row per operating-cost ledger line",
+      "row_count": 7480,
+      "sha256": "1a95131dec314d0ad346f6563b7d0156ba0e8f5453877484c5a9e40878892784",
+      "manifest": "data/manifests/fact_operating_costs_manifest.json",
+      "governance": "OD-04a-f currency scope; OD-04b conversion convention; OD-04c rate source; OD-04d rate version; OD-04e missing-date behaviour; OD-04f generation methodology",
+      "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION — NOT production-authorized",
+      "blocked_by": "OD-04g formal approval; G4 authorization"
+    },
+    {
+      "path": "../../data/04_reference/ref_exchange_rates.csv",
+      "type": "csv",
+      "kind": "Text/CSV",
+      "dataset": "ReferenceExchangeRates",
+      "grain": "One row per currency per rate date",
+      "row_count": 2920,
+      "sha256": "a716f2fb64195abf92bf5e3037fcec24eed62e4df434a3ae52a5521c59051b5f",
+      "manifest": "data/manifests/reference_manifest.json",
+      "governance": "OD-04c rate source; OD-04d rate version",
+      "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION — NOT production-authorized",
+      "blocked_by": "OD-04g formal approval; G4 authorization"
+    }
+  ],
+  "execution_preconditions": [
+    "OD-04g owner signature and actual approval date recorded",
+    "GOV-D-06 formal approval recorded",
+    "G3-RV-01 executed",
+    "Schema freeze authorized",
+    "G3 approved",
+    "G4 written authorization recorded"
+  ],
+  "post_integration_tasks": [
+    "Update semantic-model relationships for fact_booking_transactions and fact_operating_costs",
+    "Verify DAX dependencies (RV_*, CX_*, NC_* measures)",
+    "Refresh existing PBIX (preserve 5 pages, 120 visuals)",
+    "Verify Page 03 (Revenue & Finance) against approved booking facts",
+    "Verify Page 04 (Cost & Financial Intelligence) against approved operating-cost facts",
+    "Reconcile financial KPIs against source data",
+    "Verify currency conversion and USD reporting",
+    "Validate filters, date relationships and aggregation behaviour"
+  ]
+}

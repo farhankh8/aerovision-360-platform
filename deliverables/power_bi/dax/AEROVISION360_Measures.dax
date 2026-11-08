@@ -1,0 +1,200 @@
+// AEROVISION 360 - DAX measures
+// OD-04: Revenue and operating cost measures for FactBookingTransactions and FactOperatingCosts
+// All financial amounts in USD (reporting currency per OD-04)
+// Original currency amounts preserved in source columns; USD-converted amounts used for aggregation
+// Never sum original amounts across different currencies; never reconvert USD amounts
+// Date basis: TravelDateKey (active) for revenue, CostDateKey (active) for operating costs
+// Use USERELATIONSHIP(dim_date[DateKey], fact_booking_transactions[BookingDateKey]) for booking-date cohort analysis
+// Disclosure: Synthetic Simulation - Not Actual Airline Performance.
+FL01 = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[FlightStatus] = "Operated" ) ) // Flights Operated (4776)
+FL02 = SUM ( fact_flight_operations[RevenuePassengers] ) // Total Revenue Passengers (218413 passengers)
+FL03 = AVERAGE ( fact_flight_operations[DepartureDelayMinutes] ) // from raw, not AVG(AVG())
+FL04 = VAR _total = COUNTROWS ( fact_flight_operations ) VAR _cancelled = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CancellationFlag] = TRUE() ) ) RETURN IF ( _total = 0, BLANK(), DIVIDE ( _cancelled, _total ) * 100 )
+DS01 = COUNTROWS ( fact_disruptions ) // Total Disruptions
+DS02 = AVERAGE ( fact_disruptions[DelayMinutes] )
+DS03 = COUNTROWS ( FILTER ( fact_disruptions, RELATED ( dim_disruption_type[ControllableFlag] ) = TRUE() ) ) // controllable disruption events
+CF01 = COUNTROWS ( fact_customer_feedback )
+CF02 = AVERAGE ( fact_customer_feedback[SatisfactionScore] ) // 1-5 scale; no thresholds invented (OD-11 pending)
+CF03 = VAR _total = COUNTROWS ( fact_customer_feedback ) VAR _complaints = COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[FeedbackType] = "Complaint" ) ) RETURN IF ( _total = 0, BLANK(), DIVIDE ( _complaints, _total ) * 100 ) // 25.52%
+CF04 = COUNTROWS ( FILTER ( dim_customer, dim_customer[IsActive] = TRUE ) ) // Active Customers
+CF05 = COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[FeedbackType] = "Complaint" ) ) // Complaint Count
+CF06 = COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[FeedbackType] = "Compliment" ) ) // Compliment Count
+CF07 = COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[FeedbackType] = "Claim" ) ) // Claim Count
+CF08 = COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[FeedbackType] = "Survey" ) ) // Survey Count
+CF09 = DIVIDE ( CF06, CF01 ) // Positive Feedback Rate
+CF10 = DIVIDE ( CF05 + CF07, CF01 ) // Negative Feedback Rate
+CF11 = DIVIDE ( COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[ServiceRecoveryFlag] = TRUE ) ), CF05 ) // Service Recovery Rate (of complaints)
+CF12 = DIVIDE ( COUNTROWS ( FILTER ( fact_customer_feedback, fact_customer_feedback[ResolutionStatus] = "Resolved" ) ), COUNTROWS ( FILTER ( fact_customer_feedback, NOT ISBLANK ( fact_customer_feedback[ResolutionStatus] ) ) ) ) // Resolution Rate
+CF13 = CALCULATE ( CF02, fact_customer_feedback[FeedbackType] = "Complaint" ) // Complaint Satisfaction Avg
+CF14 = CALCULATE ( CF02, fact_customer_feedback[FeedbackType] = "Compliment" ) // Compliment Satisfaction Avg
+// Page 02 — Operations Performance measures (OD-09 15-minute threshold is PROPOSED, not formally approved).
+OP01 = VAR _Operated = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE ) ) VAR _OperatedWithValidDelay = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE && NOT ISBLANK ( fact_flight_operations[DepartureDelayMinutes] ) ) ) VAR _OnTimeDepartures = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE && fact_flight_operations[OnTimeFlag] = TRUE ) ) RETURN DIVIDE ( _OnTimeDepartures, _OperatedWithValidDelay, BLANK() ) // On-Time Departure Rate (31.09%)
+OP03 = VAR _Operated = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE ) ) VAR _OperatedWithValidArrival = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE && NOT ISBLANK ( fact_flight_operations[ArrivalDelayMinutes] ) ) ) VAR _TotalArrivalDelay = SUMX ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE ), fact_flight_operations[ArrivalDelayMinutes] ) RETURN DIVIDE ( _TotalArrivalDelay, _OperatedWithValidArrival, BLANK() ) // Average Arrival Delay (106.65 min)
+OP04 = VAR _TotalFlights = COUNTROWS ( fact_flight_operations ) VAR _OperatedFlights = COUNTROWS ( FILTER ( fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE ) ) RETURN DIVIDE ( _OperatedFlights, _TotalFlights, BLANK() ) // Flight Completion Rate (95.52%)
+// Disclosure on report pages: Synthetic Simulation - Not Actual Airline Performance.
+
+// ============================================
+// A. Booking and Revenue Measures (RV prefix)
+// Base measures operate at the coupon grain of fact_booking_transactions
+// Active date relationship: TravelDateKey -> dim_date[DateKey]
+// ============================================
+
+RV_BookingCount = COUNTROWS ( fact_booking_transactions ) // Total booking transactions (coupons)
+
+RV_DistinctBookings = DISTINCTCOUNT ( fact_booking_transactions[BookingReference] ) // Distinct booking references
+
+RV_RevenuePassengers = 
+    CALCULATE (
+        SUM ( fact_booking_transactions[PassengerCount] ),
+        fact_booking_transactions[IsRevenuePassenger] = TRUE ()
+    ) // Revenue passengers only
+
+RV_NonRevenuePassengers = 
+    CALCULATE (
+        SUM ( fact_booking_transactions[PassengerCount] ),
+        fact_booking_transactions[IsRevenuePassenger] = FALSE ()
+    ) // Non-revenue passengers (award, employee, etc.)
+
+RV_GrossBookingValueUSD = SUM ( fact_booking_transactions[BaseFareUSD] ) // Gross booking value (base fare, USD)
+
+RV_RefundAmountUSD = 
+    SUM ( fact_booking_transactions[RefundUSD] ) 
+    + SUM ( fact_booking_transactions[AncillaryRefundUSD] ) 
+    + SUM ( fact_booking_transactions[FeeRefundUSD] ) // Total refunds (all types, USD)
+
+RV_NetPassengerRevenueUSD = SUM ( fact_booking_transactions[NetPassengerRevenueUSD] ) // Net passenger revenue (USD)
+
+RV_NetFeeRevenueUSD = SUM ( fact_booking_transactions[NetFeeRevenueUSD] ) // Net fee revenue (USD)
+
+RV_NetAncillaryRevenueUSD = SUM ( fact_booking_transactions[NetAncillaryRevenueUSD] ) // Net ancillary revenue (USD)
+
+RV_TotalOperatingRevenueUSD = 
+    RV_NetPassengerRevenueUSD 
+    + RV_NetFeeRevenueUSD 
+    + RV_NetAncillaryRevenueUSD // Total operating revenue (USD); TaxUSD excluded
+
+RV_AvgRevenuePerRevenuePassenger = 
+    DIVIDE ( RV_TotalOperatingRevenueUSD, RV_RevenuePassengers, BLANK () ) // Revenue per revenue passenger (USD)
+
+RV_AvgBookingValueUSD = 
+    DIVIDE ( RV_GrossBookingValueUSD, RV_BookingCount, BLANK () ) // Average booking value per coupon (USD)
+
+// Revenue by dimension (filter by dim_airline, dim_route, dim_currency, dim_booking_channel, dim_fare_class)
+// These base measures slice correctly through active relationships; no separate per-dimension measures needed.
+
+// ============================================
+// B. Operating Cost Measures (CX prefix)
+// Active date relationship: CostDateKey -> dim_date[DateKey]
+// Sign convention: CostAmountUSD positive = expense, negative = credit/reversal
+// ============================================
+
+CX_TotalOperatingCostsUSD = SUM ( fact_operating_costs[CostAmountUSD] ) // Total operating costs (USD, signed)
+
+CX_PositiveCostsUSD = 
+    CALCULATE (
+        SUM ( fact_operating_costs[CostAmountUSD] ),
+        fact_operating_costs[CostAmountUSD] > 0
+    ) // Positive cost amounts only (expenses, USD)
+
+CX_CostReversalsUSD = 
+    CALCULATE (
+        SUM ( fact_operating_costs[CostAmountUSD] ),
+        fact_operating_costs[CostAmountUSD] < 0
+    ) // Cost reversals and credits (negative amounts, USD)
+
+CX_NetOperatingCostsUSD = 
+    CX_TotalOperatingCostsUSD // Net operating costs = total (signed amounts net automatically)
+
+CX_CostPerFlightOperationUSD = 
+    DIVIDE (
+        CX_TotalOperatingCostsUSD,
+        DISTINCTCOUNT ( fact_operating_costs[FlightOperationKey] ),
+        BLANK ()
+    ) // Cost per flight operation (USD)
+
+CX_CostPerRevenuePassengerUSD = 
+    DIVIDE (
+        CX_TotalOperatingCostsUSD,
+        RV_RevenuePassengers,
+        BLANK ()
+    ) // Cost per revenue passenger (USD)
+
+// Cost by category/subcategory (filter by CostCategory, CostSubcategory)
+// Cost by airline/route (filter by dim_airline, dim_route)
+// These base measures slice correctly through active relationships.
+
+// ============================================
+// C. Financial Performance Measures (NC prefix)
+// ============================================
+
+NC_NetOperatingContributionUSD = 
+    RV_TotalOperatingRevenueUSD - CX_TotalOperatingCostsUSD // Net operating contribution (USD); excludes non-operating items
+
+NC_RevenueToCostRatio = 
+    DIVIDE ( RV_TotalOperatingRevenueUSD, CX_TotalOperatingCostsUSD, BLANK () ) // Revenue-to-cost ratio
+
+NC_RevenuePerRevenuePassengerUSD = 
+    DIVIDE ( RV_TotalOperatingRevenueUSD, RV_RevenuePassengers, BLANK () ) // Revenue per revenue passenger (USD)
+
+// Cost per revenue passenger is defined in section B as CX_CostPerRevenuePassengerUSD.
+// No separate definition needed here; both measures share the same formula.
+// Filter NC_* and RV_*/CX_* measures by dim_airline or dim_route for airline/route comparison.
+// No separate per-airline or per-route measures needed; slicer/filter context provides the breakdown.
+
+// ============================================
+// D. Date Intelligence Measures
+// Requires dim_date marked as a Date table in Power BI Desktop
+// Continuous coverage verified: 2024-10-01 through 2026-10-31 (761 dates, no gaps)
+// Reporting period: 2025-10-01 through 2026-09-30 (365 days)
+// ============================================
+
+RV_RevenueCurrentPeriodUSD = 
+    CALCULATE (
+        RV_TotalOperatingRevenueUSD,
+        dim_date[IsReportingPeriod] = TRUE ()
+    ) // Current-period revenue (USD), travel-date basis
+
+RV_RevenuePriorPeriodUSD = 
+    CALCULATE (
+        RV_TotalOperatingRevenueUSD,
+        SAMEPERIODLASTYEAR ( dim_date[FullDate] )
+    ) // Prior-period revenue (USD), same period previous year
+
+RV_RevenueGrowthPercent = 
+    DIVIDE (
+        RV_RevenueCurrentPeriodUSD - RV_RevenuePriorPeriodUSD,
+        RV_RevenuePriorPeriodUSD,
+        BLANK ()
+    ) // Revenue growth % vs prior period
+
+CX_CostsCurrentPeriodUSD = 
+    CALCULATE (
+        CX_TotalOperatingCostsUSD,
+        dim_date[IsReportingPeriod] = TRUE ()
+    ) // Current-period operating costs (USD), cost-date basis
+
+CX_CostsPriorPeriodUSD = 
+    CALCULATE (
+        CX_TotalOperatingCostsUSD,
+        SAMEPERIODLASTYEAR ( dim_date[FullDate] )
+    ) // Prior-period operating costs (USD), same period previous year
+
+CX_CostGrowthPercent = 
+    DIVIDE (
+        CX_CostsCurrentPeriodUSD - CX_CostsPriorPeriodUSD,
+        CX_CostsPriorPeriodUSD,
+        BLANK ()
+    ) // Cost growth % vs prior period
+
+RV_RevenueYTDUSD = 
+    TOTALYTD ( RV_TotalOperatingRevenueUSD, dim_date[FullDate] ) // Year-to-date revenue (USD)
+
+CX_CostsYTDUSD = 
+    TOTALYTD ( CX_TotalOperatingCostsUSD, dim_date[FullDate] ) // Year-to-date operating costs (USD)
+
+// Booking-date cohort analysis (inactive date relationship)
+RV_RevenueByBookingDateUSD = 
+    CALCULATE (
+        RV_TotalOperatingRevenueUSD,
+        USERELATIONSHIP ( dim_date[DateKey], fact_booking_transactions[BookingDateKey] )
+    ) // Revenue by booking date (USD), uses inactive BookingDateKey relationship

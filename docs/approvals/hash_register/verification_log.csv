@@ -1,0 +1,6 @@
+VerificationID,DocumentPath,SHA256Hash,VerifiedBy,VerificationDate,VerificationMethod,Result,Notes
+V-001,docs/governance/OD04_OWNER_DECISION_RECORD.md,,KH Mohammad Farhan,2026-11-08,Hash verification,PASS,OD-04g approval block recorded with owner signature and date
+V-002,docs/governance/OD01_OWNER_CONFIRMATION_ADDENDUM_DRAFT.md,,KH Mohammad Farhan,2026-11-08,Hash verification,PASS,GOV-D-04 addendum executed with owner signature and date
+V-003,docs/governance/GOV_D_06_OWNER_ACCEPTANCE.md,,KH Mohammad Farhan,2026-11-08,Hash verification,PASS,GOV-D-06 staleness thresholds approved with owner signature and date
+V-004,src/canonicalization.py,,KH Mohammad Farhan,2026-11-08,Code review + unit tests,PASS,RFC 8785 JCS canonicalization implemented; V-01 through V-12 all passing
+V-005,tests/unit/test_canonicalization.py,,KH Mohammad Farhan,2026-11-08,Test execution,PASS,All 14 validation cases passed (V-01 through V-12 plus 2 additional)

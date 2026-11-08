@@ -1,0 +1,29 @@
+{
+  "dataset": "Airline Identifier Crosswalk",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_REQUIRES_OWNER_REVIEW",
+  "row_count": 10,
+  "columns": [
+    "AirlineName",
+    "SourceAirlineId",
+    "DimAirlineId",
+    "SourceAirlineKey",
+    "DimAirlineKey",
+    "AirlineIdMatches",
+    "MappingStatus"
+  ],
+  "purpose": "Explicitly maps source reference identifiers to semantic DimAirline identifiers and warehouse keys.",
+  "mapping_basis": "Exact airline commercial-name correspondence established during the consolidated audit. The identifiers are not assumed to be interchangeable.",
+  "downstream_rule": "Fact tables must use semantic DimAirline.AirlineKey. Source identifiers are retained for provenance and reconciliation.",
+  "approval": {
+    "owner_review": "PENDING",
+    "formal_od01b_approval": "PENDING",
+    "source_authenticity_review": "PENDING"
+  },
+  "source_files": {
+    "audit_report_sha256": "1e6f7f8c3f711752b53a480e6b67179fdebf58194af5338e621c2c320cfd1aab",
+    "airline_reference_workbook_sha256": "6f9d21365e69b540b8a99cdb461cc5280e570853d5d4ebd5a4f03f7945231c25"
+  },
+  "crosswalk_csv_sha256": "1c68eb62e30ed0dd87981bdc5e63cf68a8493f7111150ae84b6df13804b6268d",
+  "generated_at_utc": "2026-11-04T05:21:55.209926+00:00"
+}

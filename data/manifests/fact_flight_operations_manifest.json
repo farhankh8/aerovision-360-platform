@@ -1,0 +1,108 @@
+{
+  "business_key": "FlightLegID",
+  "column_count": 25,
+  "columns": [
+    "FlightOperationKey",
+    "FlightLegID",
+    "FlightNumber",
+    "AirlineKey",
+    "RouteKey",
+    "AircraftKey",
+    "ScheduledDepartureTimestampUTC",
+    "ActualDepartureTimestampUTC",
+    "ScheduledArrivalTimestampUTC",
+    "ActualArrivalTimestampUTC",
+    "ScheduledDepartureDateKey",
+    "ScheduledArrivalDateKey",
+    "AvailableSeats",
+    "BookedPassengers",
+    "RevenuePassengers",
+    "NonRevenuePassengers",
+    "FlightDistanceKM",
+    "FlightStatus",
+    "DepartureDelayMinutes",
+    "ArrivalDelayMinutes",
+    "BlockMinutes",
+    "CancellationFlag",
+    "CompletionFlag",
+    "OnTimeFlag",
+    "OnTimeArrivalFlag"
+  ],
+  "dataset": "FactFlightOperations",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance",
+  "files": {
+    "csv": {
+      "path": "data/03_curated/fact_flight_operations.csv",
+      "sha256": "00072847fd589c2f5f441eb1ad62b093d4a0c50efb3664ae9fde991b6f560b1e"
+    },
+    "parquet": {
+      "path": "data/03_curated/fact_flight_operations.parquet",
+      "sha256": "5ab3833d353dd0af1d8c203a67318f08df50a80c2ab63dfc6e5bd989b60abb21"
+    }
+  },
+  "generated_at_utc": "2026-11-04T12:53:45.721053+00:00",
+  "generation": {
+    "cancelled_share": 0.05,
+    "method": "Deterministic NumPy random generator",
+    "planning_volume_target": "150,000 to 250,000 flight legs (C-06, planning target, not guaranteed)",
+    "random_seed": 3602026,
+    "reporting_period_end": "2026-09-30",
+    "reporting_period_start": "2025-10-01",
+    "validation_volume": 5000
+  },
+  "governance": {
+    "od_09_otp_threshold": "Proposed 15-minute on-time threshold under OD-09; formal owner approval pending. This threshold is provisional, not an approved business rule. Applied as documented in contract Section 5.2 / 6.3.1."
+  },
+  "grain": "One row per scheduled flight leg, including cancelled legs",
+  "primary_key": "FlightOperationKey",
+  "project": "AEROVISION 360",
+  "row_count": 5000,
+  "source_dimensions": {
+    "dim_aircraft": {
+      "path": "data/03_curated/dim_aircraft.parquet",
+      "rows": 440,
+      "sha256": "254d730ced620c8b5ae2d88fc4a5f8b45ad15bdfcf3f6f5ef0f43945510b2075"
+    },
+    "dim_airline": {
+      "path": "data/03_curated/dim_airline.parquet",
+      "rows": 10,
+      "sha256": "bbe8ac80b53dd493dc600c7b57e39e31c842f30a86bdcb12b528b9aee0802468"
+    },
+    "dim_date": {
+      "path": "data/03_curated/dim_date.parquet",
+      "rows": 761,
+      "sha256": "f0931b178cf9f56edce13af79bc5d72d5cc9e192d10af10fdbc653c209227064"
+    },
+    "dim_route": {
+      "path": "data/03_curated/dim_route.parquet",
+      "rows": 320,
+      "sha256": "e372eda055b27f0eb212fb0763bb9dc34606101ad3c5db5345406520c9691f27"
+    }
+  },
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "validation": {
+    "aircraft_foreign_keys_resolve_where_non_null": true,
+    "airline_foreign_keys_resolve": true,
+    "arrival_date_key_foreign_key_resolves": true,
+    "available_seats_positive": true,
+    "booked_passengers_within_capacity": true,
+    "cancellation_flag_consistent": true,
+    "cancelled_actual_timestamps_null": true,
+    "cancelled_delay_minutes_null": true,
+    "cancelled_passenger_counts_zero": true,
+    "carried_passengers_within_booked": true,
+    "completion_flag_consistent": true,
+    "csv_round_trip": true,
+    "date_keys_positive": true,
+    "departure_date_key_foreign_key_resolves": true,
+    "exact_column_order": true,
+    "flight_distance_matches_route_within_0_5_percent": true,
+    "on_time_flag_consistent": true,
+    "parquet_round_trip": true,
+    "revenue_passengers_within_capacity": true,
+    "route_foreign_keys_resolve": true,
+    "unique_composite_business_key": true,
+    "unique_flight_leg_ids": true,
+    "unique_flight_operation_keys": true
+  }
+}

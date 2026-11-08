@@ -1,0 +1,202 @@
+{
+  "model": {
+    "culture": "en-US",
+    "tables": [
+      {
+        "name": "dim_airline",
+        "measures": []
+      },
+      {
+        "name": "dim_airport",
+        "measures": []
+      },
+      {
+        "name": "dim_route",
+        "measures": []
+      },
+      {
+        "name": "dim_date",
+        "measures": []
+      },
+      {
+        "name": "dim_aircraft",
+        "measures": []
+      },
+      {
+        "name": "dim_aircraft_type",
+        "measures": []
+      },
+      {
+        "name": "dim_customer",
+        "measures": []
+      },
+      {
+        "name": "dim_disruption_type",
+        "measures": []
+      },
+      {
+        "name": "dim_booking_channel",
+        "measures": []
+      },
+      {
+        "name": "dim_currency",
+        "measures": []
+      },
+      {
+        "name": "dim_fare_class",
+        "measures": []
+      },
+      {
+        "name": "fact_flight_operations",
+        "measures": [
+          {
+            "name": "FL01",
+            "expression": "COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[FlightStatus] = \"Operated\"))"
+          },
+          {
+            "name": "FL02",
+            "expression": "SUM(fact_flight_operations[RevenuePassengers])"
+          },
+          {
+            "name": "FL03",
+            "expression": "AVERAGE(fact_flight_operations[DepartureDelayMinutes])"
+          },
+          {
+            "name": "FL04",
+            "expression": "VAR _total = COUNTROWS(fact_flight_operations)\nVAR _cancelled = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CancellationFlag] = TRUE()))\nRETURN IF(_total = 0, BLANK(), DIVIDE(_cancelled, _total) * 100)"
+          },
+          {
+            "name": "OP01",
+            "expression": "VAR _Operated = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE))\nVAR _OperatedWithValidDelay = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE && NOT ISBLANK(fact_flight_operations[DepartureDelayMinutes])))\nVAR _OnTimeDepartures = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE && fact_flight_operations[OnTimeFlag] = TRUE))\nRETURN DIVIDE(_OnTimeDepartures, _OperatedWithValidDelay, BLANK())"
+          },
+          {
+            "name": "OP03",
+            "expression": "VAR _Operated = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE))\nVAR _OperatedWithValidArrival = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE && NOT ISBLANK(fact_flight_operations[ArrivalDelayMinutes])))\nVAR _TotalArrivalDelay = SUMX(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE), fact_flight_operations[ArrivalDelayMinutes])\nRETURN DIVIDE(_TotalArrivalDelay, _OperatedWithValidArrival, BLANK())"
+          },
+          {
+            "name": "OP04",
+            "expression": "VAR _TotalFlights = COUNTROWS(fact_flight_operations)\nVAR _OperatedFlights = COUNTROWS(FILTER(fact_flight_operations, fact_flight_operations[CompletionFlag] = TRUE))\nRETURN DIVIDE(_OperatedFlights, _TotalFlights, BLANK())"
+          }
+        ]
+      },
+      {
+        "name": "fact_disruptions",
+        "measures": [
+          {
+            "name": "DS01",
+            "expression": "COUNTROWS(fact_disruptions)"
+          },
+          {
+            "name": "DS02",
+            "expression": "AVERAGE(fact_disruptions[DelayMinutes])"
+          },
+          {
+            "name": "DS03",
+            "expression": "COUNTROWS(FILTER(fact_disruptions, RELATED(dim_disruption_type[ControllableFlag]) = TRUE()))"
+          }
+        ]
+      },
+      {
+        "name": "fact_customer_feedback",
+        "measures": [
+          {
+            "name": "CF01",
+            "expression": "COUNTROWS(fact_customer_feedback)"
+          },
+          {
+            "name": "CF02",
+            "expression": "AVERAGE(fact_customer_feedback[SatisfactionScore])"
+          },
+          {
+            "name": "CF03",
+            "expression": "VAR _total = COUNTROWS(fact_customer_feedback)\\nVAR _complaints = COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[FeedbackType] = \"Complaint\"))\\nRETURN IF(_total = 0, BLANK(), DIVIDE(_complaints, _total) * 100)"
+          },
+          {
+            "name": "CF04",
+            "expression": "COUNTROWS(FILTER(dim_customer, dim_customer[IsActive] = TRUE))"
+          },
+          {
+            "name": "CF05",
+            "expression": "COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[FeedbackType] = \"Complaint\"))"
+          },
+          {
+            "name": "CF06",
+            "expression": "COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[FeedbackType] = \"Compliment\"))"
+          },
+          {
+            "name": "CF07",
+            "expression": "COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[FeedbackType] = \"Claim\"))"
+          },
+          {
+            "name": "CF08",
+            "expression": "COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[FeedbackType] = \"Survey\"))"
+          },
+          {
+            "name": "CF09",
+            "expression": "DIVIDE(CF06, CF01)"
+          },
+          {
+            "name": "CF10",
+            "expression": "DIVIDE(CF05 + CF07, CF01)"
+          },
+          {
+            "name": "CF11",
+            "expression": "DIVIDE(COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[ServiceRecoveryFlag] = TRUE)), CF05)"
+          },
+          {
+            "name": "CF12",
+            "expression": "DIVIDE(COUNTROWS(FILTER(fact_customer_feedback, fact_customer_feedback[ResolutionStatus] = \"Resolved\")), COUNTROWS(FILTER(fact_customer_feedback, NOT ISBLANK(fact_customer_feedback[ResolutionStatus]))) )"
+          },
+          {
+            "name": "CF13",
+            "expression": "CALCULATE(CF02, fact_customer_feedback[FeedbackType] = \"Complaint\")"
+          },
+          {
+            "name": "CF14",
+            "expression": "CALCULATE(CF02, fact_customer_feedback[FeedbackType] = \"Compliment\")"
+          }
+        ]
+      },
+      {
+        "name": "fact_booking_transactions",
+        "measures": [
+          "RV_BookingCount",
+          "RV_DistinctBookings",
+          "RV_RevenuePassengers",
+          "RV_NonRevenuePassengers",
+          "RV_GrossBookingValueUSD",
+          "RV_RefundAmountUSD",
+          "RV_NetPassengerRevenueUSD",
+          "RV_NetFeeRevenueUSD",
+          "RV_NetAncillaryRevenueUSD",
+          "RV_TotalOperatingRevenueUSD",
+          "RV_AvgRevenuePerRevenuePassenger",
+          "RV_AvgBookingValueUSD",
+          "RV_RevenueCurrentPeriodUSD",
+          "RV_RevenuePriorPeriodUSD",
+          "RV_RevenueGrowthPercent",
+          "RV_RevenueYTDUSD",
+          "RV_RevenueByBookingDateUSD",
+          "NC_NetOperatingContributionUSD",
+          "NC_RevenueToCostRatio",
+          "NC_RevenuePerRevenuePassengerUSD"
+        ]
+      },
+      {
+        "name": "fact_operating_costs",
+        "measures": [
+          "CX_TotalOperatingCostsUSD",
+          "CX_PositiveCostsUSD",
+          "CX_CostReversalsUSD",
+          "CX_NetOperatingCostsUSD",
+          "CX_CostPerFlightOperationUSD",
+          "CX_CostPerRevenuePassengerUSD",
+          "CX_CostsCurrentPeriodUSD",
+          "CX_CostsPriorPeriodUSD",
+          "CX_CostGrowthPercent",
+          "CX_CostsYTDUSD"
+        ]
+      }
+    ]
+  }
+}

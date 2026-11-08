@@ -1,0 +1,43 @@
+{
+  "dataset": "DimFareClass",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "grain": "One row per synthetic fare class",
+  "primary_key": "FareClassKey",
+  "row_count": 8,
+  "column_count": 7,
+  "columns": [
+    "FareClassKey",
+    "FareClassCode",
+    "FareClassName",
+    "CabinClass",
+    "RefundabilityCategory",
+    "IsAncillaryEligible",
+    "DisplayOrder"
+  ],
+  "taxonomy_status": "Provisional analytical taxonomy; not airline-specific fare products",
+  "validation": {
+    "exact_column_order": true,
+    "unique_primary_key": true,
+    "unique_fare_class_code": true,
+    "valid_cabin_classes": true,
+    "valid_refundability_categories": true,
+    "unique_display_order_within_cabin": true,
+    "valid_fare_code_length": true,
+    "positive_display_order": true,
+    "no_null_values": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_fare_class.csv",
+      "sha256": "696c9786fb6fca3eb9bbc8a8b8bca402f4d186a44fe81bd36431ecfe298284b0"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_fare_class.parquet",
+      "sha256": "53bb954c1116766a4157b33a69031752319263fb7e92472d452c07dc351f6db3"
+    }
+  },
+  "generated_at_utc": "2026-11-04T04:45:43.489720+00:00"
+}

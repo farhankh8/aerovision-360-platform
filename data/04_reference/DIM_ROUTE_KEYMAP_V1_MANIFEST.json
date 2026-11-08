@@ -1,0 +1,38 @@
+{
+  "dataset": "DimRouteKeyMap",
+  "project": "AEROVISION 360",
+  "version": "V1",
+  "status": "IMMUTABLE_VERSIONED_REFERENCE",
+  "disclosure": "Synthetic Simulation ? Not Actual Airline Performance",
+  "purpose": "Permanent RouteCode-to-RouteKey registry for stable route identity.",
+  "row_count": 320,
+  "columns": [
+    "RouteKey",
+    "RouteCode"
+  ],
+  "primary_key": "RouteCode",
+  "unique_surrogate_key": "RouteKey",
+  "key_range": {
+    "minimum": 1,
+    "maximum": 320
+  },
+  "original_baseline": {
+    "path": "data/03_curated/recovery/dim_airport_route_expansion_prechange_20261104_072750/data/03_curated/dim_route.csv",
+    "row_count": 64,
+    "sha256": "78485fdb1bd02ca57be268e789df43cc4bd5b54d3c1abbe1dcecd15282c08fd7",
+    "preserved_original_mappings": true
+  },
+  "expanded_source": {
+    "path": "reports/network_expansion_20261104/staging/curated/dim_route.csv",
+    "row_count": 320,
+    "sha256": "c552414eb185c151c90ebd42658848647fa114e4f013ac277cd9b258f9395c63"
+  },
+  "allocation_policy": "Existing RouteCode-to-RouteKey mappings are permanent. New route identities must receive keys above the current maximum through a controlled registry version update. Never regenerate existing mappings by sorting.",
+  "files": {
+    "csv": {
+      "path": "data/04_reference/DIM_ROUTE_KEYMAP_V1.csv",
+      "sha256": "c410627a1c6c377333ca301ee2acc4ee10b05261cd7c3e595503ee3356482199"
+    }
+  },
+  "generated_at_utc": "2026-11-04T08:24:24.539774+00:00"
+}

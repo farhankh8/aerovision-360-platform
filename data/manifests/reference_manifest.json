@@ -1,0 +1,43 @@
+{
+  "manifest_id": "REF_EXCHANGE_RATES_V1",
+  "document_type": "reference_manifest",
+  "project": "AEROVISION 360",
+  "description": "Reference exchange rates for currency conversion",
+  "canonicalization_standard": "RFC 8785 JCS v1.0",
+  "hash_algorithm": "SHA-256",
+  "hash_output_format": "lowercase hexadecimal (64 chars)",
+  "character_encoding": "UTF-8 without BOM",
+  "line_endings": "LF (\\x0A)",
+  "whitespace": "None (minified)",
+  "manifest_hash_field_excluded": true,
+  "generated_at_utc": "2026-11-07T00:00:00+00:00",
+  "row_count": 2920,
+  "grain": "One row per currency per rate date",
+  "primary_key": "CurrencyCode + RateDate",
+  "source": "Deterministic algorithmic generation (seed-based)",
+  "source_files": {
+    "audit_report_sha256": "1e6f7f8c3f711752b53a480e6b67179fdebf58194af5338e621c2c320cfd1aab",
+    "airline_reference_workbook_sha256": "6f9d21365e69b540b8a99cdb461cc5280e570853d5d4ebd5a4f03f7945231c25"
+  },
+  "crosswalk_csv_sha256": "1c68eb62e30ed0dd87981bdc5e63cf68a8493f7111150ae84b6df13804b6268d",
+  "currency_count": 8,
+  "currencies": [
+    "AED",
+    "AUD",
+    "EUR",
+    "GBP",
+    "INR",
+    "QAR",
+    "SGD",
+    "USD"
+  ],
+  "reporting_currency": "USD",
+  "reporting_period": {
+    "start": "2025-10-01",
+    "end": "2026-09-30",
+    "days": 365
+  },
+  "sha256": "a716f2fb64195abf92bf5e3037fcec24eed62e4df434a3ae52a5521c59051b5f",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "disclosure": "Synthetic Simulation \u2014 Not Actual Airline Performance"
+}

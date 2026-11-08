@@ -1,0 +1,41 @@
+{
+  "dataset": "DimCurrency",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "grain": "One row per currency",
+  "primary_key": "CurrencyKey",
+  "row_count": 8,
+  "column_count": 6,
+  "columns": [
+    "CurrencyKey",
+    "CurrencyCode",
+    "CurrencyName",
+    "CurrencySymbol",
+    "DecimalPlaces",
+    "IsReportingCurrency"
+  ],
+  "reporting_currency": "USD",
+  "currency_population": "Provisional baseline for airline home markets",
+  "validation": {
+    "exact_column_order": true,
+    "unique_currency_key": true,
+    "unique_currency_code": true,
+    "valid_currency_code_format": true,
+    "decimal_places_range": true,
+    "exactly_one_reporting_currency": true,
+    "reporting_currency_is_usd": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_currency.csv",
+      "sha256": "a59cf7903efe8f4551fbe3ff435a2ffd58e674dfc96ec3a3de37b88f03a2afa5"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_currency.parquet",
+      "sha256": "c25b6a03bed1a8847c0e93a7051c12597b3f9da75de4a571adcb786e23f458f6"
+    }
+  },
+  "generated_at_utc": "2026-11-04T04:43:30.293212+00:00"
+}

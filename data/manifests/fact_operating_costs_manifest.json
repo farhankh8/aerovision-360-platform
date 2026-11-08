@@ -1,0 +1,135 @@
+{
+  "business_key": "CostLineID",
+  "column_count": 18,
+  "columns": [
+    "OperatingCostKey",
+    "CostLineID",
+    "FlightOperationKey",
+    "AirlineKey",
+    "RouteKey",
+    "CostDateKey",
+    "CostCategory",
+    "CostSubcategory",
+    "CostAmount",
+    "CurrencyKey",
+    "ExchangeRateToUSD",
+    "RateDateKey",
+    "RateVersion",
+    "CostAmountUSD",
+    "CostDescription",
+    "SourceDocumentNumber",
+    "IsAllocated",
+    "SyntheticProvenance"
+  ],
+  "composite_grain_key": "FlightOperationKey + CostCategory + CostSubcategory + CostDateKey + SourceDocumentNumber",
+  "dataset": "FactOperatingCosts",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance.",
+  "files": {
+    "csv": {
+      "path": "data/03_curated/fact_operating_costs.csv",
+      "sha256": "1a95131dec314d0ad346f6563b7d0156ba0e8f5453877484c5a9e40878892784"
+    },
+    "parquet": {
+      "path": "data/03_curated/fact_operating_costs.parquet",
+      "sha256": "90e8eddf2b93d0acf00a14cd5e930f642518b3d03fd509c08eb3af6f345d00bf"
+    },
+    "quarantine": {
+      "path": "data/02_staging/quarantine/fact_operating_costs_quarantined.csv",
+      "sha256": "bfd30c2c9a37ecd19c52277e28d20107b67cd6a09606bd0e290950fa81ca53a6"
+    }
+  },
+  "generated_at_utc": "2026-11-07T05:12:20.970728+00:00",
+  "generation": {
+    "allocated_share": 0.2,
+    "cost_lines_per_flight_max": 2,
+    "cost_lines_per_flight_min": 1,
+    "credit_reversal_share": 0.05,
+    "fx_lookup_coverage_end": "2026-09-30",
+    "fx_lookup_coverage_start": "2025-10-01",
+    "method": "Deterministic NumPy random generator",
+    "random_seed": 3602028,
+    "rate_source": "AEROVISION-360-SYNTHETIC-FX-V1",
+    "rate_version": "FX-2026-11-04-001",
+    "reporting_period_end": "2026-09-30",
+    "reporting_period_start": "2025-10-01"
+  },
+  "governance": {
+    "gov_d_07_manifest_hash": "GOV-D-07 ManifestHash canonicalization is a REVISED DRAFT, not approved. No ManifestHash canonicalization method is introduced. File-level SHA-256 hashes follow the existing project manifest convention (src/utilities/hashing.py).",
+    "od_04a_currency_scope": "AED, QAR, SGD, INR, GBP, EUR, USD, AUD",
+    "od_04b_exchange_rate_convention": "USD per one unit; exact-date lookup; 6 decimal places for rate; round final converted amount to 2 decimals; no forward-fill",
+    "od_04c_rate_source": "AEROVISION-360-SYNTHETIC-FX-V1",
+    "od_04d_rate_version": "FX-2026-11-04-001",
+    "od_04e_missing_date_behaviour": "No forward-fill; missing exact-date rate quarantines the row",
+    "od_04f_rate_generation_methodology": "Deterministic algorithmic generation; fixed seed; documented parameters"
+  },
+  "grain": "One row per operating-cost ledger line",
+  "primary_key": "OperatingCostKey",
+  "project": "AEROVISION 360",
+  "quarantine": {
+    "quarantine_file": "data/02_staging/quarantine/fact_operating_costs_quarantined.csv",
+    "quarantine_reason": "MISSING_FX_RATE (OD-04e: no forward-fill)",
+    "quarantined_row_count": 0
+  },
+  "row_count": 7480,
+  "source_dimensions": {
+    "dim_airline": {
+      "path": "data/03_curated/dim_airline.parquet",
+      "rows": 10,
+      "sha256": "bbe8ac80b53dd493dc600c7b57e39e31c842f30a86bdcb12b528b9aee0802468"
+    },
+    "dim_currency": {
+      "path": "data/03_curated/dim_currency.parquet",
+      "rows": 8,
+      "sha256": "c25b6a03bed1a8847c0e93a7051c12597b3f9da75de4a571adcb786e23f458f6"
+    },
+    "dim_date": {
+      "path": "data/03_curated/dim_date.parquet",
+      "rows": 761,
+      "sha256": "f0931b178cf9f56edce13af79bc5d72d5cc9e192d10af10fdbc653c209227064"
+    },
+    "dim_route": {
+      "path": "data/03_curated/dim_route.parquet",
+      "rows": 320,
+      "sha256": "e372eda055b27f0eb212fb0763bb9dc34606101ad3c5db5345406520c9691f27"
+    },
+    "fact_flight_operations": {
+      "path": "data/03_curated/fact_flight_operations.parquet",
+      "rows": 5000,
+      "sha256": "5ab3833d353dd0af1d8c203a67318f08df50a80c2ab63dfc6e5bd989b60abb21"
+    },
+    "ref_exchange_rates": {
+      "path": "data/04_reference/ref_exchange_rates.csv",
+      "rows": 2920,
+      "sha256": "a716f2fb64195abf92bf5e3037fcec24eed62e4df434a3ae52a5521c59051b5f"
+    }
+  },
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "validation": {
+    "airline_foreign_keys_resolve": true,
+    "airline_key_matches_flight_leg": true,
+    "cost_amount_usd_follows_sign": true,
+    "cost_category_controlled_set": true,
+    "cost_date_key_foreign_key_resolves": true,
+    "cost_date_within_reporting_period": true,
+    "cost_description_not_null": true,
+    "cost_subcategory_valid_within_category": true,
+    "csv_round_trip": true,
+    "currency_foreign_keys_resolve": true,
+    "exact_column_order": true,
+    "exchange_rate_positive": true,
+    "flight_operation_logical_references_resolve": true,
+    "missing_fx_rate_quarantined": true,
+    "no_null_monetary_values": true,
+    "parquet_round_trip": true,
+    "rate_date_key_foreign_key_resolves": true,
+    "rate_version_consistent": true,
+    "route_foreign_keys_resolve": true,
+    "route_key_matches_flight_leg": true,
+    "source_document_number_not_null": true,
+    "synthetic_provenance_present": true,
+    "unique_composite_grain_key": true,
+    "unique_cost_line_ids": true,
+    "unique_operating_cost_keys": true,
+    "usd_conversion_accuracy": true
+  }
+}

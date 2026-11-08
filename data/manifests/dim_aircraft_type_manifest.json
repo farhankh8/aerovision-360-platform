@@ -1,0 +1,55 @@
+{
+  "dataset": "DimAircraftType",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "grain": "One row per synthetic aircraft type",
+  "primary_key": "AircraftTypeKey",
+  "row_count": 12,
+  "column_count": 8,
+  "columns": [
+    "AircraftTypeKey",
+    "Manufacturer",
+    "AircraftModel",
+    "AircraftCategory",
+    "TypicalSeatCapacity",
+    "MaximumSeatCapacity",
+    "RangeKM",
+    "BodyType"
+  ],
+  "synthetic_reference": true,
+  "disclosure": "Synthetic Simulation ? Not Actual Airline Performance",
+  "aircraft_type_portfolio": {
+    "total_types": 12,
+    "category_counts": {
+      "Narrowbody": 3,
+      "Widebody": 3,
+      "Regional Jet": 3,
+      "Turboprop": 3
+    }
+  },
+  "validation": {
+    "exact_column_order": true,
+    "unique_primary_key": true,
+    "unique_manufacturer_model": true,
+    "valid_aircraft_categories": true,
+    "valid_body_types": true,
+    "positive_seat_capacities": true,
+    "typical_capacity_not_above_maximum": true,
+    "positive_range": true,
+    "parquet_decimal_9_2_range": true,
+    "no_null_values": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_aircraft_type.csv",
+      "sha256": "4904fde0bd72164ae8add37331e3d8f3b633368a66de394067b182437a8234b1"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_aircraft_type.parquet",
+      "sha256": "e49ee42cf4a02d3a857f5f693b7c98e164133b13155149038b51babb6d2e011f"
+    }
+  },
+  "generated_at_utc": "2026-11-04T06:07:58.228652+00:00"
+}

@@ -1,0 +1,44 @@
+{
+  "dataset": "DimDisruptionType",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "grain": "One row per disruption type",
+  "primary_key": "DisruptionTypeKey",
+  "row_count": 9,
+  "column_count": 7,
+  "columns": [
+    "DisruptionTypeKey",
+    "DisruptionCode",
+    "DisruptionName",
+    "DisruptionCategory",
+    "ControllableFlag",
+    "ReactionaryEligibleFlag",
+    "IsActive"
+  ],
+  "taxonomy_status": "Provisional synthetic baseline taxonomy",
+  "reactionary_rule": "Late inbound aircraft is the only baseline reactionary-eligible type. Fact-level reactionary attribution requires explicit evidence.",
+  "validation": {
+    "exact_column_order": true,
+    "unique_primary_key": true,
+    "unique_disruption_code": true,
+    "unique_disruption_name": true,
+    "all_nine_contract_categories_present": true,
+    "one_reactionary_eligible_type": true,
+    "reactionary_category_consistency": true,
+    "all_baseline_types_active": true,
+    "no_null_values": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_disruption_type.csv",
+      "sha256": "df4552cae8eeb1a4ebdf929f86b068976a553daff8dc5a34dd5174f09e2c1e48"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_disruption_type.parquet",
+      "sha256": "3a935b75dc20169a48de4e77cbcf3258a1e3c40228c650c9de0f7ed046d9c296"
+    }
+  },
+  "generated_at_utc": "2026-11-04T04:48:24.482650+00:00"
+}

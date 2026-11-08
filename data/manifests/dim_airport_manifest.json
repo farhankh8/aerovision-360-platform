@@ -1,0 +1,75 @@
+{
+  "dataset": "DimAirport",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance",
+  "grain": "One row per fictional airport",
+  "primary_key": "AirportKey",
+  "row_count": 72,
+  "column_count": 11,
+  "columns": [
+    "AirportKey",
+    "AirportCode",
+    "AirportName",
+    "City",
+    "Country",
+    "CountryCode",
+    "Region",
+    "Latitude",
+    "Longitude",
+    "TimeZoneIANA",
+    "IsActive"
+  ],
+  "airport_code_disclaimer": "All airport codes are project-generated fictional identifiers. They are not official IATA airport codes.",
+  "geography_disclaimer": "City and airport names are fictional. Coordinates are approximate geographic reference positions, not actual airport facility locations.",
+  "regions": [
+    "Europe",
+    "Middle East",
+    "North America",
+    "Oceania",
+    "South Asia",
+    "Southeast Asia"
+  ],
+  "countries": [
+    "AE",
+    "AU",
+    "DE",
+    "GB",
+    "IN",
+    "QA",
+    "SG",
+    "US"
+  ],
+  "validation": {
+    "exact_column_order": true,
+    "unique_airport_keys": true,
+    "unique_airport_codes": true,
+    "three_letter_uppercase_codes": true,
+    "fictional_code_prefix": true,
+    "unique_airport_names": true,
+    "unique_city_names": true,
+    "country_codes_in_baseline": true,
+    "controlled_regions": true,
+    "country_region_consistency": true,
+    "latitude_bounds": true,
+    "longitude_bounds": true,
+    "valid_iana_timezones": true,
+    "all_baseline_airports_active": true,
+    "no_null_values": true,
+    "parquet_int32_key": true,
+    "parquet_decimal_9_6_coordinates": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_airport.csv",
+      "sha256": "9da9e6837e8a4553218b8052f010ce367587ff0d5848b694c2900edb5a29e264"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_airport.parquet",
+      "sha256": "c7a065991a9947d1c8a6df7aa8fd3a8f4349fd1e4446c9b96a347bfdb2b02633"
+    }
+  },
+  "generated_at_utc": "2026-11-04T07:58:56.628041+00:00"
+}

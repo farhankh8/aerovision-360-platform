@@ -1,0 +1,102 @@
+{
+  "dataset": "DimCustomer",
+  "project": "AEROVISION 360",
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "disclosure": "Synthetic Simulation \u2014 Not Actual Airline Performance",
+  "grain": "One row per fictional customer",
+  "primary_key": "CustomerKey",
+  "business_key": "CustomerID",
+  "row_count": 5000,
+  "column_count": 8,
+  "columns": [
+    "CustomerKey",
+    "CustomerID",
+    "CustomerSegment",
+    "LoyaltyTier",
+    "HomeCountry",
+    "HomeCountryCode",
+    "RegistrationDate",
+    "IsActive"
+  ],
+  "generation": {
+    "method": "Deterministic NumPy random generator",
+    "random_seed": 3602026,
+    "customer_population_size": 5000,
+    "population_size_status": "Provisional portfolio design choice",
+    "registration_start": "2024-10-01",
+    "registration_end": "2025-09-30",
+    "active_probability": 0.96
+  },
+  "distributions": {
+    "customer_segments": {
+      "Business": 1118,
+      "Corporate": 496,
+      "Group": 279,
+      "Leisure": 3107
+    },
+    "loyalty_tiers": {
+      "Gold": 1514,
+      "None": 686,
+      "Platinum": 820,
+      "Silver": 1980
+    },
+    "home_country_codes": {
+      "AE": 906,
+      "AU": 333,
+      "DE": 412,
+      "GB": 593,
+      "IN": 1288,
+      "QA": 474,
+      "SG": 509,
+      "US": 485
+    },
+    "active_customers": 4808,
+    "inactive_customers": 192
+  },
+  "privacy": {
+    "all_customer_ids_synthetic": true,
+    "real_personal_information_used": false,
+    "names_generated": false,
+    "email_addresses_generated": false,
+    "phone_numbers_generated": false,
+    "addresses_generated": false,
+    "passport_numbers_generated": false
+  },
+  "first_booking_rule": {
+    "contract_requirement": "RegistrationDate must be on or before the customer's first booking date.",
+    "current_status": "PENDING_FACT_BOOKING_INTEGRATION",
+    "downstream_requirement": "Booking generation must enforce BookingDate >= RegistrationDate for every customer and preserve registration on or before first booking."
+  },
+  "customer_history_rule": "Customer attributes are Type 1 in the baseline. Historical segmentation changes are outside the baseline scope.",
+  "validation": {
+    "exact_column_order": true,
+    "5000_customer_records": true,
+    "unique_customer_keys": true,
+    "unique_synthetic_customer_ids": true,
+    "customer_id_format": true,
+    "four_customer_segments_present": true,
+    "four_loyalty_tiers_present": true,
+    "eight_country_codes_present": true,
+    "country_name_code_consistency": true,
+    "registration_dates_in_defined_range": true,
+    "no_null_values": true,
+    "no_personal_information_columns": true,
+    "parquet_int32_customer_key": true,
+    "parquet_date32_registration_date": true,
+    "parquet_boolean_active_flag": true,
+    "csv_round_trip": true,
+    "parquet_round_trip": true,
+    "first_booking_date_rule": "Pending fact integration"
+  },
+  "files": {
+    "csv": {
+      "path": "data/03_curated/dim_customer.csv",
+      "sha256": "a4597bb93523cd747cfbe9d0c3ccf9faf0ded001f31572c6dff5e304e03a06ac"
+    },
+    "parquet": {
+      "path": "data/03_curated/dim_customer.parquet",
+      "sha256": "eac10a91c94a0e23cf8e80006c27fc002455629613468a1068b4f11ebd384e05"
+    }
+  },
+  "generated_at_utc": "2026-11-04T04:59:07.259530+00:00"
+}

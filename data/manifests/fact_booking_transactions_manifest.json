@@ -1,0 +1,179 @@
+{
+  "business_key": "BookingReference + TicketNumber + TicketCouponNumber",
+  "column_count": 45,
+  "columns": [
+    "BookingTransactionKey",
+    "BookingReference",
+    "TicketNumber",
+    "TicketCouponNumber",
+    "CustomerKey",
+    "AirlineKey",
+    "FlightOperationKey",
+    "RouteKey",
+    "FareClassKey",
+    "BookingChannelKey",
+    "BookingDateKey",
+    "TravelDateKey",
+    "PassengerCount",
+    "IsRevenuePassenger",
+    "BaseFareAmount",
+    "DiscountAmount",
+    "TaxAmount",
+    "FeeAmount",
+    "AncillaryRevenueAmount",
+    "RefundAmount",
+    "AncillaryRefundAmount",
+    "FeeRefundAmount",
+    "CancellationFeeAmount",
+    "NoShowFeeAmount",
+    "TransactionCurrencyKey",
+    "ExchangeRateToUSD",
+    "RateDateKey",
+    "RateVersion",
+    "BaseFareUSD",
+    "DiscountUSD",
+    "TaxUSD",
+    "FeeUSD",
+    "AncillaryRevenueUSD",
+    "RefundUSD",
+    "AncillaryRefundUSD",
+    "FeeRefundUSD",
+    "CancellationFeeUSD",
+    "NoShowFeeUSD",
+    "NetPassengerRevenueUSD",
+    "NetFeeRevenueUSD",
+    "NetAncillaryRevenueUSD",
+    "TransactionStatus",
+    "IsRefunded",
+    "BookingLeadTimeDays",
+    "SyntheticProvenance"
+  ],
+  "dataset": "FactBookingTransactions",
+  "disclosure": "Synthetic Simulation — Not Actual Airline Performance.",
+  "files": {
+    "csv": {
+      "path": "data/03_curated/fact_booking_transactions.csv",
+      "sha256": "14556fd8002a0a10020a3346d0ad11017facfb1866a059ba5a2c36a2880e84d0"
+    },
+    "parquet": {
+      "path": "data/03_curated/fact_booking_transactions.parquet",
+      "sha256": "372d8d36e12ebc5d85864e1122bd117cfe5eccec59eaae4f9b15d0c955159b78"
+    },
+    "quarantine": {
+      "path": "data/02_staging/quarantine/fact_booking_transactions_quarantined.csv",
+      "sha256": "7690a55dd99cf016e8e4b54945a94e903ff73381636b72a6438cce0fbdcec572"
+    }
+  },
+  "generated_at_utc": "2026-11-07T05:11:32.888432+00:00",
+  "generation": {
+    "coupons_per_flight_max": 3,
+    "coupons_per_flight_min": 1,
+    "fx_lookup_coverage_end": "2026-09-30",
+    "fx_lookup_coverage_start": "2025-10-01",
+    "method": "Deterministic NumPy random generator",
+    "random_seed": 3602027,
+    "rate_source": "AEROVISION-360-SYNTHETIC-FX-V1",
+    "rate_version": "FX-2026-11-04-001",
+    "reporting_period_end": "2026-09-30",
+    "reporting_period_start": "2025-10-01"
+  },
+  "governance": {
+    "gov_d_07_manifest_hash": "GOV-D-07 ManifestHash canonicalization is a REVISED DRAFT, not approved. No ManifestHash canonicalization method is introduced. File-level SHA-256 hashes follow the existing project manifest convention (src/utilities/hashing.py).",
+    "od_04a_currency_scope": "AED, QAR, SGD, INR, GBP, EUR, USD, AUD",
+    "od_04b_exchange_rate_convention": "USD per one unit; exact-date lookup; 6 decimal places for rate; round final converted amount to 2 decimals; no forward-fill",
+    "od_04c_rate_source": "AEROVISION-360-SYNTHETIC-FX-V1",
+    "od_04d_rate_version": "FX-2026-11-04-001",
+    "od_04e_missing_date_behaviour": "No forward-fill; missing exact-date rate quarantines the row",
+    "od_04f_rate_generation_methodology": "Deterministic algorithmic generation; fixed seed; documented parameters"
+  },
+  "grain": "One row per passenger ticket coupon",
+  "primary_key": "BookingTransactionKey",
+  "project": "AEROVISION 360",
+  "quarantine": {
+    "quarantine_file": "data/02_staging/quarantine/fact_booking_transactions_quarantined.csv",
+    "quarantine_reason": "MISSING_FX_RATE (OD-04e: no forward-fill)",
+    "quarantined_row_count": 0
+  },
+  "row_count": 9956,
+  "source_dimensions": {
+    "dim_airline": {
+      "path": "data/03_curated/dim_airline.parquet",
+      "rows": 10,
+      "sha256": "bbe8ac80b53dd493dc600c7b57e39e31c842f30a86bdcb12b528b9aee0802468"
+    },
+    "dim_booking_channel": {
+      "path": "data/03_curated/dim_booking_channel.parquet",
+      "rows": 7,
+      "sha256": "0e7887873c89bc9c06420f5748784b729a4e1f1fff88dd7c423bce1948ffe533"
+    },
+    "dim_currency": {
+      "path": "data/03_curated/dim_currency.parquet",
+      "rows": 8,
+      "sha256": "c25b6a03bed1a8847c0e93a7051c12597b3f9da75de4a571adcb786e23f458f6"
+    },
+    "dim_customer": {
+      "path": "data/03_curated/dim_customer.parquet",
+      "rows": 5000,
+      "sha256": "eac10a91c94a0e23cf8e80006c27fc002455629613468a1068b4f11ebd384e05"
+    },
+    "dim_date": {
+      "path": "data/03_curated/dim_date.parquet",
+      "rows": 761,
+      "sha256": "f0931b178cf9f56edce13af79bc5d72d5cc9e192d10af10fdbc653c209227064"
+    },
+    "dim_fare_class": {
+      "path": "data/03_curated/dim_fare_class.parquet",
+      "rows": 8,
+      "sha256": "53bb954c1116766a4157b33a69031752319263fb7e92472d452c07dc351f6db3"
+    },
+    "dim_route": {
+      "path": "data/03_curated/dim_route.parquet",
+      "rows": 320,
+      "sha256": "e372eda055b27f0eb212fb0763bb9dc34606101ad3c5db5345406520c9691f27"
+    },
+    "fact_flight_operations": {
+      "path": "data/03_curated/fact_flight_operations.parquet",
+      "rows": 5000,
+      "sha256": "5ab3833d353dd0af1d8c203a67318f08df50a80c2ab63dfc6e5bd989b60abb21"
+    },
+    "ref_exchange_rates": {
+      "path": "data/04_reference/ref_exchange_rates.csv",
+      "rows": 2920,
+      "sha256": "a716f2fb64195abf92bf5e3037fcec24eed62e4df434a3ae52a5521c59051b5f"
+    }
+  },
+  "status": "PROVISIONAL_PORTFOLIO_IMPLEMENTATION",
+  "validation": {
+    "airline_foreign_keys_resolve": true,
+    "airline_key_matches_flight_leg": true,
+    "booking_channel_foreign_keys_resolve": true,
+    "booking_date_key_foreign_key_resolves": true,
+    "booking_lead_time_days_non_negative": true,
+    "cancellation_no_show_fee_mutually_exclusive": true,
+    "csv_round_trip": true,
+    "customer_foreign_keys_resolve": true,
+    "exact_column_order": true,
+    "exchange_rate_positive": true,
+    "fare_class_foreign_keys_resolve": true,
+    "flight_operation_logical_references_resolve": true,
+    "is_refunded_consistency": true,
+    "missing_fx_rate_quarantined": true,
+    "monetary_amounts_non_negative": true,
+    "net_ancillary_revenue_identity": true,
+    "net_fee_revenue_identity": true,
+    "no_null_monetary_values": true,
+    "parquet_round_trip": true,
+    "passenger_count_always_one": true,
+    "rate_date_key_foreign_key_resolves": true,
+    "rate_version_consistent": true,
+    "revenue_recognition_identity": true,
+    "route_foreign_keys_resolve": true,
+    "route_key_matches_flight_leg": true,
+    "synthetic_provenance_present": true,
+    "transaction_currency_foreign_key_resolves": true,
+    "travel_date_key_foreign_key_resolves": true,
+    "travel_date_within_reporting_period": true,
+    "unique_booking_transaction_keys": true,
+    "unique_business_keys": true
+  }
+}
