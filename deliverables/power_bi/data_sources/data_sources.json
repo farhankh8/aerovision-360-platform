@@ -14,6 +14,9 @@
   {"path": "../../data/dim_booking_channel.csv", "type": "csv", "kind": "Text/CSV"},
   {"path": "../../data/dim_currency.csv", "type": "csv", "kind": "Text/CSV"},
   {"path": "../../data/dim_fare_class.csv", "type": "csv", "kind": "Text/CSV"}
+   {"path": "../../data/03_curated/fact_booking_transactions.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/03_curated/fact_operating_costs.csv", "type": "csv", "kind": "Text/CSV"},
+  {"path": "../../data/04_reference/ref_exchange_rates.csv", "type": "csv", "kind": "Text/CSV"}
  ],
  "refresh": "Power BI Desktop > Refresh; data files are static exports of data/03_curated (11 dims, 3 facts). Re-export via build_deliverables.py.",
  "disclosure": "Synthetic Simulation - Not Actual Airline Performance"

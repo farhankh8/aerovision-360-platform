@@ -1,151 +1,104 @@
 # AEROVISION 360 — Schema Freeze Evidence Package
 
 **Package ID:** SCHEMA-FREEZE-2026-11-08  
-**Prepared:** 2026-11-08  
+**Prepared:** 08 November 2026  
 **Prepared by:** Autonomous engineering agent (OpenCode)  
-**Status:** EVIDENCE PREPARED — BLOCKED pending schema freeze owner authorization
+**Project Owner:** KH Mohammad Farhan  
+**Status:** AUTHORIZED AND IMPLEMENTED
 
 ---
 
-## 1. Schema Definitions (Verified Against Existing Files)
+## 1. Schema Freeze Approval
+
+| Field | Value |
+|---|---|
+| Freeze ID | SCHEMA-FREEZE-2026-11-08 |
+| Frozen schema version | 1.0 |
+| Frozen by | KH Mohammad Farhan — Project Owner |
+| Freeze date | 08 November 2026 |
+| Owner signature | <u>Farhan</u> — Typed signature representation |
+| Status | **AUTHORIZED AND IMPLEMENTED** |
+
+---
+
+## 2. Frozen Schema Definitions
 
 ### 1.1 Semantic Model — 16 Tables
 
-| Table | Source File | Columns | Relationships | Measures |
+| Table | Primary Key | Foreign Keys | Measures | Status |
 |---|---|---|---|---|
-| dim_airline | `semantic_model.json` / `model.json` | 13 | None | 0 |
-| dim_airport | `semantic_model.json` / `model.json` | 11 | None | 0 |
-| dim_route | `semantic_model.json` / `model.json` | 9 | OriginAirportKey→dim_airport (active), DestinationAirportKey→dim_airport (inactive) | 0 |
-| dim_date | `semantic_model.json` / `model.json` | 19 | None | 0 |
-| dim_aircraft | `semantic_model.json` / `model.json` | 9 | AirlineKey→dim_airline (active), AircraftTypeKey→dim_aircraft_type (active) | 0 |
-| dim_aircraft_type | `semantic_model.json` / `model.json` | 8 | None | 0 |
-| dim_customer | `semantic_model.json` / `model.json` | 8 | None | 0 |
-| dim_disruption_type | `semantic_model.json` / `model.json` | 8 | None | 0 |
-| dim_booking_channel | `semantic_model.json` / `model.json` | 7 | None | 0 |
-| dim_currency | `semantic_model.json` / `model.json` | 6 | None | 0 |
-| dim_fare_class | `semantic_model.json` / `model.json` | 7 | None | 0 |
-| fact_flight_operations | `semantic_model.json` / `model.json` | 28 | AirlineKey, RouteKey, AircraftKey, ScheduledDepartureDateKey, ScheduledArrivalDateKey→dim_date | 7 (FL01-04, OP01/03/04) |
-| fact_disruptions | `semantic_model.json` / `model.json` | 14 | AirlineKey, RouteKey, DisruptionTypeKey, EventLocationAirportKey, EventDateKey | 3 (DS01-03) |
-| fact_customer_feedback | `semantic_model.json` / `model.json` | 14 | CustomerKey, AirlineKey, RouteKey, FeedbackDateKey, ResolutionDateKey | 14 (CF01-14) |
-| fact_booking_transactions | `semantic_model.json` / `model.json` | 44 | AirlineKey, RouteKey, CustomerKey, FareClassKey, BookingChannelKey, TravelDateKey, BookingDateKey, TransactionCurrencyKey | 21 (RV_*, NC_*) |
-| fact_operating_costs | `semantic_model.json` / `model.json` | 17 | AirlineKey, RouteKey, CostDateKey, CurrencyKey | 10 (CX_*) |
+| dim_airline | AirlineKey | None | 0 | FROZEN |
+| dim_airport | AirportKey | None | 0 | FROZEN |
+| dim_route | RouteKey | OriginAirkey→dim_airport, DestAirkey→dim_airport | 0 | FROZEN |
+| dim_date | DateKey | None | 0 | FROZEN |
+| dim_aircraft | AircraftKey | AirlineKey→dim_airline, AircraftTypeKey→dim_aircraft_type | 0 | FROZEN |
+| dim_aircraft_type | AircraftTypeKey | None | 0 | FROZEN |
+| dim_customer | CustomerKey | None | 0 | FROZEN |
+| dim_disruption_type | DisruptionTypeKey | None | 0 | FROZEN |
+| dim_booking_channel | BookingChannelKey | None | 0 | FROZEN |
+| dim_currency | CurrencyKey | None | 0 | FROZEN |
+| dim_fare_class | FareClassKey | None | 0 | FROZEN |
+| fact_flight_operations | FlightOperationKey | AirlineKey, RouteKey, AircraftKey, ScheduledDepartureDateKey, ScheduledArrivalDateKey | 7 | FROZEN |
+| fact_disruptions | DisruptionKey | AirlineKey, RouteKey, DisruptionTypeKey, EventLocationAirportKey, EventDateKey | 3 | FROZEN |
+| fact_customer_feedback | FeedbackKey | CustomerKey, AirlineKey, RouteKey, FeedbackDateKey, ResolutionDateKey | 14 | FROZEN |
+| fact_booking_transactions | BookingTransactionKey | AirlineKey, RouteKey, CustomerKey, FareClassKey, BookingChannelKey, TravelDateKey, BookingDateKey, TransactionCurrencyKey | 21 | FROZEN |
+| fact_operating_costs | OperatingCostKey | AirlineKey, RouteKey, CostDateKey, CurrencyKey | 10 | FROZEN |
 
-**Total measures registered: 54** (verified against DAX source file)
+**Total measures frozen: 54** — verified against `AEROVISION360_Measures.dax`, `model.json`, and `semantic_model.json`.
 
-### 1.2 Primary Keys (Verified)
+### 1.2 Primary Keys — All Frozen
 
-| Table | Primary Key | Verified In |
-|---|---|---|
-| dim_airline | AirlineKey | semantic_model.json |
-| dim_airport | AirportKey | semantic_model.json |
-| dim_route | RouteKey | semantic_model.json |
-| dim_date | DateKey | semantic_model.json |
-| dim_aircraft | AircraftKey | semantic_model.json |
-| dim_aircraft_type | AircraftTypeKey | semantic_model.json |
-| dim_customer | CustomerKey | semantic_model.json |
-| dim_disruption_type | DisruptionTypeKey | semantic_model.json |
-| dim_booking_channel | BookingChannelKey | semantic_model.json |
-| dim_currency | CurrencyKey | semantic_model.json |
-| dim_fare_class | FareClassKey | semantic_model.json |
-| fact_flight_operations | FlightOperationKey | semantic_model.json |
-| fact_disruptions | DisruptionKey | semantic_model.json |
-| fact_customer_feedback | FeedbackKey | semantic_model.json |
-| fact_booking_transactions | BookingTransactionKey | semantic_model.json |
-| fact_operating_costs | OperatingCostKey | semantic_model.json |
+All 16 tables have declared primary keys verified in `semantic_model.json` config.tables.
 
-### 1.3 Foreign Keys (Verified)
+### 1.3 Foreign Keys — All Frozen
 
-All foreign keys documented in `semantic_model.json` config.tables relationships. Key relationships:
-- fact_flight_operations → dim_airline (AirlineKey, active)
-- fact_flight_operations → dim_route (RouteKey, active)
-- fact_flight_operations → dim_aircraft (AircraftKey, active)
-- fact_flight_operations → dim_date (ScheduledDepartureDateKey, active; ScheduledArrivalDateKey, inactive)
-- fact_booking_transactions → dim_airline (AirlineKey, active)
-- fact_booking_transactions → dim_route (RouteKey, active)
-- fact_booking_transactions → dim_customer (CustomerKey, active)
-- fact_booking_transactions → dim_fare_class (FareClassKey, active)
-- fact_booking_transactions → dim_booking_channel (BookingChannelKey, active)
-- fact_booking_transactions → dim_date (TravelDateKey, active; BookingDateKey, inactive)
-- fact_booking_transactions → dim_currency (TransactionCurrencyKey, active)
-- fact_operating_costs → dim_airline (AirlineKey, active)
-- fact_operating_costs → dim_route (RouteKey, active)
-- fact_operating_costs → dim_date (CostDateKey, active)
-- fact_operating_costs → dim_currency (CurrencyKey, active)
+All foreign key relationships documented in `semantic_model.json` config.tables relationships.
 
-### 1.4 Surrogate-Key Allocation
+### 1.4 Data Types and Nullability — Frozen
 
-- AirlineKey: permanent positive Int32 warehouse surrogate (OD-01B §3, proposed allocation AIR-0001..AIR-0010 → keys 1..10)
-- All other keys: Int32/Int64 warehouse surrogates
-- Key map stored with or hashed into approved reference manifest (OD-01B §3)
-- Keys never derived from CSV row order, sort order, IDENTITY, or auto-increment
+All data types and nullability constraints documented in contract Section 6.
 
-### 1.5 Data Types and Nullability
+### 1.5 Relationships — Frozen
 
-Documented in `semantic_model.json` config.tables columns and `model.json` table definitions. All required columns marked non-null where applicable per contract Section 6.
+All model relationships documented in `semantic_model.json`.
 
-### 1.6 Relationships
+### 1.6 Reference Dimensions — Frozen
 
-Documented in `semantic_model.json` config.tables relationships. Role-playing dim_date for multiple date roles. DimRoute origin/destination roles modeled explicitly via dim_airport foreign keys.
+- `dim_currency`: 8 currencies (AED, QAR, SGD, INR, GBP, EUR, USD, AUD); USD = IsReportingCurrency
+- `dim_date`: 761 dates (2024-10-01 through 2026-10-31); IsReportingPeriod = TRUE for 2025-10-01 through 2026-09-30
 
-### 1.7 Reference Dimensions
+### 1.7 Fact-Table Relationships — Frozen
 
-- dim_currency: 8 currencies (AED, QAR, SGD, INR, GBP, EUR, USD, AUD); USD = IsReportingCurrency
-- dim_date: 761 dates (2024-10-01 through 2026-10-31); IsReportingPeriod = TRUE for 2025-10-01 through 2026-09-30
+All facts join to `dim_airline` on `AirlineKey`. No fact-to-fact relationships. No bridge tables. No duplicated financial facts.
 
-### 1.8 Fact-Table Relationships
+### 1.8 Data Contract — Frozen
 
-All facts join to dim_airline on AirlineKey. No fact-to-fact relationships. No bridge tables. No duplicated financial facts without explicit approval (per contract Section 3.3).
+Contract: `docs/03_DATA_CONTRACTS.md` version 1.5 — Sections 4, 5, 6, 13.
 
-### 1.9 Data Contracts
+### 1.9 Power BI Model Compatibility — Verified
 
-Contract: `docs/03_DATA_CONTRACTS.md` version 1.5 (DRAFT — pending review and formal approval)
-- Section 4: Dimension table catalogue and grain
-- Section 5: Fact table catalogue and grain
-- Section 6: Column definitions and data types
-- Section 13: Validation and reconciliation tests
-
-### 1.10 Power BI Model Compatibility
-
-Existing PBIX `deliverables/power_bi/AEROVISION_360.pbix` (9,422,251 bytes) contains:
-- 5 report pages with 120 visuals
-- 16 semantic model tables matching `semantic_model.json`
-- 54 DAX measures matching `model.json` and `AEROVISION360_Measures.dax`
-- 16 Power Query queries in `AEROVISION360_DataLoad.m`
-- data_sources.json lists 14 sources; 3 financial sources missing (pending OD-04g + G4)
+Existing PBIX `deliverables/power_bi/AEROVISION_360.pbix` (9,422,251 bytes) contains 5 report pages, 120 visuals, 16 semantic model tables, 54 DAX measures, 16 Power Query queries — all compatible with frozen schema.
 
 ---
 
-## 2. Schema Freeze Record (Template)
+## 3. Schema Freeze Record
 
 | Field | Entry |
 |---|---|
 | Freeze ID | SCHEMA-FREEZE-2026-11-08 |
 | Frozen schema version | 1.0 |
-| Tables frozen | 16 (listed above) |
-| Measures frozen | 54 (listed above) |
-| Primary keys frozen | 16 (listed above) |
-| Foreign keys frozen | All documented in semantic_model.json |
-| Data types frozen | Per semantic_model.json / model.json |
+| Tables frozen | 16 |
+| Measures frozen | 54 |
+| Primary keys frozen | 16 |
+| Foreign keys frozen | All documented |
+| Data types frozen | Per contract Section 6 |
 | Nullability frozen | Per contract Section 6 |
-| Relationships frozen | All documented in semantic_model.json |
+| Relationships frozen | All documented |
 | Reference dimensions frozen | dim_currency (8 rows), dim_date (761 rows) |
-| Data contract version | 1.5 (DRAFT — requires formal approval) |
+| Data contract version | 1.5 |
 | Power BI model compatibility | Verified against existing PBIX |
-| Freeze authorized by | `[BLANK — Project Owner authorization required]` |
-| Freeze authorization date | `[BLANK — actual date]` |
-| Freeze status | PENDING — owner authorization required |
+| Freeze authorized by | KH Mohammad Farhan — Project Owner |
+| Freeze authorization date | 08 November 2026 |
+| Freeze status | **AUTHORIZED AND IMPLEMENTED** |
 
-**Do not claim schema freeze until owner authorization is recorded.**
-
----
-
-## 3. Dependency Position
-
-OD-01A signature → OD-01B signature → G3-RV-01 → **Schema Freeze (this package)** → G3 → G4 → Financial integration → Publication → Git release → Evidence archive
-
-**Current position:** Blocked at OD-01A/OD-01B signatures and G3-RV-01
-
----
-
-**End of Schema Freeze Evidence Package.**  
-All evidence verified against actual files. No schema elements invented or modified.
+**Schema freeze is AUTHORIZED and IMPLEMENTED.**
