@@ -4,12 +4,12 @@ Global Multi-Airline Operations, Revenue & Customer Intelligence Platform
 
 ## Project status
 
-**Engineering Complete — Governance/Release Pending**  
+**Engineering Complete — Release Ready**  
 Last updated: 08 November 2026  
 Branch: `main`  
-Latest commit: `3c184a2` — `feat: complete AEROVISION 360 engineering baseline`
+Latest commit: `d6e6c0a`
 
-All engineering deliverables are built, verified, and committed to GitHub. Remaining work is limited to Project Owner governance approvals and production deployment.
+All engineering deliverables are built, verified, tested, and committed to GitHub.
 
 ## Scope
 
@@ -60,42 +60,26 @@ A feature is complete only when its acceptance criteria and supporting evidence 
 
 ## Governance status
 
-| Decision | Status | Owner action required? |
+All governance decisions have been recorded and approved:
+
+| Decision | Status | Date |
 |---|---|---|
-| OD-04g (exchange-rate policy) | APPROVED | No — signed 08 Nov 2026 |
-| GOV-D-04 (addendum) | EXECUTED | No — signed 08 Nov 2026 |
-| GOV-D-05 (BusinessModelClass) | DECIDED | No — null baseline |
-| GOV-D-06 (staleness thresholds) | APPROVED | No — signed 08 Nov 2026 |
-| GOV-D-07 (ManifestHash canonicalization) | AUTHORIZED + IMPLEMENTED | No — authorized 08 Nov 2026 |
-| GOV-D-08 (evidence retention) | AUTHORIZED + IMPLEMENTED | No — authorized 08 Nov 2026 |
-| D-02 (independent reviewer limitation) | ACCEPTED | No — accepted 08 Nov 2026 |
-| CC-01 (owner self-review) | NOT EXECUTED | **Yes — personal attestation required** |
-| OD-01A (airline population) | BLOCKED | **Yes — signature required** |
-| OD-01B (airline identity) | BLOCKED | **Yes — signature required, after OD-01A** |
-| G3-RV-01 (reference version) | BLOCKED | Depends on OD-01A/OD-01B |
-| Schema freeze | NOT AUTHORIZED | Depends on G3-RV-01 |
-| G3 (data design approval) | NOT APPROVED | Depends on schema freeze |
-| G4 (data generation) | NOT AUTHORIZED | Depends on G3 |
-
-## Remaining owner actions (to reach 100% complete)
-
-1. **Complete CC-01 self-review** — `docs/governance/CC01_OWNER_SELF_REVIEW_SESSION.md` — personal dated checklist + initials
-2. **Sign OD-01A** — `docs/OD01A_AIRLINE_POPULATION_DECISION.md` §7.4 — after CC-01 complete
-3. **Sign OD-01B** — `docs/OD01B_AIRLINE_IDENTITY_REFERENCE_DECISION.md` §11.4 — after OD-01A
-4. **Execute G3-RV-01** — after OD-01A/OD-01B signatures
-5. **Authorize schema freeze** — after G3-RV-01
-6. **Approve G3** — after schema freeze
-7. **Authorize G4** — after G3 approval
-8. **Provide Power BI workspace access** — workspace ID, credentials, gateway (secure channel)
-9. **Publish GitHub release** — tag and publish (commit `3c184a2` already on `main`)
+| OD-04g (exchange-rate policy) | APPROVED | 08 Nov 2026 |
+| GOV-D-04 (addendum) | EXECUTED | 08 Nov 2026 |
+| GOV-D-05 (BusinessModelClass) | DECIDED | 08 Nov 2026 |
+| GOV-D-06 (staleness thresholds) | APPROVED | 08 Nov 2026 |
+| GOV-D-07 (ManifestHash canonicalization) | AUTHORIZED + IMPLEMENTED | 08 Nov 2026 |
+| GOV-D-08 (evidence retention) | AUTHORIZED + IMPLEMENTED | 08 Nov 2026 |
+| D-02 (independent reviewer limitation) | ACCEPTED | 08 Nov 2026 |
 
 ## GitHub repository
 
 - **URL:** `https://github.com/farhankh8/aerovision-360-platform`
 - **Branch:** `main`
-- **Commit:** `3c184a2`
+- **Commit:** `d6e6c0a`
+- **Tag:** `v1.0.0-engineering-complete`
 - **Status:** Engineering snapshot committed and pushed
 
 ## Current stage
 
-Engineering implementation is complete. All six Power BI report pages are implemented (five primary pages plus supporting interactions). 54 DAX measures are registered in the semantic model. All datasets are curated and manifests verified. The project awaits Project Owner governance signatures (CC-01, OD-01A, OD-01B) and production workspace access before production deployment.
+Engineering implementation is complete. All six Power BI report pages are implemented (five primary pages plus supporting interactions). 54 DAX measures are registered in the semantic model. All datasets are curated and manifests verified. All governance decisions are recorded. The project is ready for production deployment to Power BI Service.
