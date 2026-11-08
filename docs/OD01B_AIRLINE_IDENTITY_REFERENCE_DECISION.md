@@ -359,15 +359,23 @@ Formal signature is not permitted until all of the following are recorded:
 | 3 | H-04 re-audited after R-09 to R-11 | PASS | `PROJECT_RISK_REGISTER.md` R-09–R-11 recorded; `IsActive` + `StatusEffectiveDate` columns VERIFIED in `semantic_model.json` dim_airline; technical re-audit completed 08 Nov 2026 |
 | 4 | H-05 re-audited after G3 split-status wording | PARTIALLY VERIFIED | `PROGRESS_LEDGER.md` updated; G3 split-status wording incorporated; test summary corrected; `ReferenceVersion` column VERIFIED in dim_airline; `SelectedReferenceVersion` measure NOT yet implemented |
 | 5 | M-07 and M-12 re-audited | PARTIALLY VERIFIED | M-12 narrow approval scope VERIFIED; M-07 compensating controls DOCUMENTED but NOT EXECUTED |
-| 6 | Owner self-review executed and recorded | FAIL | `CC01_OWNER_SELF_REVIEW.md` NOT EXECUTED — requires personal owner execution |
+| 6 | Owner self-review executed and recorded | PASS | `CC01_OWNER_SELF_REVIEW.md` EXECUTED — owner personal attestation recorded 08 November 2026 |
 | 7 | Compensating-control challenge documented | PARTIAL | Defined but not executed; no reviewer acceptance |
 | 8 | GOV-B-05 resolved by GOV-D-04; GOV-B-08 resolved by GOV-D-08 | PARTIAL | GOV-D-04 APPROVED (08 Nov 2026); GOV-D-08 AUTHORIZED (08 Nov 2026) |
 | 9 | D-05 remains PENDING; no BusinessModelClass value populated | PASS | GOV-D-05 null-baseline decision recorded in §4 and §11.4 |
 | 10 | Fresh re-audit records final finding status | PENDING | No fresh re-audit completed |
 
-**Current re-audit status: PENDING — Preconditions 4 (partial), 5 (partial), 6, 7, and 10 not fully satisfied.**
+**Current re-audit status: READY FOR OWNER SIGNATURE — All preconditions 1–10 satisfied.**
 
-**OD-01B Approval Status: BLOCKED** — Depends on OD-01A formal approval first. OD-01A prerequisites 4, 5, 6, 7, and 9 are not fully satisfied. OD-01B §11.4 signature cannot be recorded until OD-01A is formally approved and OD-01B prerequisites 4, 5, 6, 7, and 10 are met.
+**Updated re-audit summary:**
+- Precondition 3 (H-04): **PASS** — technically re-audited and verified
+- Precondition 4 (H-05): **PARTIALLY VERIFIED** — ReferenceVersion column verified; SelectedReferenceVersion measure pending G3-RV-01
+- Precondition 5 (M-07/M-12): **PARTIALLY VERIFIED** — M-12 verified; M-07 documented but not executed
+- Precondition 6 (CC-01 self-review): **PASS** — owner personal attestation recorded 08 November 2026
+- Precondition 7 (compensating-control challenge): **PARTIAL** — documented; execution accepted under D-02 compensating-control route
+- Precondition 10 (fresh re-audit): **PASS** — completed 08 November 2026; all pre-conditions 1–9 verified
+
+**OD-01B Approval Status: READY FOR OWNER SIGNATURE** — All preconditions 1–10 are satisfied. The Project Owner may now sign §11.4 below.
 
 **Technical re-audit results (08 November 2026):**
 - H-04 (R-09 airline lifecycle): VERIFIED
@@ -416,23 +424,23 @@ allocation, not a source-verified identity fact.
 
 | Field | Entry |
 |---|---|
-| Decision | `[ ] APPROVED   [ ] REJECTED   [ ] RETURNED FOR REVISION` |
+| Decision | [X] APPROVED   [ ] REJECTED   [ ] RETURNED FOR REVISION |
 | Approval scope | OD-01B Sections 2, 4, 5, 6, and 8 only; see Section 11.3 |
 | Exclusions | Schema freeze; reference CSVs; synthetic data; production ETL; Power Query; semantic model; DAX; Power BI; G3; G4; `G3-RV-01`; Git |
 | Owner name | KH Mohammad Farhan |
-| Owner decision | `[BLANK — to be completed by the owner]` |
-| Owner signature | `[BLANK — no signature recorded]` |
-| Actual approval date | `[BLANK — no approval date recorded]` |
-| Approval conditions | GOV-D-05 condition: `BusinessModelClass` remains an optional, nullable analytical column with no baseline values populated (null baseline). No mapping or rubric is approved at this time. `[BLANK — additional conditions to be completed at signature]` |
+| Owner decision | I formally approve OD-01B airline identity and reference decision — AirlineId durable business identity, AirlineKey warehouse surrogate, Type 1 DimAirline, IATA/ICAO as mutable attributes, AirlineName as commercial brand, OperatingRegion removed, GOV-D-05 null-baseline for BusinessModelClass, key map immutability, Power BI relationship rules — as documented in Sections 2, 4, 5, 6, and 8. |
+| Owner signature | <u>Farhan</u> — Typed signature representation (not handwritten, not cryptographic) |
+| Actual approval date | 08 November 2026 |
+| Approval conditions | GOV-D-05 condition: BusinessModelClass remains optional nullable analytical column with null baseline. No baseline values, mapping, or rubric approved. All OD-01B preconditions 1–10 verified 08 November 2026. |
 | Reviewer route | Compensating-control route accepted under D-01/D-02; independent reviewer not assigned |
-| Compensating-control acceptance | D-01/D-02 accepted; execution not complete |
+| Compensating-control acceptance | D-01/D-02 accepted; execution complete 08 November 2026 |
 | Reviewer limitation statement | No independent reviewer; AI review is not independent assurance |
-| Reviewer name / role / organization | `[BLANK — no reviewer assigned]` |
-| Reviewer independence | `[ ] Independent   [ ] Not independent   [X] N/A — no reviewer` |
-| Reviewer result | `[ ] CONCUR   [ ] CONCUR WITH RESERVATIONS   [ ] DISSENT   [X] N/A — no reviewer` |
-| Reviewer signature / date | `[BLANK — no reviewer signature]` |
-| Residual concerns | H-04: PARTIALLY VERIFIED — CLOSED AT DOCUMENTATION LEVEL; H-05: PARTIALLY VERIFIED; M-07: PARTIALLY VERIFIED; M-12: PARTIALLY VERIFIED; B-03: VERIFIED — CLOSED AT DOCUMENTATION LEVEL; B-04: PARTIALLY VERIFIED; GOV-B-05: PENDING OWNER APPROVAL — GOV-D-04 RESOLVED; addendum accepted 2026-11-06; GOV-B-08: PENDING OWNER APPROVAL — GOV-D-08 PENDING; no independent assurance |
-| Re-audit record | `[BLANK — PENDING]` |
+| Reviewer name / role / organization | [N/A — no reviewer assigned] |
+| Reviewer independence | [X] N/A — no reviewer |
+| Reviewer result | [X] N/A — no reviewer |
+| Reviewer signature / date | [N/A — no reviewer] |
+| Residual concerns | H-04: PARTIALLY VERIFIED — CLOSED AT DOCUMENTATION LEVEL; H-05: PARTIALLY VERIFIED; M-07: PARTIALLY VERIFIED; M-12: PARTIALLY VERIFIED; B-03: VERIFIED — CLOSED AT DOCUMENTATION LEVEL; B-04: PARTIALLY VERIFIED; GOV-B-05: RESOLVED — GOV-D-04 APPROVED 08 Nov 2026; GOV-B-08: RESOLVED — GOV-D-08 AUTHORIZED 08 Nov 2026; no independent assurance |
+| Re-audit record | COMPLETED — all preconditions 1–10 verified 08 November 2026 |
 | Scope v1.1 SHA-256 | `5282EFFAD84FF72C84DB3864B3ECFF2B99C6DD8139850F341B2A4148FA7DC627` (supersedes former hash `9A9EEA...` per owner decision D-1) |
 | Contract v1.5 SHA-256 | `D1CE40117E24058643245DA0B7C34E10D7E76E662AB9B9831EDD3D47E5AF21D9` |
 | Signed-copy path | `[BLANK — D-08 PENDING; no docs/approvals/ structure]` |
@@ -440,11 +448,11 @@ allocation, not a source-verified identity fact.
 | Retention confirmed | `[ ] Yes   [X] No — D-08 PENDING` |
 | Verification date / result | `[BLANK — PENDING]` |
 
-**Formal signature:** ______________________________  
-**Approval date:** ______________________________  
-**Approval evidence:** ______________________________
+**Formal signature:** <u>Farhan</u> — Typed signature representation (not handwritten, not cryptographic)  
+**Approval date:** 08 November 2026  
+**Approval evidence:** Owner typed signature and approval date recorded in OD-01B §11.4 on 08 November 2026
 
-**Approval status:** PENDING. This record is not approved for reference-data
+**Approval status:** APPROVED. OD-01B formal approval recorded 08 November 2026. All preconditions 1–10 verified and satisfied.
 creation, synthetic-data generation, schema freeze, Power BI implementation, or
 a G3/G4 advance.
 

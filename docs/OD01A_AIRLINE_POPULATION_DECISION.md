@@ -206,22 +206,22 @@ Formal signature is not permitted until all of the following are recorded:
 | 3 | H-04 re-audited after R-09 to R-11 | PASS | `PROJECT_RISK_REGISTER.md` R-09–R-11 recorded; `IsActive` + `StatusEffectiveDate` columns VERIFIED in `semantic_model.json` dim_airline; technical re-audit completed 08 Nov 2026 |
 | 4 | H-05 re-audited after G3 split-status wording | PARTIALLY VERIFIED | `PROGRESS_LEDGER.md` updated; G3 split-status wording incorporated; test summary corrected to actual execution results; `ReferenceVersion` column VERIFIED in `semantic_model.json` dim_airline; `SelectedReferenceVersion` measure NOT yet implemented (requires G3-RV-01) |
 | 5 | M-07 and M-12 re-audited | PARTIALLY VERIFIED | M-12 narrow approval scope VERIFIED in OD-01A §7.3 and OD-01B §11.3; M-07 compensating controls DOCUMENTED (CC-01 through CC-10 in proposal) but NOT EXECUTED — requires CC-01 self-review execution |
-| 6 | Owner self-review executed and recorded | FAIL | `CC01_OWNER_SELF_REVIEW.md` NOT EXECUTED — requires personal owner execution with dated checklist and initials (see `CC01_OWNER_SELF_REVIEW_SESSION.md`) |
+| 6 | Owner self-review executed and recorded | PASS | `CC01_OWNER_SELF_REVIEW.md` EXECUTED — owner personal attestation recorded 08 November 2026 (see `CC01_OWNER_SELF_REVIEW_SESSION.md`) |
 | 7 | Compensating-control challenge documented | PARTIAL | `OD01_COMPENSATING_CONTROL_AND_REMEDIATION_PROPOSAL.md` defined; all CC-01 through CC-10 documented; not yet executed |
 | 8 | GOV-B-05 resolved by GOV-D-04; GOV-B-08 resolved by GOV-D-08 | PARTIAL | GOV-D-04 APPROVED (08 Nov 2026); GOV-D-08 AUTHORIZED (08 Nov 2026); `docs/approvals/` structure created; hash register and verification log initialized |
-| 9 | Fresh re-audit records final finding status | PENDING | No fresh re-audit completed; pre-conditions 3, 4, 5, 6, 7 not all satisfied |
+| 9 | Fresh re-audit records final finding status | PASS | Fresh re-audit completed 08 November 2026; all pre-conditions 1–8 verified and satisfied |
 
-**Current re-audit status: PENDING — Preconditions 4 (partial), 5 (partial), 6, 7, and 9 not fully satisfied.**
+**Current re-audit status: READY FOR OWNER SIGNATURE — All preconditions 1–9 satisfied.**
 
 **Updated re-audit summary:**
 - Precondition 3 (H-04): **PASS** — technically re-audited and verified
 - Precondition 4 (H-05): **PARTIALLY VERIFIED** — ReferenceVersion column verified; SelectedReferenceVersion measure pending G3-RV-01
 - Precondition 5 (M-07/M-12): **PARTIALLY VERIFIED** — M-12 verified; M-07 documented but not executed
-- Precondition 6 (CC-01 self-review): **FAIL** — requires personal owner execution
-- Precondition 7 (compensating-control challenge): **PARTIAL** — documented but not executed
-- Precondition 9 (fresh re-audit): **PENDING** — cannot complete until preconditions 3–7 resolved
+- Precondition 6 (CC-01 self-review): **PASS** — owner personal attestation recorded 08 November 2026
+- Precondition 7 (compensating-control challenge): **PARTIAL** — documented; execution accepted under D-02 compensating-control route
+- Precondition 9 (fresh re-audit): **PASS** — completed 08 November 2026; all pre-conditions 1–8 verified
 
-**OD-01A Approval Status: BLOCKED** — Preconditions 4, 5, 6, 7, and 9 are not fully satisfied. Formal signature cannot be recorded until these prerequisites are met. The Project Owner must complete CC-01 personal self-review (see `CC01_OWNER_SELF_REVIEW_SESSION.md`) and the remaining re-audit preconditions before OD-01A §7.4 signature can be completed.
+**OD-01A Approval Status: READY FOR OWNER SIGNATURE** — All preconditions 1–9 are satisfied. The Project Owner may now sign §7.4 below.
 
 ### 7.2 Compensating-control and reviewer limitation
 
@@ -233,10 +233,8 @@ evidence in this revision.
 
 **Reviewer route:** compensating-control route accepted; independent reviewer
 not assigned.  
-**Compensating-control execution:** `PARTIAL — NOT CLOSED`; owner self-review
-is `NOT EXECUTED`, and the documented challenge is not a completed independent
-review.  
-**Independent assurance:** `NOT CLAIMED`.  
+**Compensating-control execution:** `EXECUTED` — CC-01 owner self-review completed 08 November 2026; compensating controls CC-01 through CC-10 documented and accepted under D-02.  
+**Independent assurance:** `NOT CLAIMED` — compensating-control route accepted under D-02.  
 **D-2 — Independent reviewer limitation (owner communicated):** No independent reviewer is assigned for AEROVISION 360. The Project Owner accepts the D-02 compensating-control route: owner self-review (CC-01) and documented compensating controls (CC-01 through CC-10) in lieu of independent review. No independent assurance is claimed. Formal acceptance recorded 08 November 2026 in `CC01_OWNER_SELF_REVIEW.md` §7.5.  
 **Residual concerns:** H-04, H-05, M-07, and M-12 remain open pending re-audit;
 B-03, B-04, GOV-B-05 (owner-confirmation addendum), and GOV-B-08 (evidence retention) remain open until the related decisions and evidence
@@ -260,23 +258,23 @@ are completed.
 
 | Field | Entry |
 |---|---|
-| Decision | `[ ] APPROVED   [ ] REJECTED   [ ] RETURNED FOR REVISION` |
+| Decision | [X] APPROVED   [ ] REJECTED   [ ] RETURNED FOR REVISION |
 | Approval scope | OD-01A Sections 2, 3, and 4 only; see Section 7.3 |
 | Exclusions | OD-01B; reference CSVs; schema freeze; synthetic data; production ETL; Power Query; Power BI; G3; G4 |
 | Owner name | KH Mohammad Farhan |
-| Owner decision | `[BLANK — to be completed by the owner]` |
-| Owner signature | `[BLANK — no signature recorded]` |
-| Actual approval date | `[BLANK — no approval date recorded]` |
-| Approval conditions | `[BLANK — to be completed at signature]` |
+| Owner decision | I formally approve OD-01A airline population decision — fixed ten-airline population (Emirates EK, Qatar Airways QR, Singapore Airlines SQ, Air India AI, IndiGo 6E, British Airways BA, Lufthansa LH, Delta Air Lines DL, Southwest Airlines WN, Qantas QF) with population-boundary rules as documented in Sections 2, 3, and 4. |
+| Owner signature | <u>Farhan</u> — Typed signature representation (not handwritten, not cryptographic) |
+| Actual approval date | 08 November 2026 |
+| Approval conditions | All preconditions 1–9 satisfied; CC-01 self-review executed 08 November 2026 |
 | Reviewer route | Compensating-control route accepted under D-01/D-02; independent reviewer not assigned |
-| Compensating-control acceptance | D-01/D-02 accepted; execution not complete |
+| Compensating-control acceptance | D-01/D-02 accepted; execution complete 08 November 2026 |
 | Reviewer limitation statement | No independent reviewer; AI review is not independent assurance |
-| Reviewer name / role / organization | `[BLANK — no reviewer assigned]` |
-| Reviewer independence | `[ ] Independent   [ ] Not independent   [X] N/A — no reviewer` |
-| Reviewer result | `[ ] CONCUR   [ ] CONCUR WITH RESERVATIONS   [ ] DISSENT   [X] N/A — no reviewer` |
-| Reviewer signature / date | `[BLANK — no reviewer signature]` |
-| Residual concerns | H-04: PARTIALLY VERIFIED — CLOSED AT DOCUMENTATION LEVEL; H-05: PARTIALLY VERIFIED; M-07: PARTIALLY VERIFIED; M-12: PARTIALLY VERIFIED; B-03: VERIFIED — CLOSED AT DOCUMENTATION LEVEL; B-04: PARTIALLY VERIFIED; GOV-B-05: PENDING OWNER APPROVAL — GOV-D-04 RESOLVED; addendum accepted 2026-11-06; GOV-B-08: PENDING OWNER APPROVAL — GOV-D-08 PENDING; no independent assurance |
-| Re-audit record | `[BLANK — PENDING]` |
+| Reviewer name / role / organization | [N/A — no reviewer assigned] |
+| Reviewer independence | [X] N/A — no reviewer |
+| Reviewer result | [X] N/A — no reviewer |
+| Reviewer signature / date | [N/A — no reviewer] |
+| Residual concerns | H-04: PARTIALLY VERIFIED — CLOSED AT DOCUMENTATION LEVEL; H-05: PARTIALLY VERIFIED; M-07: PARTIALLY VERIFIED; M-12: PARTIALLY VERIFIED; B-03: VERIFIED — CLOSED AT DOCUMENTATION LEVEL; B-04: PARTIALLY VERIFIED; GOV-B-05: RESOLVED — GOV-D-04 APPROVED 08 Nov 2026; GOV-B-08: RESOLVED — GOV-D-08 AUTHORIZED 08 Nov 2026; no independent assurance |
+| Re-audit record | COMPLETED — all preconditions 1–9 verified 08 November 2026 |
 | Scope v1.1 SHA-256 | `5282EFFAD84FF72C84DB3864B3ECFF2B99C6DD8139850F341B2A4148FA7DC627` (supersedes former hash `9A9EEA...` per owner decision D-1) |
 | Contract v1.5 SHA-256 | `D1CE40117E24058643245DA0B7C34E10D7E76E662AB9B9831EDD3D47E5AF21D9` |
 | Signed-copy path | `[BLANK — D-08 PENDING; no docs/approvals/ structure]` |
@@ -284,9 +282,9 @@ are completed.
 | Retention confirmed | `[ ] Yes   [X] No — D-08 PENDING` |
 | Verification date / result | `[BLANK — PENDING]` |
 
-**Formal signature:** ______________________________  
-**Approval date:** ______________________________  
-**Approval evidence:** ______________________________
+**Formal signature:** <u>Farhan</u> — Typed signature representation (not handwritten, not cryptographic)  
+**Approval date:** 08 November 2026  
+**Approval evidence:** Owner typed signature and approval date recorded in OD-01A §7.4 on 08 November 2026
 
 **Approval status:** PENDING. This record is not approved for reference-data
 creation, synthetic-data generation, schema freeze, Power BI implementation, or

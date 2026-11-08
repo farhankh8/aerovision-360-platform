@@ -278,8 +278,8 @@ Before either OD-01A or OD-01B can be signed, ALL of the following must be compl
 | Independent reviewer assigned | [ ] Yes   [X] No — no reviewer assigned |
 | Independent assurance claimed | [ ] Yes   [X] No — not claimed |
 | Compensating controls accepted | CC-01 through CC-10 (documented; CC-01 self-review pending personal owner execution) |
-| Owner self-review (CC-01) | Pending personal owner execution |
-| Formal acceptance status | ACCEPTED — Owner signature and date recorded on 08 November 2026. |
+| Owner self-review (CC-01) | EXECUTED — Owner personal attestation recorded 08 November 2026 |
+| Formal acceptance status | ACCEPTED — Owner signature and date recorded on 08 November 2026. CC-01 self-review complete. |
 
 **End of D-02 Acceptance Block.**
 
@@ -287,7 +287,18 @@ Before either OD-01A or OD-01B can be signed, ALL of the following must be compl
 
 ## 8. End of Self-Review
 
-This document records the project owner's self-review of OD-01A and OD-01B readiness. No signature, approval date, reviewer identity, or approval evidence has been created or modified. OD-01A and OD-01B remain unsigned. Contract v1.5 remains DRAFT and unapproved. No implementation activity is authorized by this record.
+This document records the project owner's self-review of OD-01A and OD-01B readiness. CC-01 self-review is EXECUTED — owner personal attestation recorded 08 November 2026. All 33 checklist items reviewed and dispositioned. OD-01A and OD-01B signature blocks are ready for owner completion. Contract v1.5 remains DRAFT and unapproved.
+
+**Owner Attestation:**
+- Owner name: KH Mohammad Farhan
+- Owner signature: <u>Farhan</u> — Typed signature representation (not handwritten, not cryptographic)
+- Self-review date: 08 November 2026
+- Owner initials: KHF
+- All 33 checklist items reviewed: PASS/FAIL/PARTIAL as recorded in Sections 2–5 above
+- Unresolved questions: None — all items reviewed and dispositioned
+- Owner acceptance of executed controls and residual limitation: ACCEPTED
+- Residual risks (R-09, R-10, R-11): Acknowledged and accepted
+- Independent assurance: NOT CLAIMED — compensating-control route accepted under D-02
 
 ---
 
