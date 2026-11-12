@@ -1,0 +1,19 @@
+{
+  "transformation_id": "TRANS_7C58E178",
+  "name": "OD-04 compliance check",
+  "description": "Verify no silent modification",
+  "target_dataset_id": "production_dataset",
+  "transformation_type": "value_replacement",
+  "source_column": "some_column",
+  "target_column": null,
+  "old_value": "old_val",
+  "new_value": "new_val",
+  "filter_condition": null,
+  "approval_reference": null,
+  "status": "PENDING",
+  "created_timestamp": "2026-11-05T05:15:10.247779+00:00",
+  "executed_timestamp": null,
+  "rolled_back_timestamp": null,
+  "evidence": {},
+  "rollback_evidence": {}
+}

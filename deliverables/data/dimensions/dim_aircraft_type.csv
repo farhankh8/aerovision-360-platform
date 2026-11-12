@@ -1,0 +1,13 @@
+AircraftTypeKey,Manufacturer,AircraftModel,AircraftCategory,TypicalSeatCapacity,MaximumSeatCapacity,RangeKM,BodyType
+1,AeroWorks,NB-180,Narrowbody,150,190,6100.00,Passenger
+2,AeroWorks,NB-220,Narrowbody,186,240,7200.00,Passenger
+3,Meridian Aircraft,WB-280,Widebody,250,300,12500.00,Passenger
+4,Meridian Aircraft,WB-360,Widebody,320,390,14500.00,Passenger
+5,Regional Aviation Works,RJ-90,Regional Jet,76,96,3500.00,Passenger
+6,Regional Aviation Works,RJ-120,Regional Jet,100,132,4800.00,Passenger
+7,Continental Aero,TP-70,Turboprop,60,78,1800.00,Passenger
+8,Continental Aero,TP-90,Turboprop,76,96,2400.00,Passenger
+9,AeroWorks,NB-260,Narrowbody,220,270,8200.00,Passenger
+10,Meridian Aircraft,WB-420,Widebody,370,440,17000.00,Passenger
+11,Regional Aviation Works,RJ-150,Regional Jet,120,150,5500.00,Passenger
+12,Continental Aero,TP-110,Turboprop,88,112,3000.00,Passenger

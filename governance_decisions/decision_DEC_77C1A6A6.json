@@ -1,0 +1,23 @@
+{
+  "decision_id": "DEC_77C1A6A6",
+  "requester": "test_user",
+  "reviewer": null,
+  "decision_state": "DRAFT",
+  "decision_rationale": "Test remediation",
+  "scope_of_approval": "Test scope",
+  "approved_action": "Test action",
+  "rejection_reason": null,
+  "expiration_timestamp": null,
+  "created_timestamp": "2026-11-05T08:25:30.476408+00:00",
+  "updated_timestamp": "2026-11-05T08:25:30.476414+00:00",
+  "validity_period_hours": null,
+  "audit_trail": [
+    {
+      "timestamp": "2026-11-05T08:25:30.476408+00:00",
+      "actor": "test_user",
+      "action": "decision_created",
+      "state_before": null,
+      "state_after": "DRAFT"
+    }
+  ]
+}

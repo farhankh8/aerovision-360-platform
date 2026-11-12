@@ -1,0 +1,4 @@
+{
+ ".platform": {"$schema": "https://developer.microsoft.com/json-schemas/fabric/git/1.1/fabric.platform.schema.json"},
+ "config": {"version": "1.0", "logicalId": "aerovision360"}
+}

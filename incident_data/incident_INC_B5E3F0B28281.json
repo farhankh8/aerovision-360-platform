@@ -1,0 +1,28 @@
+{
+  "incident_id": "INC_B5E3F0B28281",
+  "dataset_id": "test_dataset",
+  "run_id": "run_001",
+  "quality_run_id": "qr_001",
+  "rule_id": null,
+  "anomaly_id": null,
+  "severity": "CRITICAL",
+  "description": "Test incident 1",
+  "evidence": {
+    "test": "data1"
+  },
+  "status": "OPEN",
+  "created_timestamp": "2026-11-05T05:15:10.127718+00:00",
+  "updated_timestamp": "2026-11-05T05:15:10.127719+00:00",
+  "owner": null,
+  "assignee": null,
+  "resolution_details": null,
+  "closed_timestamp": null,
+  "history": [
+    {
+      "from": null,
+      "to": "OPEN",
+      "timestamp": "2026-11-05T05:15:10.127718+00:00",
+      "actor": "system"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+CurrencyKey,CurrencyCode,CurrencyName,CurrencySymbol,DecimalPlaces,IsReportingCurrency
+1,AED,UAE Dirham,د.إ,2,False
+2,QAR,Qatari Riyal,ر.ق,2,False
+3,SGD,Singapore Dollar,S$,2,False
+4,INR,Indian Rupee,₹,2,False
+5,GBP,Pound Sterling,£,2,False
+6,EUR,Euro,€,2,False
+7,USD,US Dollar,$,2,True
+8,AUD,Australian Dollar,A$,2,False

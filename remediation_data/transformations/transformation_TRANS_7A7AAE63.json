@@ -1,0 +1,19 @@
+{
+  "transformation_id": "TRANS_7A7AAE63",
+  "name": "Remediation for incident INC_6198513FA3FE",
+  "description": "Automated remediation proposed for incident INC_6198513FA3FE",
+  "target_dataset_id": "integration_test_dataset",
+  "transformation_type": "value_replacement",
+  "source_column": "airline_id",
+  "target_column": null,
+  "old_value": "",
+  "new_value": "AA001",
+  "filter_condition": null,
+  "approval_reference": "DEC_E0BAB4B0",
+  "status": "PENDING",
+  "created_timestamp": "2026-11-05T05:31:51.005354+00:00",
+  "executed_timestamp": null,
+  "rolled_back_timestamp": null,
+  "evidence": {},
+  "rollback_evidence": {}
+}

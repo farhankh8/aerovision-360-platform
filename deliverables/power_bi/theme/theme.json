@@ -1,0 +1,7 @@
+{
+ "version": "1.0",
+ "name": "AEROVISION 360",
+ "themeColor": {"primary": "#2F5496", "secondary": "#5B9BD5", "accent": "#FFC000"},
+ "backgroundColor": "#FFFFFF",
+ "textColor": "#262626"
+}

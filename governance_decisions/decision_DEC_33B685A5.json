@@ -1,0 +1,23 @@
+{
+  "decision_id": "DEC_33B685A5",
+  "requester": "test_user",
+  "reviewer": null,
+  "decision_state": "DRAFT",
+  "decision_rationale": "Remediation proposal for incident INC_TEST_001: value_replacement transformation on dataset test_dataset",
+  "scope_of_approval": "Remediation: value_replacement on dataset test_dataset",
+  "approved_action": "Apply value_replacement transformation",
+  "rejection_reason": null,
+  "expiration_timestamp": null,
+  "created_timestamp": "2026-11-05T05:44:12.840544+00:00",
+  "updated_timestamp": "2026-11-05T05:44:12.840602+00:00",
+  "validity_period_hours": 168,
+  "audit_trail": [
+    {
+      "timestamp": "2026-11-05T05:44:12.840544+00:00",
+      "actor": "test_user",
+      "action": "decision_created",
+      "state_before": null,
+      "state_after": "DRAFT"
+    }
+  ]
+}

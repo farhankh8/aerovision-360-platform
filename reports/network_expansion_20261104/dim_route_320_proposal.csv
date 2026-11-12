@@ -1,0 +1,321 @@
+﻿RouteKey,RouteCode,OriginAirportKey,DestinationAirportKey,DistanceKM,DistanceMiles,RouteRegion,IsInternational,IsActive
+1,XAE-XAU,1,22,12048.54,7486.61,Interregional,True,True
+2,XAE-XDE,1,16,4637.95,2881.89,Interregional,True,True
+3,XAE-XIN,1,10,2227.00,1383.79,Interregional,True,True
+4,XAE-XQA,1,4,374.29,232.57,Middle East,True,True
+5,XAE-XSG,1,7,5844.70,3631.73,Interregional,True,True
+6,XAE-XUK,1,13,5483.80,3407.47,Interregional,True,True
+7,XAE-XUS,1,19,11019.53,6847.22,Interregional,True,True
+8,XAF-XUK,2,13,5503.01,3419.41,Interregional,True,True
+9,XAG-XIN,3,10,2225.16,1382.65,Interregional,True,True
+10,XAU-XAE,22,1,12048.54,7486.61,Interregional,True,True
+11,XAU-XAW,22,23,3289.64,2044.09,Oceania,False,True
+12,XAU-XAX,22,24,1162.38,722.27,Oceania,False,True
+13,XAU-XSG,22,7,6302.64,3916.28,Interregional,True,True
+14,XAU-XSI,22,9,6316.19,3924.70,Interregional,True,True
+15,XAW-XAU,23,22,3289.64,2044.09,Oceania,False,True
+16,XAX-XAU,24,22,1162.38,722.27,Oceania,False,True
+17,XAX-XIN,24,10,9559.68,5940.11,Interregional,True,True
+18,XDE-XAE,16,1,4637.95,2881.89,Interregional,True,True
+19,XDE-XDF,16,17,503.92,313.12,Europe,False,True
+20,XDE-XDG,16,18,423.65,263.24,Europe,False,True
+21,XDE-XQA,16,4,4377.79,2720.23,Interregional,True,True
+22,XDE-XQC,16,6,4398.66,2733.20,Interregional,True,True
+23,XDE-XUK,16,13,930.78,578.36,Europe,True,True
+24,XDE-XUS,16,19,6382.23,3965.73,Interregional,True,True
+25,XDF-XDE,17,16,503.92,313.12,Europe,False,True
+26,XDG-XDE,18,16,423.65,263.24,Europe,False,True
+27,XIN-XAE,10,1,2227.00,1383.79,Interregional,True,True
+28,XIN-XAG,10,3,2225.16,1382.65,Interregional,True,True
+29,XIN-XAX,10,24,9559.68,5940.11,Interregional,True,True
+30,XIN-XIO,10,11,1147.22,712.85,South Asia,False,True
+31,XIN-XIP,10,12,1739.56,1080.91,South Asia,False,True
+32,XIN-XQA,10,4,2574.65,1599.81,Interregional,True,True
+33,XIN-XQB,10,5,2562.96,1592.55,Interregional,True,True
+34,XIN-XSG,10,7,4146.46,2576.49,Interregional,True,True
+35,XIO-XIN,11,10,1147.22,712.85,South Asia,False,True
+36,XIO-XSH,11,8,3914.51,2432.36,Interregional,True,True
+37,XIP-XIN,12,10,1739.56,1080.91,South Asia,False,True
+38,XQA-XAE,4,1,374.29,232.57,Middle East,True,True
+39,XQA-XDE,4,16,4377.79,2720.23,Interregional,True,True
+40,XQA-XIN,4,10,2574.65,1599.81,Interregional,True,True
+41,XQB-XIN,5,10,2562.96,1592.55,Interregional,True,True
+42,XQC-XDE,6,16,4398.66,2733.20,Interregional,True,True
+43,XSG-XAE,7,1,5844.70,3631.73,Interregional,True,True
+44,XSG-XAU,7,22,6302.64,3916.28,Interregional,True,True
+45,XSG-XIN,7,10,4146.46,2576.49,Interregional,True,True
+46,XSG-XUK,7,13,10850.77,6742.35,Interregional,True,True
+47,XSH-XIO,8,11,3914.51,2432.36,Interregional,True,True
+48,XSI-XAU,9,22,6316.19,3924.70,Interregional,True,True
+49,XUK-XAE,13,1,5483.80,3407.47,Interregional,True,True
+50,XUK-XAF,13,2,5503.01,3419.41,Interregional,True,True
+51,XUK-XDE,13,16,930.78,578.36,Europe,True,True
+52,XUK-XSG,13,7,10850.77,6742.35,Interregional,True,True
+53,XUK-XUL,13,14,533.76,331.66,Europe,False,True
+54,XUK-XUM,13,15,262.21,162.93,Europe,False,True
+55,XUK-XUS,13,19,5568.05,3459.82,Interregional,True,True
+56,XUL-XUK,14,13,533.76,331.66,Europe,False,True
+57,XUM-XUK,15,13,262.21,162.93,Europe,False,True
+58,XUS-XAE,19,1,11019.53,6847.22,Interregional,True,True
+59,XUS-XDE,19,16,6382.23,3965.73,Interregional,True,True
+60,XUS-XUK,19,13,5568.05,3459.82,Interregional,True,True
+61,XUS-XUT,19,20,1145.31,711.66,North America,False,True
+62,XUS-XUV,19,21,3936.31,2445.91,North America,False,True
+63,XUT-XUS,20,19,1145.31,711.66,North America,False,True
+64,XUV-XUS,21,19,3936.31,2445.91,North America,False,True
+65,XAE-XAH,1,25,210.66,130.90,Middle East,False,True
+66,XAE-XAI,1,26,243.65,151.40,Middle East,False,True
+67,XAE-XAK,1,28,152.67,94.86,Middle East,False,True
+68,XAF-XAI,2,26,179.30,111.41,Middle East,False,True
+69,XAF-XAL,2,29,190.00,118.06,Middle East,False,True
+70,XAG-XAH,3,25,232.10,144.22,Middle East,False,True
+71,XAG-XQC,3,6,350.01,217.49,Middle East,True,True
+72,XAH-XAE,25,1,210.66,130.90,Middle East,False,True
+73,XAH-XAG,25,3,232.10,144.22,Middle East,False,True
+74,XAH-XAJ,25,27,248.13,154.18,Middle East,False,True
+75,XAH-XAL,25,29,217.86,135.37,Middle East,False,True
+76,XAH-XQB,25,5,309.17,192.11,Middle East,True,True
+77,XAH-XQC,25,6,286.88,178.26,Middle East,True,True
+78,XAI-XAE,26,1,243.65,151.40,Middle East,False,True
+79,XAI-XAF,26,2,179.30,111.41,Middle East,False,True
+80,XAI-XQC,26,6,183.98,114.32,Middle East,True,True
+81,XAJ-XAH,27,25,248.13,154.18,Middle East,False,True
+82,XAJ-XAK,27,28,159.95,99.39,Middle East,False,True
+83,XAJ-XQA,27,4,314.64,195.51,Middle East,True,True
+84,XAK-XAE,28,1,152.67,94.86,Middle East,False,True
+85,XAK-XAJ,28,27,159.95,99.39,Middle East,False,True
+86,XAK-XIO,28,11,1884.51,1170.98,Interregional,True,True
+87,XAL-XAF,29,2,190.00,118.06,Middle East,False,True
+88,XAL-XAH,29,25,217.86,135.37,Middle East,False,True
+89,XAL-XIO,29,11,1827.78,1135.73,Interregional,True,True
+90,XAU-XBA,22,61,714.09,443.71,Oceania,False,True
+91,XAU-XBD,22,64,1058.15,657.50,Oceania,False,True
+92,XAU-XBE,22,65,247.38,153.71,Oceania,False,True
+93,XAU-XBF,22,66,682.96,424.37,Oceania,False,True
+94,XAU-XBK,22,71,914.55,568.27,Oceania,False,True
+95,XAW-XIW,23,36,6948.70,4317.72,Interregional,True,True
+96,XAW-XSH,23,8,3905.44,2426.73,Interregional,True,True
+97,XAX-XBI,24,69,1330.47,826.72,Oceania,False,True
+98,XBA-XAU,61,22,714.09,443.71,Oceania,False,True
+99,XBA-XBE,61,65,466.72,290.01,Oceania,False,True
+100,XBA-XBK,61,71,443.68,275.69,Oceania,False,True
+101,XBB-XBG,62,67,1110.90,690.28,Oceania,False,True
+102,XBB-XBH,62,68,1390.11,863.77,Oceania,False,True
+103,XBB-XBI,62,69,1963.59,1220.12,Oceania,False,True
+104,XBB-XBL,62,72,520.41,323.37,Oceania,False,True
+105,XBB-XSH,62,8,6144.07,3817.75,Interregional,True,True
+106,XBC-XBI,63,69,1290.31,801.76,Oceania,False,True
+107,XBC-XBJ,63,70,1106.63,687.63,Oceania,False,True
+108,XBC-XIU,63,34,6521.84,4052.48,Interregional,True,True
+109,XBD-XAU,64,22,1058.15,657.50,Oceania,False,True
+110,XBD-XBK,64,71,161.99,100.66,Oceania,False,True
+111,XBD-XSH,64,8,6548.10,4068.80,Interregional,True,True
+112,XBE-XAU,65,22,247.38,153.71,Oceania,False,True
+113,XBE-XBA,65,61,466.72,290.01,Oceania,False,True
+114,XBE-XIS,65,32,9460.65,5878.57,Interregional,True,True
+115,XBF-XAU,66,22,682.96,424.37,Oceania,False,True
+116,XBF-XBL,66,72,593.05,368.50,Oceania,False,True
+117,XBF-XIT,66,33,10355.89,6434.85,Interregional,True,True
+118,XBF-XWK,66,59,14743.35,9161.09,Interregional,True,True
+119,XBG-XBB,67,62,1110.90,690.28,Oceania,False,True
+120,XBG-XBH,67,68,282.87,175.77,Oceania,False,True
+121,XBG-XBL,67,72,596.56,370.69,Oceania,False,True
+122,XBH-XBB,68,62,1390.11,863.77,Oceania,False,True
+123,XBH-XBG,68,67,282.87,175.77,Oceania,False,True
+124,XBH-XDI,68,45,14744.59,9161.86,Interregional,True,True
+125,XBH-XSH,68,8,5017.78,3117.90,Interregional,True,True
+126,XBI-XAX,69,24,1330.47,826.72,Oceania,False,True
+127,XBI-XBB,69,62,1963.59,1220.12,Oceania,False,True
+128,XBI-XBC,69,63,1290.31,801.76,Oceania,False,True
+129,XBJ-XBC,70,63,1106.63,687.63,Oceania,False,True
+130,XBJ-XIR,70,31,5754.03,3575.39,Interregional,True,True
+131,XBJ-XSH,70,8,2934.80,1823.60,Interregional,True,True
+132,XBK-XAU,71,22,914.55,568.27,Oceania,False,True
+133,XBK-XBA,71,61,443.68,275.69,Oceania,False,True
+134,XBK-XBD,71,64,161.99,100.66,Oceania,False,True
+135,XBL-XBB,72,62,520.41,323.37,Oceania,False,True
+136,XBL-XBF,72,66,593.05,368.50,Oceania,False,True
+137,XBL-XBG,72,67,596.56,370.69,Oceania,False,True
+138,XDE-XDH,16,44,254.90,158.39,Europe,False,True
+139,XDE-XDI,16,45,512.24,318.29,Europe,False,True
+140,XDE-XDK,16,47,150.14,93.29,Europe,False,True
+141,XDF-XQB,17,5,4284.82,2662.46,Interregional,True,True
+142,XDF-XUT,17,20,7260.99,4511.77,Interregional,True,True
+143,XDG-XDI,18,45,153.32,95.27,Europe,False,True
+144,XDG-XDJ,18,46,182.09,113.15,Europe,False,True
+145,XDG-XUQ,18,42,694.61,431.61,Europe,True,True
+146,XDH-XDE,44,16,254.90,158.39,Europe,False,True
+147,XDH-XQB,44,5,4628.16,2875.80,Interregional,True,True
+148,XDH-XUK,44,13,719.37,447.00,Europe,True,True
+149,XDH-XUL,44,14,886.79,551.03,Europe,True,True
+150,XDH-XUM,44,15,808.22,502.20,Europe,True,True
+151,XDH-XUR,44,43,591.51,367.55,Europe,True,True
+152,XDI-XBH,45,68,14744.59,9161.86,Interregional,True,True
+153,XDI-XDE,45,16,512.24,318.29,Europe,False,True
+154,XDI-XDG,45,18,153.32,95.27,Europe,False,True
+155,XDI-XQB,45,5,4475.10,2780.70,Interregional,True,True
+156,XDJ-XDG,46,18,182.09,113.15,Europe,False,True
+157,XDJ-XDL,46,48,247.58,153.84,Europe,False,True
+158,XDJ-XUK,46,13,479.84,298.16,Europe,True,True
+159,XDJ-XUR,46,43,429.41,266.82,Europe,True,True
+160,XDK-XDE,47,16,150.14,93.29,Europe,False,True
+161,XDK-XQB,47,5,4375.84,2719.02,Interregional,True,True
+162,XDK-XUT,47,20,7100.44,4412.01,Interregional,True,True
+163,XDL-XDJ,48,46,247.58,153.84,Europe,False,True
+164,XDL-XSG,48,7,10225.95,6354.11,Interregional,True,True
+165,XDL-XUK,48,13,630.39,391.71,Europe,True,True
+166,XIN-XIV,10,35,235.95,146.61,South Asia,False,True
+167,XIN-XIX,10,37,648.76,403.12,South Asia,False,True
+168,XIN-XWH,10,56,11479.25,7132.87,Interregional,True,True
+169,XIN-XWJ,10,58,11774.44,7316.30,Interregional,True,True
+170,XIO-XAK,11,28,1884.51,1170.98,Interregional,True,True
+171,XIO-XAL,11,29,1827.78,1135.73,Interregional,True,True
+172,XIO-XIT,11,33,438.18,272.27,South Asia,False,True
+173,XIO-XIV,11,35,919.03,571.06,South Asia,False,True
+174,XIO-XIX,11,37,1677.60,1042.41,South Asia,False,True
+175,XIO-XWE,11,53,14241.07,8848.99,Interregional,True,True
+176,XIO-XWI,11,57,14439.20,8972.10,Interregional,True,True
+177,XIO-XWK,11,59,12752.47,7924.02,Interregional,True,True
+178,XIP-XIR,12,31,289.46,179.86,South Asia,False,True
+179,XIP-XIS,12,32,498.49,309.75,South Asia,False,True
+180,XIP-XIU,12,34,369.24,229.44,South Asia,False,True
+181,XIP-XIY,12,38,1194.99,742.53,South Asia,False,True
+182,XIQ-XIW,30,36,524.16,325.70,South Asia,False,True
+183,XIQ-XIY,30,38,364.44,226.45,South Asia,False,True
+184,XIQ-XSI,30,9,2882.67,1791.21,Interregional,True,True
+185,XIR-XBJ,31,70,5754.03,3575.39,Interregional,True,True
+186,XIR-XIP,31,12,289.46,179.86,South Asia,False,True
+187,XIR-XQB,31,5,3307.06,2054.91,Interregional,True,True
+188,XIS-XBE,32,65,9460.65,5878.57,Interregional,True,True
+189,XIS-XIP,32,12,498.49,309.75,South Asia,False,True
+190,XIS-XIY,32,38,836.79,519.96,South Asia,False,True
+191,XIT-XBF,33,66,10355.89,6434.85,Interregional,True,True
+192,XIT-XIO,33,11,438.18,272.27,South Asia,False,True
+193,XIT-XQB,33,5,2149.29,1335.51,Interregional,True,True
+194,XIU-XBC,34,63,6521.84,4052.48,Interregional,True,True
+195,XIU-XIP,34,12,369.24,229.44,South Asia,False,True
+196,XIU-XQB,34,5,3129.25,1944.43,Interregional,True,True
+197,XIV-XIN,35,10,235.95,146.61,South Asia,False,True
+198,XIV-XIO,35,11,919.03,571.06,South Asia,False,True
+199,XIV-XQB,35,5,2423.08,1505.63,Interregional,True,True
+200,XIW-XAW,36,23,6948.70,4317.72,Interregional,True,True
+201,XIW-XIQ,36,30,524.16,325.70,South Asia,False,True
+202,XIW-XQB,36,5,4010.46,2491.98,Interregional,True,True
+203,XIX-XIN,37,10,648.76,403.12,South Asia,False,True
+204,XIX-XIO,37,11,1677.60,1042.41,South Asia,False,True
+205,XIX-XQB,37,5,2434.39,1512.66,Interregional,True,True
+206,XIY-XIP,38,12,1194.99,742.53,South Asia,False,True
+207,XIY-XIQ,38,30,364.44,226.45,South Asia,False,True
+208,XIY-XIS,38,32,836.79,519.96,South Asia,False,True
+209,XQA-XAJ,4,27,314.64,195.51,Middle East,True,True
+210,XQB-XAH,5,25,309.17,192.11,Middle East,True,True
+211,XQB-XDF,5,17,4284.82,2662.46,Interregional,True,True
+212,XQB-XDH,5,44,4628.16,2875.80,Interregional,True,True
+213,XQB-XDI,5,45,4475.10,2780.70,Interregional,True,True
+214,XQB-XDK,5,47,4375.84,2719.02,Interregional,True,True
+215,XQB-XIR,5,31,3307.06,2054.91,Interregional,True,True
+216,XQB-XIT,5,33,2149.29,1335.51,Interregional,True,True
+217,XQB-XIU,5,34,3129.25,1944.43,Interregional,True,True
+218,XQB-XIV,5,35,2423.08,1505.63,Interregional,True,True
+219,XQB-XIW,5,36,4010.46,2491.98,Interregional,True,True
+220,XQB-XIX,5,37,2434.39,1512.66,Interregional,True,True
+221,XQC-XAG,6,3,350.01,217.49,Middle East,True,True
+222,XQC-XAH,6,25,286.88,178.26,Middle East,True,True
+223,XQC-XAI,6,26,183.98,114.32,Middle East,True,True
+224,XQC-XUT,6,20,11454.46,7117.47,Interregional,True,True
+225,XSG-XDL,7,48,10225.95,6354.11,Interregional,True,True
+226,XSG-XUM,7,15,10942.83,6799.56,Interregional,True,True
+227,XSG-XUO,7,40,11141.60,6923.07,Interregional,True,True
+228,XSG-XUQ,7,42,10932.57,6793.18,Interregional,True,True
+229,XSG-XWL,7,60,10741.15,6674.24,Interregional,True,True
+230,XSH-XAW,8,23,3905.44,2426.73,Interregional,True,True
+231,XSH-XBB,8,62,6144.07,3817.75,Interregional,True,True
+232,XSH-XBD,8,64,6548.10,4068.80,Interregional,True,True
+233,XSH-XBH,8,68,5017.78,3117.90,Interregional,True,True
+234,XSH-XBJ,8,70,2934.80,1823.60,Interregional,True,True
+235,XSI-XIQ,9,30,2882.67,1791.21,Interregional,True,True
+236,XSI-XWF,9,54,14631.41,9091.53,Interregional,True,True
+237,XUK-XDH,13,44,719.37,447.00,Europe,True,True
+238,XUK-XDJ,13,46,479.84,298.16,Europe,True,True
+239,XUK-XDL,13,48,630.39,391.71,Europe,True,True
+240,XUK-XUR,13,43,181.00,112.47,Europe,False,True
+241,XUL-XDH,14,44,886.79,551.03,Europe,True,True
+242,XUL-XUO,14,40,229.20,142.42,Europe,False,True
+243,XUM-XDH,15,44,808.22,502.20,Europe,True,True
+244,XUM-XSG,15,7,10942.83,6799.56,Interregional,True,True
+245,XUN-XUO,39,40,384.87,239.15,Europe,False,True
+246,XUN-XUP,39,41,189.72,117.89,Europe,False,True
+247,XUN-XUQ,39,42,201.29,125.08,Europe,False,True
+248,XUN-XUR,39,43,157.38,97.79,Europe,False,True
+249,XUO-XSG,40,7,11141.60,6923.07,Interregional,True,True
+250,XUO-XUL,40,14,229.20,142.42,Europe,False,True
+251,XUO-XUN,40,39,384.87,239.15,Europe,False,True
+252,XUP-XUN,41,39,189.72,117.89,Europe,False,True
+253,XUP-XUQ,41,42,163.82,101.79,Europe,False,True
+254,XUP-XUT,41,20,6164.85,3830.66,Interregional,True,True
+255,XUQ-XDG,42,18,694.61,431.61,Europe,True,True
+256,XUQ-XSG,42,7,10932.57,6793.18,Interregional,True,True
+257,XUQ-XUN,42,39,201.29,125.08,Europe,False,True
+258,XUQ-XUP,42,41,163.82,101.79,Europe,False,True
+259,XUR-XDH,43,44,591.51,367.55,Europe,True,True
+260,XUR-XDJ,43,46,429.41,266.82,Europe,True,True
+261,XUR-XUK,43,13,181.00,112.47,Europe,False,True
+262,XUR-XUN,43,39,157.38,97.79,Europe,False,True
+263,XUS-XWH,19,56,303.79,188.77,North America,False,True
+264,XUS-XWK,19,59,774.45,481.22,North America,False,True
+265,XUT-XDF,20,17,7260.99,4511.77,Interregional,True,True
+266,XUT-XDK,20,47,7100.44,4412.01,Interregional,True,True
+267,XUT-XQC,20,6,11454.46,7117.47,Interregional,True,True
+268,XUT-XUP,20,41,6164.85,3830.66,Interregional,True,True
+269,XUT-XWA,20,49,948.61,589.44,North America,False,True
+270,XUT-XWE,20,53,1918.77,1192.27,North America,False,True
+271,XUT-XWH,20,56,1365.39,848.41,North America,False,True
+272,XUT-XWJ,20,58,570.25,354.34,North America,False,True
+273,XUT-XWK,20,59,380.92,236.69,North America,False,True
+274,XUV-XWF,21,54,574.34,356.88,North America,False,True
+275,XUV-XWG,21,55,558.33,346.93,North America,False,True
+276,XWA-XUT,49,20,948.61,589.44,North America,False,True
+277,XWA-XWB,49,50,1158.14,719.63,North America,False,True
+278,XWA-XWC,49,51,1947.14,1209.90,North America,False,True
+279,XWA-XWE,49,53,976.31,606.65,North America,False,True
+280,XWA-XWF,49,54,2556.09,1588.28,North America,False,True
+281,XWA-XWG,49,55,3436.78,2135.52,North America,False,True
+282,XWA-XWI,49,57,1128.17,701.01,North America,False,True
+283,XWA-XWJ,49,58,1461.49,908.13,North America,False,True
+284,XWB-XWA,50,49,1158.14,719.63,North America,False,True
+285,XWB-XWC,50,51,1065.89,662.31,North America,False,True
+286,XWB-XWI,50,57,362.26,225.10,North America,False,True
+287,XWC-XWA,51,49,1947.14,1209.90,North America,False,True
+288,XWC-XWB,51,50,1065.89,662.31,North America,False,True
+289,XWC-XWD,51,52,1640.75,1019.51,North America,False,True
+290,XWC-XWF,51,54,942.04,585.36,North America,False,True
+291,XWC-XWL,51,60,3854.21,2394.89,North America,False,True
+292,XWD-XWC,52,51,1640.75,1019.51,North America,False,True
+293,XWD-XWG,52,55,1094.18,679.89,North America,False,True
+294,XWD-XWL,52,60,2308.60,1434.50,North America,False,True
+295,XWE-XIO,53,11,14241.07,8848.99,Interregional,True,True
+296,XWE-XUT,53,20,1918.77,1192.27,North America,False,True
+297,XWE-XWA,53,49,976.31,606.65,North America,False,True
+298,XWF-XSI,54,9,14631.41,9091.53,Interregional,True,True
+299,XWF-XUV,54,21,574.34,356.88,North America,False,True
+300,XWF-XWA,54,49,2556.09,1588.28,North America,False,True
+301,XWF-XWC,54,51,942.04,585.36,North America,False,True
+302,XWG-XUV,55,21,558.33,346.93,North America,False,True
+303,XWG-XWA,55,49,3436.78,2135.52,North America,False,True
+304,XWG-XWD,55,52,1094.18,679.89,North America,False,True
+305,XWH-XIN,56,10,11479.25,7132.87,Interregional,True,True
+306,XWH-XUS,56,19,303.79,188.77,North America,False,True
+307,XWH-XUT,56,20,1365.39,848.41,North America,False,True
+308,XWI-XIO,57,11,14439.20,8972.10,Interregional,True,True
+309,XWI-XWA,57,49,1128.17,701.01,North America,False,True
+310,XWI-XWB,57,50,362.26,225.10,North America,False,True
+311,XWJ-XIN,58,10,11774.44,7316.30,Interregional,True,True
+312,XWJ-XUT,58,20,570.25,354.34,North America,False,True
+313,XWJ-XWA,58,49,1461.49,908.13,North America,False,True
+314,XWK-XBF,59,66,14743.35,9161.09,Interregional,True,True
+315,XWK-XIO,59,11,12752.47,7924.02,Interregional,True,True
+316,XWK-XUS,59,19,774.45,481.22,North America,False,True
+317,XWK-XUT,59,20,380.92,236.69,North America,False,True
+318,XWL-XSG,60,7,10741.15,6674.24,Interregional,True,True
+319,XWL-XWC,60,51,3854.21,2394.89,North America,False,True
+320,XWL-XWD,60,52,2308.60,1434.50,North America,False,True

@@ -1,0 +1,1097 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/git/1.1/fabric.platform.schema.json",
+  "config": {
+    "layoutOptimization": 0,
+    "resourcePackages": [],
+    "objects": {},
+    "visualContainers": [
+      {
+        "config": {
+          "name": "Executive Overview",
+          "layouts": [
+            {
+              "displayOption": 1,
+              "height": 720,
+              "width": 1280
+            }
+          ]
+        },
+        "visuals": [
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL02"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL03"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "config": {
+          "name": "Network & Capacity Intelligence",
+          "layouts": [
+            {
+              "displayOption": 1,
+              "height": 720,
+              "width": 1280
+            }
+          ]
+        },
+        "visuals": [
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "RouteCode"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL02"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "config": {
+          "name": "Revenue & Finance",
+          "layouts": [
+            {
+              "displayOption": 1,
+              "height": 720,
+              "width": 1280
+            }
+          ]
+        },
+        "visuals": [
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_RV_TotalOperatingRevenueUSD",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_RV_NetPassengerRevenueUSD",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_NetPassengerRevenueUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_RV_NetFeeRevenueUSD",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_NetFeeRevenueUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_RV_NetAncillaryRevenueUSD",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_NetAncillaryRevenueUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_CX_TotalOperatingCostsUSD",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_TotalOperatingCostsUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_NC_NetOperatingContributionUSD",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "NC_NetOperatingContributionUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "name": "Page03_KPI_NC_RevenueToCostRatio",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "NC_RevenueToCostRatio"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "lineChart",
+            "name": "Page03_RevenueTrend",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "FullDate",
+                      "table": "dim_date"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_RevenueByAirline",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName",
+                      "table": "dim_airline"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_RevenueByRoute",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "RouteCode",
+                      "table": "dim_route"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_RevenueByChannel",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "ChannelName",
+                      "table": "dim_booking_channel"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_RevenueByFareClass",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "FareClassCode",
+                      "table": "dim_fare_class"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "pieChart",
+            "name": "Page03_RevenueComposition",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_NetPassengerRevenueUSD"
+                      }
+                    }
+                  },
+                  "measure.1": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_NetFeeRevenueUSD"
+                      }
+                    }
+                  },
+                  "measure.2": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_NetAncillaryRevenueUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_CostsByAirline",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_TotalOperatingCostsUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName",
+                      "table": "dim_airline"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_CostsByRoute",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_TotalOperatingCostsUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "RouteCode",
+                      "table": "dim_route"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_CostsByCategory",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_TotalOperatingCostsUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "CostCategory",
+                      "table": "fact_operating_costs"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_CostsPositiveVsReversals",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_PositiveCostsUSD"
+                      }
+                    }
+                  },
+                  "measure.1": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_CostReversalsUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "lineChart",
+            "name": "Page03_CostTrend",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_TotalOperatingCostsUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "FullDate",
+                      "table": "dim_date"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_RevenueVsCosts",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RV_TotalOperatingRevenueUSD"
+                      }
+                    }
+                  },
+                  "measure.1": {
+                    "measure": {
+                      "target": {
+                        "column": "CX_TotalOperatingCostsUSD"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_ContributionByAirline",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "NC_NetOperatingContributionUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName",
+                      "table": "dim_airline"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "name": "Page03_ContributionByRoute",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "NC_NetOperatingContributionUSD"
+                      }
+                    }
+                  }
+                },
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "RouteCode",
+                      "table": "dim_route"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_Date",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FullDate",
+                        "table": "dim_date"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_Airline",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "AirlineName",
+                        "table": "dim_airline"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_Route",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "RouteCode",
+                        "table": "dim_route"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_Currency",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CurrencyCode",
+                        "table": "dim_currency"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_Channel",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "ChannelName",
+                        "table": "dim_booking_channel"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_FareClass",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FareClassCode",
+                        "table": "dim_fare_class"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "slicer",
+            "name": "Page03_Slicer_CostCategory",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CostCategory",
+                        "table": "fact_operating_costs"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "config": {
+          "name": "Operations & Disruption",
+          "layouts": [
+            {
+              "displayOption": 1,
+              "height": 720,
+              "width": 1280
+            }
+          ]
+        },
+        "visuals": [
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "FL04"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "DS03"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "DisruptionName"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "DS01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "config": {
+          "name": "Customer & Service Intelligence",
+          "layouts": [
+            {
+              "displayOption": 1,
+              "height": 720,
+              "width": 1280
+            }
+          ]
+        },
+        "visuals": [
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF02"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF03"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF04"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF05"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF06"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF11"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "card",
+            "query": {
+              "queryState": {
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF12"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "FeedbackChannel"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "AirlineName"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF02"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "FeedbackType"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "visualType": "barChart",
+            "query": {
+              "queryState": {
+                "category": {
+                  "category": {
+                    "target": {
+                      "column": "ResolutionStatus"
+                    }
+                  }
+                },
+                "values": {
+                  "measure": {
+                    "measure": {
+                      "target": {
+                        "column": "CF01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "type": "Report"
+  }
+}

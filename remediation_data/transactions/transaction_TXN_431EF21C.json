@@ -1,0 +1,31 @@
+{
+  "transaction_id": "TXN_431EF21C",
+  "dataset_id": "integration_test_dataset",
+  "transformations": [
+    {
+      "transformation_id": "TRANS_A31C3586",
+      "name": "Remediation for incident INC_79069E3E0B27",
+      "description": "Automated remediation proposed for incident INC_79069E3E0B27",
+      "target_dataset_id": "integration_test_dataset",
+      "transformation_type": "value_replacement",
+      "source_column": "airline_id",
+      "target_column": null,
+      "old_value": "",
+      "new_value": "AA001",
+      "filter_condition": null,
+      "approval_reference": "DEC_E9DC0A01",
+      "status": "APPROVED",
+      "created_timestamp": "2026-11-05T07:08:03.976804+00:00",
+      "executed_timestamp": null,
+      "rolled_back_timestamp": null,
+      "evidence": {},
+      "rollback_evidence": {}
+    }
+  ],
+  "approval_id": "DEC_E9DC0A01",
+  "status": "EXECUTED",
+  "created_timestamp": "2026-11-05T07:08:03.981208+00:00",
+  "executed_timestamp": "2026-11-05T07:08:03.986067+00:00",
+  "rolled_back_timestamp": null,
+  "evidence": {}
+}

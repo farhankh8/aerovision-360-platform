@@ -1,0 +1,9 @@
+FareClassKey,FareClassCode,FareClassName,CabinClass,RefundabilityCategory,IsAncillaryEligible,DisplayOrder
+1,Y,Economy Flexible,Economy,Refundable,True,1
+2,M,Economy Standard,Economy,Partially Refundable,True,2
+3,B,Economy Basic,Economy,Non-Refundable,True,3
+4,W,Premium Economy Flexible,Premium Economy,Refundable,True,1
+5,E,Premium Economy Standard,Premium Economy,Partially Refundable,True,2
+6,J,Business Flexible,Business,Refundable,True,1
+7,C,Business Standard,Business,Partially Refundable,True,2
+8,F,First Flexible,First,Refundable,True,1

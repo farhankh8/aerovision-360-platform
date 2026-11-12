@@ -1,0 +1,15 @@
+Dataset,ExpectedRows,ActualRows,RowCountStatus,ColumnCount,NullColumns,DuplicateRows,CandidatePrimaryKey,PKUniqueNonNull,DataQualityStatus,Notes
+dim_airport.csv,72,72,PASS,11,none,0,AirportKey,True,PASS,
+dim_aircraft_type.csv,12,12,PASS,8,none,0,AircraftTypeKey,True,PASS,
+dim_aircraft.csv,440,440,PASS,9,none,0,AircraftKey,True,PASS,
+dim_customer.csv,5000,5000,PASS,8,LoyaltyTier=686,0,CustomerKey,True,PASS,LoyaltyTier (686 null)
+dim_date.csv,761,761,PASS,19,none,0,DateKey,True,PASS,No nulls; 761 rows 2024-10-01 to 2026-10-31
+dim_disruption_type.csv,9,9,PASS,7,none,0,DisruptionTypeKey,True,PASS,
+dim_fare_class.csv,8,8,PASS,7,none,0,FareClassKey,True,PASS,; no FK references in current facts (unused in 14-table model)
+dim_booking_channel.csv,7,7,PASS,6,none,0,BookingChannelKey,True,PASS,; no FK references in current facts (unused in 14-table model)
+dim_currency.csv,8,8,PASS,6,none,0,CurrencyKey,True,PASS,; no FK references in current facts (unused in 14-table model)
+dim_route.csv,320,320,PASS,9,none,0,RouteKey,True,PASS,
+dim_airline.csv,10,10,PASS,12,AirlineGroup=10; BusinessModelClass=10; StatusEffectiveDate=10,0,AirlineKey,True,PASS,"AirlineGroup, BusinessModelClass, StatusEffectiveDate (all 10 null); 3 columns entirely null (airline reference gap)"
+fact_flight_operations.csv,5000,5000,PASS,25,ActualDepartureTimestampUTC=224; ActualArrivalTimestampUTC=224; DepartureDelayMinutes=224; ArrivalDelayMinutes=224; BlockMinutes=224,0,FlightOperationKey,True,PASS,"ActualDeparture/Arrival timestamps and delay/block (224 each, cancelled flights)"
+fact_disruptions.csv,1754,1754,PASS,16,EventEndTimestampUTC=322; ReactionaryEvidenceID=1682,0,DisruptionKey,True,PASS,"EventEndTimestampUTC (322), ReactionaryEvidenceID (1682)"
+fact_customer_feedback.csv,2500,2500,PASS,14,SatisfactionScore=603; ComplaintCategory=1862; ResolutionDateKey=1896,0,FeedbackKey,True,PASS,"SatisfactionScore (603), ComplaintCategory (1862), ResolutionDateKey (1896)"

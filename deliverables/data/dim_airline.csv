@@ -1,0 +1,11 @@
+AirlineKey,AirlineId,AirlineIATACode,AirlineICAOCode,AirlineName,AirlineGroup,HomeCountry,HomeCountryCode,BusinessModelClass,IsActive,StatusEffectiveDate,ReferenceVersion
+1,AIR-0001,EK,UAE,Emirates,,United Arab Emirates,AE,,True,,AIR-2026-11-04-001
+2,AIR-0002,QR,QTR,Qatar Airways,,Qatar,QA,,True,,AIR-2026-11-04-001
+3,AIR-0003,SQ,SIA,Singapore Airlines,,Singapore,SG,,True,,AIR-2026-11-04-001
+4,AIR-0004,AI,AIC,Air India,,India,IN,,True,,AIR-2026-11-04-001
+5,AIR-0005,6E,IGO,IndiGo,,India,IN,,True,,AIR-2026-11-04-001
+6,AIR-0006,BA,BAW,British Airways,,United Kingdom,GB,,True,,AIR-2026-11-04-001
+7,AIR-0007,LH,DLH,Lufthansa,,Germany,DE,,True,,AIR-2026-11-04-001
+8,AIR-0008,DL,DAL,Delta Air Lines,,United States,US,,True,,AIR-2026-11-04-001
+9,AIR-0009,WN,SWA,Southwest Airlines,,United States,US,,True,,AIR-2026-11-04-001
+10,AIR-0010,QF,QFA,Qantas,,Australia,AU,,True,,AIR-2026-11-04-001

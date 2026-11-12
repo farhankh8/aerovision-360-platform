@@ -1,0 +1,19 @@
+{
+  "transformation_id": "TRANS_6D6420B1",
+  "name": "Test validation",
+  "description": "Validate before execute",
+  "target_dataset_id": "test_dataset",
+  "transformation_type": "value_replacement",
+  "source_column": "severity",
+  "target_column": null,
+  "old_value": "LOW",
+  "new_value": "MEDIUM",
+  "filter_condition": null,
+  "approval_reference": null,
+  "status": "PENDING",
+  "created_timestamp": "2026-11-05T08:36:32.231607+00:00",
+  "executed_timestamp": null,
+  "rolled_back_timestamp": null,
+  "evidence": {},
+  "rollback_evidence": {}
+}

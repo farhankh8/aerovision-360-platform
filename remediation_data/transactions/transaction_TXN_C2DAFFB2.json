@@ -1,0 +1,31 @@
+{
+  "transaction_id": "TXN_C2DAFFB2",
+  "dataset_id": "test_dataset",
+  "transformations": [
+    {
+      "transformation_id": "TRANS_96298E5E",
+      "name": "Remediation for incident INC_TEST_001",
+      "description": "Automated remediation proposed for incident INC_TEST_001",
+      "target_dataset_id": "test_dataset",
+      "transformation_type": "value_replacement",
+      "source_column": "severity",
+      "target_column": null,
+      "old_value": "LOW",
+      "new_value": "MEDIUM",
+      "filter_condition": null,
+      "approval_reference": "DEC_46EC9FC7",
+      "status": "PENDING",
+      "created_timestamp": "2026-11-05T06:45:06.072062+00:00",
+      "executed_timestamp": null,
+      "rolled_back_timestamp": null,
+      "evidence": {},
+      "rollback_evidence": {}
+    }
+  ],
+  "approval_id": "DEC_46EC9FC7",
+  "status": "PENDING",
+  "created_timestamp": "2026-11-05T06:45:06.077266+00:00",
+  "executed_timestamp": null,
+  "rolled_back_timestamp": null,
+  "evidence": {}
+}

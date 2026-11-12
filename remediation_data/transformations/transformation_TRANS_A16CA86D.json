@@ -1,0 +1,19 @@
+{
+  "transformation_id": "TRANS_A16CA86D",
+  "name": "Remediation for incident INC_TEST_001",
+  "description": "Automated remediation proposed for incident INC_TEST_001",
+  "target_dataset_id": "test_dataset",
+  "transformation_type": "value_replacement",
+  "source_column": "severity",
+  "target_column": null,
+  "old_value": "LOW",
+  "new_value": "MEDIUM",
+  "filter_condition": null,
+  "approval_reference": "DEC_6F25F37D",
+  "status": "PENDING",
+  "created_timestamp": "2026-11-05T06:47:15.957442+00:00",
+  "executed_timestamp": null,
+  "rolled_back_timestamp": null,
+  "evidence": {},
+  "rollback_evidence": {}
+}

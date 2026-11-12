@@ -1,0 +1,19 @@
+{
+  "transformation_id": "TRANS_460C291C",
+  "name": "Test value replacement",
+  "description": "Replace LOW severity with MEDIUM",
+  "target_dataset_id": "test_dataset",
+  "transformation_type": "value_replacement",
+  "source_column": "severity",
+  "target_column": null,
+  "old_value": "LOW",
+  "new_value": "MEDIUM",
+  "filter_condition": null,
+  "approval_reference": null,
+  "status": "PENDING",
+  "created_timestamp": "2026-11-08T11:16:18.984117+00:00",
+  "executed_timestamp": null,
+  "rolled_back_timestamp": null,
+  "evidence": {},
+  "rollback_evidence": {}
+}

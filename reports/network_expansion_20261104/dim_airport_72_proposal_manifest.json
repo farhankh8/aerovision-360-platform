@@ -1,0 +1,42 @@
+{
+  "project": "AEROVISION 360",
+  "dataset": "DimAirport_Expansion_Proposal",
+  "status": "DESIGN_PROPOSAL_NOT_PUBLISHED",
+  "disclosure": "Synthetic Simulation ? Not Actual Airline Performance",
+  "created_at_utc": "2026-11-04T07:32:05.718810+00:00",
+  "target_airport_count": 72,
+  "existing_airports_preserved": 24,
+  "new_airports_proposed": 48,
+  "airport_key_policy": "Existing AirportKey values 1?24 preserved; new AirportKey values appended as 25?72.",
+  "country_distribution": {
+    "AE": 8,
+    "QA": 3,
+    "SG": 3,
+    "IN": 12,
+    "GB": 8,
+    "DE": 8,
+    "US": 15,
+    "AU": 15
+  },
+  "airport_code_disclaimer": "All airport codes are fictional project-generated identifiers, not official IATA codes.",
+  "geography_disclaimer": "All airport and city names are fictional. Coordinates are approximate geographic reference positions and do not identify actual airport facilities.",
+  "timezone_validation": "IANA ZoneInfo validation passed for all new records.",
+  "original_airport_csv_sha256": "94b4a60702138efef4d8dba3555b758da226d8da6b67f6ed58231dee78a6e2e3",
+  "proposal_csv": {
+    "path": "reports\\network_expansion_20261104\\dim_airport_72_proposal.csv",
+    "sha256": "1ed8ef15f807c8a86faa8e54b1b563d82ef378e80fe4034148d6f0206815aa4c"
+  },
+  "validation": {
+    "72_rows": true,
+    "11_columns": true,
+    "48_new_records": true,
+    "original_24_records_unchanged": true,
+    "unique_airport_keys": true,
+    "unique_airport_codes": true,
+    "unique_airport_names": true,
+    "unique_city_names": true,
+    "coordinate_bounds": true,
+    "valid_iana_timezones": true,
+    "country_distribution": true
+  }
+}

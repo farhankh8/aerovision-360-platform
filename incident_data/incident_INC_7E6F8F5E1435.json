@@ -1,0 +1,38 @@
+{
+  "incident_id": "INC_7E6F8F5E1435",
+  "dataset_id": "test_dataset",
+  "run_id": "anomaly_test_001",
+  "quality_run_id": "anomaly_test_001",
+  "rule_id": null,
+  "anomaly_id": "test_dataset",
+  "severity": "INFO",
+  "description": "Deterministic anomaly detected: value=500.0000, Z-score=2.65 (computed from limited data, ML-based detection deferred until sufficient historical observations available) [ML DETECTION DEFERRED: Insufficient historical observations for model-based analysis]",
+  "evidence": {
+    "detection_method": "deterministic_fallback",
+    "threshold": 2.0,
+    "observed_value": 500.0,
+    "baseline_value": 149.6875,
+    "expected_range": [
+      -115.1411887310361,
+      414.5161887310361
+    ],
+    "confidence": 0.3,
+    "is_data_quality_failure": false,
+    "explanation": "Deterministic anomaly detected: value=500.0000, Z-score=2.65 (computed from limited data, ML-based detection deferred until sufficient historical observations available) [ML DETECTION DEFERRED: Insufficient historical observations for model-based analysis]"
+  },
+  "status": "OPEN",
+  "created_timestamp": "2026-11-05T08:36:33.971342+00:00",
+  "updated_timestamp": "2026-11-05T08:36:33.971343+00:00",
+  "owner": "system",
+  "assignee": null,
+  "resolution_details": null,
+  "closed_timestamp": null,
+  "history": [
+    {
+      "from": null,
+      "to": "OPEN",
+      "timestamp": "2026-11-05T08:36:33.971342+00:00",
+      "actor": "system"
+    }
+  ]
+}

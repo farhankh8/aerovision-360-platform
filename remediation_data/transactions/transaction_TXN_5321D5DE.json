@@ -1,0 +1,11 @@
+{
+  "transaction_id": "TXN_5321D5DE",
+  "dataset_id": "test_dataset",
+  "transformations": [],
+  "approval_id": null,
+  "status": "ROLLED_BACK",
+  "created_timestamp": "2026-11-08T12:22:44.433906+00:00",
+  "executed_timestamp": "2026-11-08T12:22:44.439053+00:00",
+  "rolled_back_timestamp": "2026-11-08T12:22:44.439058+00:00",
+  "evidence": {}
+}

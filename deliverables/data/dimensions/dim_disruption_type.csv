@@ -1,0 +1,10 @@
+DisruptionTypeKey,DisruptionCode,DisruptionName,DisruptionCategory,ControllableFlag,ReactionaryEligibleFlag,IsActive
+1,WEATHER,Severe Weather,Weather,False,False,True
+2,ATC,Air Traffic Control Restriction,Air Traffic Control,False,False,True
+3,TECH,Aircraft Technical Defect,Technical,True,False,True
+4,CREW,Crew Availability,Crew,True,False,True
+5,AIRPORT,Airport Infrastructure Constraint,Airport,False,False,True
+6,SECURITY,Security Event,Security,False,False,True
+7,PAX,Passenger Handling Issue,Passenger,True,False,True
+8,REACTION,Late Inbound Aircraft,Reactionary,False,True,True
+9,OTHER,Other Operational Cause,Other,False,False,True

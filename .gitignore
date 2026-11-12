@@ -1,0 +1,117 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Editors and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Generated data - review before committing
+data/01_raw/
+data/02_staging/
+data/03_curated/
+data/execution/
+qa/results/
+qa/screenshots/
+
+# Power BI temporary/local artifacts
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Historical backups — retained locally, excluded from Git
+**/backups/
+**/*backup*/
+docs/*.pre_*_backup.md
+
+# Generated deployment and recovery artifacts
+reports/**/deployment_package/
+reports/**/deployment_package_v2/
+reports/**/promotion_execution/
+reports/**/staging/
+reports/**/registry_validation/
+reports/**/registry_validation_v2/
+reports/**/recovery/
+
+# Browser verification tooling (local only)
+node_modules/
+package-lock.json
+package.json
+test_verify.js
+test_deep.js
+verification/*.tmp
+
+# Test execution artifacts (regenerated on every run)
+.pytest_basetemp/
+.pytest_basetemp2/
+.pytest_basetemp3/
+.pytest_basetemp4/
+.pytest_final/
+test_output.txt
+test_results.txt
+test_run.txt
+test.txt
+pytest_canon.txt
+pytest_canon2.txt
+pytest_current.txt
+pytest_exec.txt
+pytest_fact.txt
+pytest_fin.txt
+pytest_final.txt
+pytest_full.txt
+all_files.txt
+
+# Development scratch and one-off inspection scripts (not project artifacts)
+_inspect_*.py
+_final_*.py
+fix_*.py
+fix_*.py.disabled
+find_*.py
+audit2.py
+audit3.py
+audit_page02.py
+check_*.py
+debug_test.py
+analyze.py
+apply_fix.py
+comprehensive_fix.py
+restore_*.py
+page05_audit_data.py
+inspect_dim_airline.py
+inspect_tests.py
+investigate.py
+trace_flow.py
+read_method.py
+validate_pbi.py
+verify_governance.py
+verify_fx.py
+verify_gates.py
+add_cdr.py
+add_propose.py
+add_original_tests.py
+build_deliverables.py
+build_excel.py
+create_excel.py
+create_excel_workbook.py
+pbix_diff*.py
+
+# Agent scratch
+.agents/
+

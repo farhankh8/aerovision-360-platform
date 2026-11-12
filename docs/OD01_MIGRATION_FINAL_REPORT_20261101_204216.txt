@@ -1,0 +1,208 @@
+AEROVISION 360 - OD-01 REAL AIRLINE IDENTITY MIGRATION FINAL REPORT
+Generated: 2026-11-01 20:42:16
+Mode: CONTROLLED DOCUMENTATION MIGRATION
+
+FORMAL STATUS
+OD-01: PENDING (formal decision record incomplete)
+G3: NOT STARTED
+G4: BLOCKED
+Data generation: NOT AUTHORIZED
+Reference CSV files: NOT CREATED
+Power BI model/report files: NOT MODIFIED
+
+FILES CHANGED
+01_PROJECT_SCOPE.md
+02_BUSINESS_REQUIREMENTS.md
+03_DATA_CONTRACTS.md
+AEROVISION_360_MASTER_BUILD_PROMPT.txt
+REQUIREMENTS_TRACEABILITY.md
+PROGRESS_LEDGER.md
+
+BACKUP DIRECTORY
+C:\Users\KHfar\OneDrive\Desktop\AEROVISION_360\docs\od01_real_airline_migration_apply_backup_20261101_204216
+
+BEFORE AND AFTER HASHES
+01_PROJECT_SCOPE.md | BEFORE=F9F068195CE62B738FD20F23BBF4680DA982A295AF6C7D2941AE9D743F7EE57D | AFTER=3238D7199F10F5E4E8BF7193D27825A2EE13FD571CCDE9B44DC3CE123FBD72B9
+02_BUSINESS_REQUIREMENTS.md | BEFORE=C5D986495EFF1812A42C29525C9BBA10520DF869324A0AC59FE99523D15E3A9C | AFTER=E2FCC8132981C96720E572F01EF353C255CA6BE91F27854950D93FF0DFC1DB6E
+03_DATA_CONTRACTS.md | BEFORE=363FBB998F6C1A1564D5EC783104B98DF7741B88CE26FF32F1A3579125518325 | AFTER=EB1DE0E1B80E9E30B4905740BDD66AB96657073119D63C49AA48445CB06446E2
+AEROVISION_360_MASTER_BUILD_PROMPT.txt | BEFORE=3CB41CD14EC89BA6FDEB70A2E5CE50696EB601AC7B17EE348AEBA6ED80776282 | AFTER=17BD2C6FCADB9E2A917D047B2B2D9716E21CB1709B5A46ABF01AB2833C56D429
+REQUIREMENTS_TRACEABILITY.md | BEFORE=F80F3CA002AC711FE3856129B6B7E5C9C494067C47BCC6F26084BEDB2C88F61F | AFTER=1AD225D00EA6D5808B6E0050DBFCE10F84CBAEF2B66DE70C4362370BBA9CC751
+PROGRESS_LEDGER.md | BEFORE=3B959982BF961BFD82E7F335E9468510143CB8080AF041D57E0A62049DC52012 | AFTER=42A00E3A41A9ABBC6B9F930BFE39DD369E6B9681B9F56194921E7145E6F8A7A3
+
+REPLACEMENT AUDIT
+Label | Expected | Actual | OldLength | NewLength
+scope-project-type | 1 | 1 | 64 | 90
+scope-airline-population | 1 | 1 | 60 | 118
+scope-roster-insert | 1 | 1 | 28 | 1060
+scope-data-boundary | 1 | 1 | 173 | 712
+scope-out-of-scope-claim | 1 | 1 | 66 | 174
+br-01-identity | 1 | 1 | 143 | 321
+br-01-evidence | 1 | 1 | 75 | 111
+contract-doccontrol-data-source | 1 | 1 | 37 | 108
+contract-doccontrol-population | 1 | 1 | 56 | 110
+contract-purpose | 1 | 1 | 211 | 275
+contract-C02 | 1 | 1 | 61 | 113
+contract-C08 | 1 | 1 | 79 | 170
+contract-synthetic-rule | 1 | 1 | 274 | 660
+contract-roster-insert | 1 | 1 | 30 | 1332
+contract-reference-table | 1 | 1 | 92 | 340
+contract-airline-reference-schema | 1 | 1 | 108 | 4567
+contract-dim-summary | 1 | 1 | 166 | 201
+contract-dimairline-purpose | 1 | 1 | 108 | 165
+contract-dimairline-grain | 1 | 1 | 43 | 55
+contract-dimairline-uniqueness | 1 | 1 | 47 | 71
+contract-dimairline-identity-rules | 1 | 1 | 80 | 499
+contract-dimairline-businessmodel-rule | 1 | 1 | 101 | 155
+contract-schema-iata-icao | 1 | 1 | 76 | 191
+contract-schema-airlinename | 1 | 1 | 67 | 82
+contract-schema-airlinegroup | 1 | 1 | 70 | 121
+contract-schema-homecountry | 1 | 1 | 136 | 221
+contract-schema-operatingregion | 1 | 1 | 64 | 125
+contract-schema-businessmodel | 1 | 1 | 83 | 136
+contract-schema-isactive | 1 | 1 | 64 | 74
+contract-primary-key | 1 | 1 | 87 | 151
+contract-business-key | 1 | 1 | 97 | 135
+contract-T01 | 1 | 1 | 161 | 222
+contract-T71-plus-T72-T77 | 1 | 1 | 361 | 2516
+contract-requirement-trace | 1 | 1 | 37 | 219
+contract-OD01 | 1 | 1 | 259 | 424
+contract-AC02 | 1 | 1 | 114 | 141
+contract-version | 1 | 1 | 17 | 17
+contract-change-log | 1 | 1 | 169 | 582
+contract-complete-bullet | 1 | 1 | 65 | 235
+contract-next-step | 1 | 1 | 139 | 195
+contract-critical-decisions-note | 1 | 1 | 52 | 175
+contract-status-rule | 1 | 1 | 305 | 398
+master-nonnegotiable-rule | 1 | 1 | 91 | 224
+master-baseline-airlines | 1 | 1 | 32 | 83
+master-baseline-profiles | 1 | 1 | 166 | 260
+master-roster-insert | 1 | 1 | 28 | 1177
+master-entity-airline-master | 1 | 1 | 16 | 60
+master-governance-rule | 1 | 1 | 281 | 439
+master-documentation-list | 1 | 1 | 47 | 117
+master-phase2 | 1 | 1 | 105 | 134
+master-success-standard | 1 | 1 | 334 | 474
+trace-REQ001 | 1 | 1 | 97 | 224
+trace-REQ021 | 1 | 1 | 156 | 167
+trace-REQ023-REQ027 | 1 | 1 | 222 | 1253
+ledger-G3 | 1 | 1 | 344 | 427
+
+VALIDATION RESULTS
+Checks: 99; Failed: 0
+scope-roster-row-1 | PASS=True | 
+contract-roster-row-1 | PASS=True | 
+master-roster-row-1 | PASS=True | 
+scope-roster-row-2 | PASS=True | 
+contract-roster-row-2 | PASS=True | 
+master-roster-row-2 | PASS=True | 
+scope-roster-row-3 | PASS=True | 
+contract-roster-row-3 | PASS=True | 
+master-roster-row-3 | PASS=True | 
+scope-roster-row-4 | PASS=True | 
+contract-roster-row-4 | PASS=True | 
+master-roster-row-4 | PASS=True | 
+scope-roster-row-5 | PASS=True | 
+contract-roster-row-5 | PASS=True | 
+master-roster-row-5 | PASS=True | 
+scope-roster-row-6 | PASS=True | 
+contract-roster-row-6 | PASS=True | 
+master-roster-row-6 | PASS=True | 
+scope-roster-row-7 | PASS=True | 
+contract-roster-row-7 | PASS=True | 
+master-roster-row-7 | PASS=True | 
+scope-roster-row-8 | PASS=True | 
+contract-roster-row-8 | PASS=True | 
+master-roster-row-8 | PASS=True | 
+scope-roster-row-9 | PASS=True | 
+contract-roster-row-9 | PASS=True | 
+master-roster-row-9 | PASS=True | 
+scope-roster-row-10 | PASS=True | 
+contract-roster-row-10 | PASS=True | 
+master-roster-row-10 | PASS=True | 
+scope-no-fictional-airline | PASS=True | 
+scope-real-identities | PASS=True | 
+scope-disclosure | PASS=True | 
+br-no-fictional-airline | PASS=True | 
+br-real-identities | PASS=True | 
+contract-no-fictional-airline | PASS=True | 
+contract-no-standalone-airlinecode | PASS=True | 
+contract-no-airlinecode-schema-row | PASS=True | 
+contract-iata-schema | PASS=True | 
+contract-icao-schema | PASS=True | 
+contract-iata-business-key | PASS=True | 
+contract-icao-alternate-key | PASS=True | 
+contract-dimairline-homecountry | PASS=True | 
+contract-dimairline-homecountrycode | PASS=True | 
+contract-separate-synthetic-homecountry-unchanged | PASS=True | 
+contract-no-fictional-dimairline-homecountry | PASS=True | 
+contract-airlinegroup-nullable | PASS=True | 
+contract-operatingregion-nullable | PASS=True | 
+contract-businessmodel-nullable | PASS=True | 
+contract-source-register | PASS=True | 
+contract-source-record-id | PASS=True | 
+contract-verification-status | PASS=True | 
+contract-disclosure | PASS=True | 
+no-unresolved-emdash-placeholder | PASS=True | 
+contract-test-T-72 | PASS=True | 
+contract-test-T-73 | PASS=True | 
+contract-test-T-74 | PASS=True | 
+contract-test-T-75 | PASS=True | 
+contract-test-T-76 | PASS=True | 
+contract-test-T-77 | PASS=True | 
+contract-trace-req023 | PASS=True | 
+contract-trace-req027 | PASS=True | 
+contract-od01-pending-record | PASS=True | 
+contract-od01-pending-status | PASS=True | 
+contract-ac02 | PASS=True | 
+contract-version-1.4 | PASS=True | 
+contract-change-log-1.4 | PASS=True | 
+master-no-fictional-airline | PASS=True | 
+master-real-identities | PASS=True | 
+master-disclosure | PASS=True | 
+trace-no-fictional-airline | PASS=True | 
+trace-REQ-023 | PASS=True | 
+trace-REQ-024 | PASS=True | 
+trace-REQ-025 | PASS=True | 
+trace-REQ-026 | PASS=True | 
+trace-REQ-027 | PASS=True | 
+trace-req001 | PASS=True | 
+trace-req021 | PASS=True | 
+ledger-contract-version | PASS=True | 
+ledger-test-range | PASS=True | 
+ledger-g3-not-started | PASS=True | 
+ledger-g4-blocked | PASS=True | 
+reference-directory-empty | PASS=True | count=0
+no-data-files-created | PASS=True | count=0
+no-powerbi-files-created | PASS=True | count=0
+no-data-dictionary-created | PASS=True | 
+backup-unchanged-01_PROJECT_SCOPE.md | PASS=True | F9F068195CE62B738FD20F23BBF4680DA982A295AF6C7D2941AE9D743F7EE57D
+backup-unchanged-02_BUSINESS_REQUIREMENTS.md | PASS=True | C5D986495EFF1812A42C29525C9BBA10520DF869324A0AC59FE99523D15E3A9C
+backup-unchanged-03_DATA_CONTRACTS.md | PASS=True | 363FBB998F6C1A1564D5EC783104B98DF7741B88CE26FF32F1A3579125518325
+backup-unchanged-AEROVISION_360_MASTER_BUILD_PROMPT.txt | PASS=True | 3CB41CD14EC89BA6FDEB70A2E5CE50696EB601AC7B17EE348AEBA6ED80776282
+backup-unchanged-REQUIREMENTS_TRACEABILITY.md | PASS=True | F80F3CA002AC711FE3856129B6B7E5C9C494067C47BCC6F26084BEDB2C88F61F
+backup-unchanged-PROGRESS_LEDGER.md | PASS=True | 3B959982BF961BFD82E7F335E9468510143CB8080AF041D57E0A62049DC52012
+six-unique-post-hashes | PASS=True | 
+scope-encoding-preserved | PASS=True | BOM=True CRLF=1 LF=141
+br-encoding-preserved | PASS=True | BOM=True CRLF=1 LF=127
+contract-encoding-preserved | PASS=True | BOM=False CRLF=1882 LF=0
+master-encoding-preserved | PASS=True | BOM=False CRLF=0 LF=264
+trace-encoding-preserved | PASS=True | BOM=True CRLF=33 LF=0
+ledger-encoding-preserved | PASS=True | BOM=True CRLF=16 LF=0
+
+ENCODING AND LINE ENDINGS
+01_PROJECT_SCOPE.md | BOM=True CRLF=1 LF=141
+02_BUSINESS_REQUIREMENTS.md | BOM=True CRLF=1 LF=127
+03_DATA_CONTRACTS.md | BOM=False CRLF=1882 LF=0
+AEROVISION_360_MASTER_BUILD_PROMPT.txt | BOM=False CRLF=0 LF=264
+REQUIREMENTS_TRACEABILITY.md | BOM=True CRLF=33 LF=0
+PROGRESS_LEDGER.md | BOM=True CRLF=16 LF=0
+
+REMAINING BLOCKERS
+- OD-01 formal decision record remains incomplete and PENDING.
+- G3 remains NOT STARTED; critical owner approvals, schema freeze, reference-version approval, validation implementation, and gate review remain outstanding.
+- G4 remains BLOCKED; no written G4 authorization exists.
+- No reference CSV files have been created; ref_airlines.csv and ref_airline_sources.csv remain design requirements.
+- No operational or financial dataset, semantic model, DAX measure, or report page has been created or modified.
+
+EXPLICIT STATEMENT
+No dataset generation was performed. No Power BI model or report was created or changed. No reference CSV file was created. No Git staging, commit, or push was performed. No decision was marked APPROVED and no gate status was advanced.

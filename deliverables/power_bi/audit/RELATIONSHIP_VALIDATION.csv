@@ -1,0 +1,25 @@
+FromTable,FromColumn,ToTable,ToColumn,Cardinality,FilterDirection,ActiveInactiveRecommendation,ValidationEvidence,RiskOrExplanation
+dim_airline,AirlineKey,fact_flight_operations,AirlineKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 5000 rows,Core operational grain
+dim_airline,AirlineKey,fact_disruptions,AirlineKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 1754 rows,Disruption reporting by airline
+dim_airline,AirlineKey,fact_customer_feedback,AirlineKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 2500 rows,Feedback by airline
+dim_airline,AirlineKey,dim_aircraft,AirlineKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 440 rows,Fleet ownership
+dim_aircraft_type,AircraftTypeKey,dim_aircraft,AircraftTypeKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 440 rows,Aircraft type classification
+dim_aircraft,AircraftKey,fact_flight_operations,AircraftKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 5000 rows,Flight aircraft assignment
+dim_airport,AirportKey,dim_route,OriginAirportKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 320 rows,Route origin
+dim_airport,AirportKey,dim_route,DestinationAirportKey,1:*,Single,Inactive,PK unique/non-null; 0 orphans in 320 rows,Second relationship between same tables; only one can be active
+dim_airport,AirportKey,fact_disruptions,EventLocationAirportKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 1754 rows,Disruption location airport
+dim_route,RouteKey,fact_flight_operations,RouteKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 5000 rows,Flight route
+dim_route,RouteKey,fact_disruptions,RouteKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 1754 rows,Disruption route
+dim_route,RouteKey,fact_customer_feedback,RouteKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 2500 rows,Feedback route
+dim_customer,CustomerKey,fact_customer_feedback,CustomerKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 2500 rows,Feedback customer
+dim_disruption_type,DisruptionTypeKey,fact_disruptions,DisruptionTypeKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 1754 rows,Disruption classification
+dim_date,DateKey,fact_flight_operations,ScheduledDepartureDateKey,1:*,Single,Active,PK unique/non-null; 0 orphans in 5000 rows,Primary flight date role
+dim_date,DateKey,fact_flight_operations,ScheduledArrivalDateKey,1:*,Single,Inactive,PK unique/non-null; 0 orphans in 5000 rows,Role-playing date; use USERELATIONSHIP when needed
+dim_date,DateKey,fact_disruptions,EventDateKey,1:*,Single,Inactive,PK unique/non-null; 0 orphans in 1754 rows,Second table connection; only one active relationship allowed between dim_date and any fact
+dim_date,DateKey,fact_customer_feedback,FeedbackDateKey,1:*,Single,Inactive,PK unique/non-null; 0 orphans in 2500 rows,Feedback date role
+dim_date,DateKey,fact_customer_feedback,ResolutionDateKey,1:*,Single,Inactive,PK unique/non-null; 0 orphans among 604 non-null rows; 1896 nulls,Nullable FK; inactive role
+fact_disruptions,FlightOperationKey,fact_flight_operations,FlightOperationKey,1:* (source ref),-,Do not create,0 orphans in 1754 rows,Fact-to-fact relationship not allowed; use shared dims or degenerate key in reports only
+fact_customer_feedback,FlightOperationKey,fact_flight_operations,FlightOperationKey,1:* (source ref),-,Do not create,0 orphans in 2500 rows,Fact-to-fact relationship not allowed; use shared dims or degenerate key in reports only
+dim_fare_class,FareClassKey,(no fact column),-,-,-,Not applicable,No FK column in any fact,Dimension currently unused in model
+dim_booking_channel,BookingChannelKey,(no fact column),-,-,-,Not applicable,No FK column in any fact,Dimension currently unused in model
+dim_currency,CurrencyKey,(no fact column),-,-,-,Not applicable,No FK column in any fact; OD-04 finance blocked,Dimension currently unused in model

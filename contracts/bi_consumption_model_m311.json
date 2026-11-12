@@ -1,0 +1,616 @@
+{
+  "model_id": "aerovision360-analytics-m311",
+  "model_name": "AEROVISION 360 Analytical Data Warehouse",
+  "model_version": "m311-1.0",
+  "owner": "data_engineering@aerovision360",
+  "datasets": {
+    "fact_flight_operations": "fact_flight_operations",
+    "fact_disruptions": "fact_disruptions",
+    "fact_customer_feedback": "fact_customer_feedback",
+    "dim_airline": "dim_airline",
+    "dim_route": "dim_route",
+    "dim_date": "dim_date",
+    "dim_disruption_type": "dim_disruption_type",
+    "dim_customer": "dim_customer",
+    "dim_aircraft": "dim_aircraft",
+    "dim_aircraft_type": "dim_aircraft_type",
+    "dim_airport": "dim_airport",
+    "dim_booking_channel": "dim_booking_channel",
+    "dim_currency": "dim_currency",
+    "dim_fare_class": "dim_fare_class"
+  },
+  "dataset_schemas": {
+    "fact_flight_operations": {
+      "dataset_id": "fact_flight_operations",
+      "name": "FactFlightOperations",
+      "rows": 5000,
+      "grain": "one row = one flight operation leg",
+      "columns": {
+        "FlightOperationKey": {
+          "type": "int64",
+          "description": "Primary key"
+        },
+        "FlightLegID": {
+          "type": "string",
+          "description": "Flight leg identifier"
+        },
+        "FlightNumber": {
+          "type": "string",
+          "description": "Flight number"
+        },
+        "AirlineKey": {
+          "type": "int32",
+          "description": "FK → dim_airline"
+        },
+        "RouteKey": {
+          "type": "int32",
+          "description": "FK → dim_route"
+        },
+        "AircraftKey": {
+          "type": "int32",
+          "description": "FK → dim_aircraft"
+        },
+        "ScheduledDepartureTimestampUTC": {
+          "type": "timestamp",
+          "description": "Scheduled departure in UTC"
+        },
+        "ActualDepartureTimestampUTC": {
+          "type": "timestamp",
+          "description": "Actual departure in UTC"
+        },
+        "ScheduledArrivalTimestampUTC": {
+          "type": "timestamp",
+          "description": "Scheduled arrival in UTC"
+        },
+        "ActualArrivalTimestampUTC": {
+          "type": "timestamp",
+          "description": "Actual arrival in UTC"
+        },
+        "ScheduledDepartureDateKey": {
+          "type": "int32",
+          "description": "FK → dim_date (role-playing)"
+        },
+        "ScheduledArrivalDateKey": {
+          "type": "int32",
+          "description": "FK → dim_date (role-playing)"
+        },
+        "AvailableSeats": {
+          "type": "int16",
+          "description": "Available seats on flight"
+        },
+        "BookedPassengers": {
+          "type": "int16",
+          "description": "Booked passengers"
+        },
+        "RevenuePassengers": {
+          "type": "int16",
+          "description": "Revenue passengers"
+        },
+        "NonRevenuePassengers": {
+          "type": "int16",
+          "description": "Non-revenue passengers"
+        },
+        "FlightDistanceKM": {
+          "type": "object",
+          "description": "Flight distance in km"
+        },
+        "FlightStatus": {
+          "type": "string",
+          "description": "Operational status"
+        },
+        "DepartureDelayMinutes": {
+          "type": "int16",
+          "description": "Departure delay"
+        },
+        "ArrivalDelayMinutes": {
+          "type": "int16",
+          "description": "Arrival delay"
+        },
+        "BlockMinutes": {
+          "type": "int16",
+          "description": "Block time"
+        },
+        "CancellationFlag": {
+          "type": "bool",
+          "description": "Was flight cancelled?"
+        },
+        "CompletionFlag": {
+          "type": "bool",
+          "description": "Is flight completion recorded?"
+        },
+        "OnTimeFlag": {
+          "type": "bool",
+          "description": "Was flight on time?"
+        },
+        "OnTimeArrivalFlag": {
+          "type": "bool",
+          "description": "Was arrival on time?"
+        }
+      }
+    },
+    "fact_disruptions": {
+      "dataset_id": "fact_disruptions",
+      "name": "FactDisruptions",
+      "rows": 1754,
+      "grain": "one row = one disruption event",
+      "columns": {
+        "DisruptionKey": {
+          "type": "int64",
+          "description": "Primary key"
+        },
+        "DisruptionID": {
+          "type": "string",
+          "description": "Disruption identifier"
+        },
+        "FlightOperationKey": {
+          "type": "int64",
+          "description": "FK → fact_flight_operations"
+        },
+        "AirlineKey": {
+          "type": "int32",
+          "description": "FK → dim_airline"
+        },
+        "RouteKey": {
+          "type": "int32",
+          "description": "FK → dim_route"
+        },
+        "EventLocationAirportKey": {
+          "type": "int32",
+          "description": "FK → dim_airport"
+        },
+        "DisruptionTypeKey": {
+          "type": "int32",
+          "description": "FK → dim_disruption_type"
+        },
+        "EventSequence": {
+          "type": "int8",
+          "description": "Event sequence number"
+        },
+        "EventDateKey": {
+          "type": "int32",
+          "description": "FK → dim_date"
+        },
+        "EventStartTimestampUTC": {
+          "type": "timestamp",
+          "description": "Disruption start in UTC"
+        },
+        "EventEndTimestampUTC": {
+          "type": "timestamp",
+          "description": "Disruption end in UTC"
+        },
+        "DelayMinutes": {
+          "type": "int16",
+          "description": "Delay duration"
+        },
+        "PrimaryCauseFlag": {
+          "type": "bool",
+          "description": "Is primary cause?"
+        },
+        "ReactionaryFlag": {
+          "type": "bool",
+          "description": "Is reactionary?"
+        },
+        "ReactionaryEvidenceID": {
+          "type": "string",
+          "description": "Evidence ID"
+        },
+        "RecoveryStatus": {
+          "type": "string",
+          "description": "Recovery status"
+        }
+      }
+    },
+    "fact_customer_feedback": {
+      "dataset_id": "fact_customer_feedback",
+      "name": "FactCustomerFeedback",
+      "rows": 2500,
+      "grain": "one row = one feedback event",
+      "columns": {
+        "FeedbackKey": {
+          "type": "int64",
+          "description": "Primary key"
+        },
+        "FeedbackID": {
+          "type": "string",
+          "description": "Feedback identifier"
+        },
+        "CustomerKey": {
+          "type": "int32",
+          "description": "FK → dim_customer"
+        },
+        "AirlineKey": {
+          "type": "int32",
+          "description": "FK → dim_airline"
+        },
+        "FlightOperationKey": {
+          "type": "int64",
+          "description": "FK → fact_flight_operations"
+        },
+        "RouteKey": {
+          "type": "int32",
+          "description": "FK → dim_route"
+        },
+        "FeedbackDateKey": {
+          "type": "int32",
+          "description": "FK → dim_date"
+        },
+        "FeedbackType": {
+          "type": "string",
+          "description": "Type of feedback"
+        },
+        "SatisfactionScore": {
+          "type": "int8",
+          "description": "Satisfaction score (1-5)"
+        },
+        "ComplaintCategory": {
+          "type": "string",
+          "description": "Complaint category"
+        },
+        "ServiceRecoveryFlag": {
+          "type": "bool",
+          "description": "Service recovery flag"
+        },
+        "ResolutionStatus": {
+          "type": "string",
+          "description": "Resolution status"
+        },
+        "ResolutionDateKey": {
+          "type": "int32",
+          "description": "FK → dim_date"
+        },
+        "FeedbackChannel": {
+          "type": "string",
+          "description": "Feedback channel"
+        }
+      }
+    },
+    "dim_airline": {
+      "dataset_id": "dim_airline",
+      "name": "DimAirline",
+      "rows": 10,
+      "key": "AirlineKey",
+      "columns": {
+        "AirlineKey": {
+          "type": "int32",
+          "description": "Primary key"
+        },
+        "AirlineId": {
+          "type": "string",
+          "description": "Airline identity code"
+        },
+        "AirlineIATACode": {
+          "type": "string",
+          "description": "IATA code"
+        },
+        "AirlineICAOCode": {
+          "type": "string",
+          "description": "ICAO code"
+        },
+        "AirlineName": {
+          "type": "string",
+          "description": "Airline name"
+        },
+        "AirlineGroup": {
+          "type": "string",
+          "description": "Airline group"
+        },
+        "HomeCountry": {
+          "type": "string",
+          "description": "Home country"
+        },
+        "HomeCountryCode": {
+          "type": "string",
+          "description": "Country code"
+        },
+        "BusinessModelClass": {
+          "type": "string",
+          "description": "Business model"
+        },
+        "IsActive": {
+          "type": "bool",
+          "description": "Is airline active?"
+        },
+        "StatusEffectiveDate": {
+          "type": "object",
+          "description": "Effective date (Type 1: not populated)"
+        },
+        "ReferenceVersion": {
+          "type": "string",
+          "description": "Data version reference"
+        }
+      }
+    },
+    "dim_route": {
+      "dataset_id": "dim_route",
+      "name": "DimRoute",
+      "rows": 320,
+      "key": "RouteKey",
+      "columns": {
+        "RouteKey": {
+          "type": "int32",
+          "description": "Primary key"
+        },
+        "RouteCode": {
+          "type": "string",
+          "description": "Route code"
+        },
+        "OriginAirportKey": {
+          "type": "int32",
+          "description": "FK → dim_airport (origin)"
+        },
+        "DestinationAirportKey": {
+          "type": "int32",
+          "description": "FK → dim_airport (destination)"
+        },
+        "DistanceKM": {
+          "type": "object",
+          "description": "Distance in km"
+        },
+        "DistanceMiles": {
+          "type": "object",
+          "description": "Distance in miles"
+        },
+        "RouteRegion": {
+          "type": "string",
+          "description": "Route region"
+        },
+        "IsInternational": {
+          "type": "bool",
+          "description": "Is international?"
+        },
+        "IsActive": {
+          "type": "bool",
+          "description": "Is route active?"
+        }
+      }
+    },
+    "dim_date": {
+      "dataset_id": "dim_date",
+      "name": "DimDate",
+      "rows": 761,
+      "key": "DateKey",
+      "role_playing": true,
+      "columns": {
+        "DateKey": {
+          "type": "int32",
+          "description": "Primary key (YYYYMMDD)"
+        },
+        "FullDate": {
+          "type": "date",
+          "description": "Full date"
+        },
+        "Year": {
+          "type": "int16",
+          "description": "Year"
+        },
+        "Quarter": {
+          "type": "int8",
+          "description": "Quarter"
+        },
+        "MonthNumber": {
+          "type": "int8",
+          "description": "Month number"
+        },
+        "MonthName": {
+          "type": "string",
+          "description": "Month name"
+        },
+        "MonthShortName": {
+          "type": "string",
+          "description": "Short month name"
+        },
+        "YearMonth": {
+          "type": "string",
+          "description": "Year-Month"
+        },
+        "YearMonthSort": {
+          "type": "int32",
+          "description": "Sort key"
+        },
+        "WeekNumber": {
+          "type": "int8",
+          "description": "Week number"
+        },
+        "WeekStartDate": {
+          "type": "date",
+          "description": "Week start"
+        },
+        "DayOfMonth": {
+          "type": "int8",
+          "description": "Day of month"
+        },
+        "DayName": {
+          "type": "string",
+          "description": "Day name"
+        },
+        "DayOfWeekNumber": {
+          "type": "int8",
+          "description": "Day of week"
+        },
+        "IsWeekend": {
+          "type": "bool",
+          "description": "Is weekend?"
+        },
+        "IsReportingPeriod": {
+          "type": "bool",
+          "description": "Is reporting period?"
+        },
+        "FiscalYear": {
+          "type": "int16",
+          "description": "Fiscal year"
+        },
+        "FiscalQuarter": {
+          "type": "int8",
+          "description": "Fiscal quarter"
+        },
+        "FiscalMonthNumber": {
+          "type": "int8",
+          "description": "Fiscal month"
+        }
+      }
+    }
+  },
+  "measures": {
+    "FL01": {
+      "id": "FL01",
+      "name": "Flights Operated",
+      "definition": "Count of flight operation legs that were operated",
+      "aggregation": "count",
+      "unit": "flights",
+      "filters": [
+        "FlightStatus = 'Operated'"
+      ],
+      "governance": "approved"
+    },
+    "FL02": {
+      "id": "FL02",
+      "name": "Total Revenue Passengers",
+      "definition": "Sum of revenue passenger counts across all flight operations",
+      "aggregation": "sum",
+      "unit": "passengers",
+      "filters": null,
+      "governance": "approved"
+    },
+    "FL03": {
+      "id": "FL03",
+      "name": "Average Delay Minutes",
+      "definition": "Average departure delay across all flight operations",
+      "aggregation": "avg",
+      "unit": "minutes",
+      "filters": null,
+      "governance": "approved"
+    },
+    "FL04": {
+      "id": "FL04",
+      "name": "Cancellation Rate",
+      "definition": "Percentage of flight operations that were cancelled",
+      "aggregation": "ratio",
+      "unit": "percent",
+      "filters": [
+        "CancellationFlag IS NOT NULL"
+      ],
+      "governance": "approved"
+    },
+    "DS01": {
+      "id": "DS01",
+      "name": "Total Disruptions",
+      "definition": "Count of disruption events",
+      "aggregation": "count",
+      "unit": "events",
+      "filters": null,
+      "governance": "approved"
+    },
+    "DS02": {
+      "id": "DS02",
+      "name": "Average Delay Minutes (Disruption)",
+      "definition": "Average delay duration across disruption events",
+      "aggregation": "avg",
+      "unit": "minutes",
+      "filters": null,
+      "governance": "approved"
+    },
+    "DS03": {
+      "id": "DS03",
+      "name": "Controllable Disruptions",
+      "definition": "Count of disruptions where the airline had control",
+      "aggregation": "count",
+      "unit": "events",
+      "filters": [
+        "ControllableFlag"
+      ],
+      "governance": "approved"
+    },
+    "CF01": {
+      "id": "CF01",
+      "name": "Total Feedback Events",
+      "definition": "Count of customer feedback entries",
+      "aggregation": "count",
+      "unit": "feedbacks",
+      "filters": null,
+      "governance": "approved"
+    },
+    "CF02": {
+      "id": "CF02",
+      "name": "Average Satisfaction Score",
+      "definition": "Mean satisfaction score across all feedback entries",
+      "aggregation": "avg",
+      "unit": "score (1-5)",
+      "filters": null,
+      "governance": "approved"
+    },
+    "CF03": {
+      "id": "CF03",
+      "name": "Complaint Percentage",
+      "definition": "Percentage of feedback entries classified as complaints",
+      "aggregation": "ratio",
+      "unit": "percent",
+      "filters": [
+        "FeedbackType IS NOT NULL"
+      ],
+      "governance": "approved"
+    }
+  },
+  "blocked_measures": {
+    "UNDEF-01": {
+      "id": "UNDEF-01",
+      "name": "Total Revenue",
+      "reason": "OD-04 blocked — FactBookingTransactions unavailable",
+      "governance": "blocked"
+    },
+    "UNDEF-02": {
+      "id": "UNDEF-02",
+      "name": "Total Operating Costs",
+      "reason": "OD-04 blocked — FactOperatingCosts unavailable",
+      "governance": "blocked"
+    },
+    "UNDEF-03": {
+      "id": "UNDEF-03",
+      "name": "On-Time Performance Threshold",
+      "reason": "OD-09 owner decision pending",
+      "governance": "owner_approval_required"
+    },
+    "UNDEF-04": {
+      "id": "UNDEF-04",
+      "name": "Satisfaction Score Scale Definition",
+      "reason": "OD-11 owner decision pending",
+      "governance": "owner_approval_required"
+    },
+    "UNDEF-05": {
+      "id": "UNDEF-05",
+      "name": "Coupon Allocation Metric",
+      "reason": "OD-14 owner decision pending",
+      "governance": "owner_approval_required"
+    },
+    "UNDEF-06": {
+      "id": "UNDEF-06",
+      "name": "Service Recovery Metric",
+      "reason": "OD-17 owner decision pending",
+      "governance": "owner_approval_required"
+    }
+  },
+  "od04_restrictions": {
+    "blocked_facts": [
+      "FactBookingTransactions",
+      "FactOperatingCosts"
+    ],
+    "status": "enforced"
+  },
+  "measure_ownership": {
+    "flights_operated": "data_engineering@aerovision360",
+    "total_revenue_passengers": "commercial_operations@aerovision360",
+    "average_delay_minutes": "operations_management@aerovision360",
+    "cancellation_rate": "operations_management@aerovision360",
+    "disruptions_total": "operations_management@aerovision360",
+    "average_delay_disruption": "operations_management@aerovision360",
+    "controllable_disruptions": "operations_management@aerovision360",
+    "feedback_total": "customer_experience@aerovision360",
+    "average_satisfaction": "customer_experience@aerovision360",
+    "complaint_percentage": "customer_experience@aerovision360"
+  },
+  "compatibility": {
+    "breaking_changes_detectable": true,
+    "schema_versioning": "m311-1.0",
+    "backward_compatible_additions": true,
+    "dropping_columns": "requires_deprecation"
+  }
+}

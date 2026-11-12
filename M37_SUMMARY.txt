@@ -1,0 +1,31 @@
+M3.7 ENGINEERING REMEDIATION — COMPLETE
+
+All 8 verified defects resolved across pipeline.py, default_registry.py, and CLI.
+Quality gate is genuinely fail-closed and enforced before curated publication in
+both execute() and execute_from_stage() execution modes.
+
+237/237 tests pass (37 pipeline + 29 CLI + remaining quality suite).
+All 23 original pipeline tests preserved. All 14 behavioral regression tests pass.
+No production datasets modified. No Git operations performed.
+
+Defects fixed:
+01. Manifest multi-write: overwrite=True safe since filename includes run_id
+02. Missing dataset: explicit FAIL result, no silent skip
+03. Strict mode: detects both missing AND failed datasets
+04. source_root: os.path.normpath(os.path.join("data", "02_staging")) exact comparison
+05. quality_run_id: str | None = None on PipelineRun, derived from manifest
+06. _enforce_quality_gate(): full manifest validation (existence, JSON, structure, run ID, datasets, FAIL, source root)
+07. execute(): quality gate before first curated builder (even with no components registered)
+08. execute_from_stage(): quality gate before first curated builder from this stage
+
+Production files changed:
+- src/orchestration/pipeline.py (complete rewrite with all 8 fixes)
+- src/orchestration/default_registry.py (new module, create_default_registry())
+- scripts/build_curated.py (minimal script for CLI validate())
+
+Test results:
+- 37/37 pipeline unit tests pass (23 original + 14 new behavioral)
+- 29/29 CLI tests pass
+- 237/237 full suite pass
+
+M3.7 COMPLETE — all criteria satisfied.

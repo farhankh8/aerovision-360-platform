@@ -1,0 +1,31 @@
+{
+  "incident_id": "INC_9FA7197645A3",
+  "dataset_id": "integration_test_dataset",
+  "run_id": "e2e_test_001",
+  "quality_run_id": "e2e_test_001",
+  "rule_id": "RULE-001",
+  "anomaly_id": null,
+  "severity": "CRITICAL",
+  "description": "Required column airline_id is missing or empty: airline_id",
+  "evidence": {
+    "record_idx": 0,
+    "value": null,
+    "run_id": "e2e_test_001",
+    "rule_id": "RULE-001"
+  },
+  "status": "OPEN",
+  "created_timestamp": "2026-11-05T06:07:04.249162+00:00",
+  "updated_timestamp": "2026-11-05T06:07:04.249163+00:00",
+  "owner": "system",
+  "assignee": null,
+  "resolution_details": null,
+  "closed_timestamp": null,
+  "history": [
+    {
+      "from": null,
+      "to": "OPEN",
+      "timestamp": "2026-11-05T06:07:04.249162+00:00",
+      "actor": "system"
+    }
+  ]
+}

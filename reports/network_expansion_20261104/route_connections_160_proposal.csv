@@ -1,0 +1,161 @@
+﻿ConnectionKey,AirportCodeA,AirportCodeB,AirportKeyA,AirportKeyB,DistanceKM,ConnectionClass,IsBaselineConnection
+1,XAE,XAH,1,25,210.66,Domestic,False
+2,XAE,XAI,1,26,243.65,Domestic,False
+3,XAE,XAK,1,28,152.67,Domestic,False
+4,XAE,XAU,1,22,12048.54,Interregional,True
+5,XAE,XDE,1,16,4637.95,Interregional,True
+6,XAE,XIN,1,10,2227.00,Interregional,True
+7,XAE,XQA,1,4,374.29,Same-region international,True
+8,XAE,XSG,1,7,5844.70,Interregional,True
+9,XAE,XUK,1,13,5483.80,Interregional,True
+10,XAE,XUS,1,19,11019.53,Interregional,True
+11,XAF,XAI,2,26,179.30,Domestic,False
+12,XAF,XAL,2,29,190.00,Domestic,False
+13,XAF,XUK,2,13,5503.01,Interregional,True
+14,XAG,XAH,3,25,232.10,Domestic,False
+15,XAG,XIN,3,10,2225.16,Interregional,True
+16,XAG,XQC,3,6,350.01,Same-region international,False
+17,XAH,XAJ,25,27,248.13,Domestic,False
+18,XAH,XAL,25,29,217.86,Domestic,False
+19,XAH,XQB,25,5,309.17,Same-region international,False
+20,XAH,XQC,25,6,286.88,Same-region international,False
+21,XAI,XQC,26,6,183.98,Same-region international,False
+22,XAJ,XAK,27,28,159.95,Domestic,False
+23,XAJ,XQA,27,4,314.64,Same-region international,False
+24,XAK,XIO,28,11,1884.51,Interregional,False
+25,XAL,XIO,29,11,1827.78,Interregional,False
+26,XAU,XAW,22,23,3289.64,Domestic,True
+27,XAU,XAX,22,24,1162.38,Domestic,True
+28,XAU,XBA,22,61,714.09,Domestic,False
+29,XAU,XBD,22,64,1058.15,Domestic,False
+30,XAU,XBE,22,65,247.38,Domestic,False
+31,XAU,XBF,22,66,682.96,Domestic,False
+32,XAU,XBK,22,71,914.55,Domestic,False
+33,XAU,XSG,22,7,6302.64,Interregional,True
+34,XAU,XSI,22,9,6316.19,Interregional,True
+35,XAW,XIW,23,36,6948.70,Interregional,False
+36,XAW,XSH,23,8,3905.44,Interregional,False
+37,XAX,XBI,24,69,1330.47,Domestic,False
+38,XAX,XIN,24,10,9559.68,Interregional,True
+39,XBA,XBE,61,65,466.72,Domestic,False
+40,XBA,XBK,61,71,443.68,Domestic,False
+41,XBB,XBG,62,67,1110.90,Domestic,False
+42,XBB,XBH,62,68,1390.11,Domestic,False
+43,XBB,XBI,62,69,1963.59,Domestic,False
+44,XBB,XBL,62,72,520.41,Domestic,False
+45,XBB,XSH,62,8,6144.07,Interregional,False
+46,XBC,XBI,63,69,1290.31,Domestic,False
+47,XBC,XBJ,63,70,1106.63,Domestic,False
+48,XBC,XIU,63,34,6521.84,Interregional,False
+49,XBD,XBK,64,71,161.99,Domestic,False
+50,XBD,XSH,64,8,6548.10,Interregional,False
+51,XBE,XIS,65,32,9460.65,Interregional,False
+52,XBF,XBL,66,72,593.05,Domestic,False
+53,XBF,XIT,66,33,10355.89,Interregional,False
+54,XBF,XWK,66,59,14743.35,Interregional,False
+55,XBG,XBH,67,68,282.87,Domestic,False
+56,XBG,XBL,67,72,596.56,Domestic,False
+57,XBH,XDI,68,45,14744.59,Interregional,False
+58,XBH,XSH,68,8,5017.78,Interregional,False
+59,XBJ,XIR,70,31,5754.03,Interregional,False
+60,XBJ,XSH,70,8,2934.80,Interregional,False
+61,XDE,XDF,16,17,503.92,Domestic,True
+62,XDE,XDG,16,18,423.65,Domestic,True
+63,XDE,XDH,16,44,254.90,Domestic,False
+64,XDE,XDI,16,45,512.24,Domestic,False
+65,XDE,XDK,16,47,150.14,Domestic,False
+66,XDE,XQA,16,4,4377.79,Interregional,True
+67,XDE,XQC,16,6,4398.66,Interregional,True
+68,XDE,XUK,16,13,930.78,Same-region international,True
+69,XDE,XUS,16,19,6382.23,Interregional,True
+70,XDF,XQB,17,5,4284.82,Interregional,False
+71,XDF,XUT,17,20,7260.99,Interregional,False
+72,XDG,XDI,18,45,153.32,Domestic,False
+73,XDG,XDJ,18,46,182.09,Domestic,False
+74,XDG,XUQ,18,42,694.61,Same-region international,False
+75,XDH,XQB,44,5,4628.16,Interregional,False
+76,XDH,XUK,44,13,719.37,Same-region international,False
+77,XDH,XUL,44,14,886.79,Same-region international,False
+78,XDH,XUM,44,15,808.22,Same-region international,False
+79,XDH,XUR,44,43,591.51,Same-region international,False
+80,XDI,XQB,45,5,4475.10,Interregional,False
+81,XDJ,XDL,46,48,247.58,Domestic,False
+82,XDJ,XUK,46,13,479.84,Same-region international,False
+83,XDJ,XUR,46,43,429.41,Same-region international,False
+84,XDK,XQB,47,5,4375.84,Interregional,False
+85,XDK,XUT,47,20,7100.44,Interregional,False
+86,XDL,XSG,48,7,10225.95,Interregional,False
+87,XDL,XUK,48,13,630.39,Same-region international,False
+88,XIN,XIO,10,11,1147.22,Domestic,True
+89,XIN,XIP,10,12,1739.56,Domestic,True
+90,XIN,XIV,10,35,235.95,Domestic,False
+91,XIN,XIX,10,37,648.76,Domestic,False
+92,XIN,XQA,10,4,2574.65,Interregional,True
+93,XIN,XQB,10,5,2562.96,Interregional,True
+94,XIN,XSG,10,7,4146.46,Interregional,True
+95,XIN,XWH,10,56,11479.25,Interregional,False
+96,XIN,XWJ,10,58,11774.44,Interregional,False
+97,XIO,XIT,11,33,438.18,Domestic,False
+98,XIO,XIV,11,35,919.03,Domestic,False
+99,XIO,XIX,11,37,1677.60,Domestic,False
+100,XIO,XSH,11,8,3914.51,Interregional,True
+101,XIO,XWE,11,53,14241.07,Interregional,False
+102,XIO,XWI,11,57,14439.20,Interregional,False
+103,XIO,XWK,11,59,12752.47,Interregional,False
+104,XIP,XIR,12,31,289.46,Domestic,False
+105,XIP,XIS,12,32,498.49,Domestic,False
+106,XIP,XIU,12,34,369.24,Domestic,False
+107,XIP,XIY,12,38,1194.99,Domestic,False
+108,XIQ,XIW,30,36,524.16,Domestic,False
+109,XIQ,XIY,30,38,364.44,Domestic,False
+110,XIQ,XSI,30,9,2882.67,Interregional,False
+111,XIR,XQB,31,5,3307.06,Interregional,False
+112,XIS,XIY,32,38,836.79,Domestic,False
+113,XIT,XQB,33,5,2149.29,Interregional,False
+114,XIU,XQB,34,5,3129.25,Interregional,False
+115,XIV,XQB,35,5,2423.08,Interregional,False
+116,XIW,XQB,36,5,4010.46,Interregional,False
+117,XIX,XQB,37,5,2434.39,Interregional,False
+118,XQC,XUT,6,20,11454.46,Interregional,False
+119,XSG,XUK,7,13,10850.77,Interregional,True
+120,XSG,XUM,7,15,10942.83,Interregional,False
+121,XSG,XUO,7,40,11141.60,Interregional,False
+122,XSG,XUQ,7,42,10932.57,Interregional,False
+123,XSG,XWL,7,60,10741.15,Interregional,False
+124,XSI,XWF,9,54,14631.41,Interregional,False
+125,XUK,XUL,13,14,533.76,Domestic,True
+126,XUK,XUM,13,15,262.21,Domestic,True
+127,XUK,XUR,13,43,181.00,Domestic,False
+128,XUK,XUS,13,19,5568.05,Interregional,True
+129,XUL,XUO,14,40,229.20,Domestic,False
+130,XUN,XUO,39,40,384.87,Domestic,False
+131,XUN,XUP,39,41,189.72,Domestic,False
+132,XUN,XUQ,39,42,201.29,Domestic,False
+133,XUN,XUR,39,43,157.38,Domestic,False
+134,XUP,XUQ,41,42,163.82,Domestic,False
+135,XUP,XUT,41,20,6164.85,Interregional,False
+136,XUS,XUT,19,20,1145.31,Domestic,True
+137,XUS,XUV,19,21,3936.31,Domestic,True
+138,XUS,XWH,19,56,303.79,Domestic,False
+139,XUS,XWK,19,59,774.45,Domestic,False
+140,XUT,XWA,20,49,948.61,Domestic,False
+141,XUT,XWE,20,53,1918.77,Domestic,False
+142,XUT,XWH,20,56,1365.39,Domestic,False
+143,XUT,XWJ,20,58,570.25,Domestic,False
+144,XUT,XWK,20,59,380.92,Domestic,False
+145,XUV,XWF,21,54,574.34,Domestic,False
+146,XUV,XWG,21,55,558.33,Domestic,False
+147,XWA,XWB,49,50,1158.14,Domestic,False
+148,XWA,XWC,49,51,1947.14,Domestic,False
+149,XWA,XWE,49,53,976.31,Domestic,False
+150,XWA,XWF,49,54,2556.09,Domestic,False
+151,XWA,XWG,49,55,3436.78,Domestic,False
+152,XWA,XWI,49,57,1128.17,Domestic,False
+153,XWA,XWJ,49,58,1461.49,Domestic,False
+154,XWB,XWC,50,51,1065.89,Domestic,False
+155,XWB,XWI,50,57,362.26,Domestic,False
+156,XWC,XWD,51,52,1640.75,Domestic,False
+157,XWC,XWF,51,54,942.04,Domestic,False
+158,XWC,XWL,51,60,3854.21,Domestic,False
+159,XWD,XWG,52,55,1094.18,Domestic,False
+160,XWD,XWL,52,60,2308.60,Domestic,False

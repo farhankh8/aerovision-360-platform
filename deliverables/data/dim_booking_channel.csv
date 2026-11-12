@@ -1,0 +1,8 @@
+BookingChannelKey,ChannelCode,ChannelName,ChannelCategory,IsDirect,IsActive
+1,WEB,Airline Website,Direct Web,True,True
+2,APP,Airline Mobile App,Mobile App,True,True
+3,OTA,Online Travel Agency,OTA,False,True
+4,GDS,Global Distribution System,GDS,False,True
+5,CALL,Call Center,Call Center,False,True
+6,CORP,Corporate Travel Desk,Corporate,False,True
+7,AIRPT,Airport Ticket Office,Airport,False,True
