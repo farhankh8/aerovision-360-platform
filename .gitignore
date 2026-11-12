@@ -115,3 +115,65 @@ pbix_diff*.py
 # Agent scratch
 .agents/
 
+
+# ---------------------------------------------------------------------------
+# Release scope: only portfolio, deliverables, source and core docs are tracked.
+# Audit working files, bulk governance JSON and summary reports are local-only.
+# ---------------------------------------------------------------------------
+
+# Bulk audit / incident / remediation / governance decision working data
+incident_data/
+remediation_data/
+governance_decisions/
+reports/
+docs/audits/
+
+# Root-level audit summary reports (superseded by docs/governance records)
+M37_*
+M38_*
+M39_*
+M311_*
+M312_*
+PAGE_04_*
+PAGE_05_*
+STAGE_*
+AEROVISION_360_COMPLETE_FORENSIC_AUDIT.md
+M37_SUMMARY.txt
+M37_REMEDIATION_SUMMARY.txt
+
+# ...except the M3.11/M3.12 implementation modules (real source code, not reports)
+!m311_governed_measures.py
+!m311_bi_contract.py
+!m312_consumption_engine.py
+!m312_measure_details.py
+!m312_precheck.py
+!test_m312_engine.py
+!verify_m310_checks.py
+!verify_measures.py
+
+# docs/ root: only core engineering specifications are tracked.
+# Everything else in docs/ is audit working material (kept locally).
+docs/*.md
+!docs/01_PROJECT_SCOPE.md
+!docs/02_BUSINESS_REQUIREMENTS.md
+!docs/03_DATA_CONTRACTS.md
+!docs/A360_PORTFOLIO_IMPLEMENTATION_AMENDMENT.md
+!docs/DAX_KPI_CATALOGUE.md
+!docs/ENGINEERING_DATA_MODEL_BLUEPRINT.md
+!docs/IMPLEMENTATION_QA_BLUEPRINT.md
+!docs/IMPLEMENTATION_ROADMAP.md
+!docs/OD01A_AIRLINE_POPULATION_DECISION.md
+!docs/OD01B_AIRLINE_IDENTITY_REFERENCE_DECISION.md
+!docs/POWER_BI_DASHBOARD_SPECIFICATION.md
+!docs/POWER_BI_SEMANTIC_MODEL_BLUEPRINT.md
+!docs/POWER_QUERY_IMPLEMENTATION_BLUEPRINT.md
+!docs/PROJECT_RISK_REGISTER.md
+!docs/PYTHON_ETL_IMPLEMENTATION_BLUEPRINT.md
+!docs/RAW_LAYER_IMPLEMENTATION.md
+!docs/REQUIREMENTS_TRACEABILITY.md
+!docs/STAGING_LAYER_IMPLEMENTATION.md
+!docs/SYNTHETIC_DATA_GENERATION_BLUEPRINT.md
+
+# Release helper script (local only)
+clean_release.ps1
+verify_paths.ps1
