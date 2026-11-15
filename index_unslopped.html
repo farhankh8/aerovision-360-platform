@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEROVISION 360 — Global Multi-Airline BI & Intelligence Platform | Case Study</title>
+    <meta name="description" content="AEROVISION 360 — Enterprise-grade business intelligence case study. Multi-airline operations, revenue, cost, and customer analytics built with Python, Power BI, DAX, and Power Query.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230B2545'/%3E%3Crect x='6' y='6' width='52' height='52' rx='7' fill='none' stroke='%2363B3A5' stroke-width='2'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%23F4F1E8' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Unslop: replaced emoji with lucide line icons -->
+    <link rel="stylesheet" href="https://lucide.dev/icons/css/lucide.css">
+</head>
+<body>
+    <!-- Skip to content -->
+    <a class="skip-link" href="#project-overview">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo" aria-label="AEROVISION 360">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><circle cx="8.5" cy="16.5" r="1.5"></circle><polyline points="21 15 16 21 10 21"></polyline></svg>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">AEROVISION 360</div>
+                    <div class="logo-sub">Business Intelligence Case Study</div>
+                </div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero" class="nav-link">Overview</a></li>
+                <li><a href="#project-overview" class="nav-link">Project Overview</a></li>
+                <li><a href="#tech-stack" class="nav-link">Technology Stack</a></li>
+                <li><a href="#data-architecture" class="nav-link">Data Architecture</a></li>
+                <li><a href="#powerbi-dashboard" class="nav-link">Power BI Dashboard</a></li>
+                <li><a href="#dashboard-deep-dive" class="nav-link">Dashboard Deep Dive</a></li>
+                <li><a href="#data-engineering" class="nav-link">Data Engineering</a></li>
+                <li><a href="#excel-analytics" class="nav-link">Excel Analytics</a></li>
+                <li><a href="#testing-governance" class="nav-link">Testing & Governance</a></li>
+                <li><a href="#deliverables" class="nav-link">Deliverables</a></li>
+                <li><a href="#github-release" class="nav-link">GitHub & Release</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================================
+         01. HERO
+         ======================================================================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Engineering & Governance Gates Closed</span>
+            </div>
+            <h1 class="hero-title">AEROVISION 360</h1>
+            <p class="hero-subtitle">
+                Global Multi-Airline Operations, Revenue & Customer Intelligence Platform
+            </p>
+            <p class="hero-description">
+                An enterprise business intelligence case study that transforms synthetic multi-airline
+                operational and financial data into five executive Power BI report pages — covering
+                flight operations, revenue and finance, cost intelligence, disruption analysis, and
+                customer service performance. Built with Python, Power Query M, DAX, and Power BI.
+            </p>
+            <div class="hero-metrics">
+                <div class="hm-card">
+                    <div class="hm-value">5</div>
+                    <div class="hm-label">Power BI Report Pages</div>
+                </div>
+                <div class="hm-card">
+                    <div class="hm-value">16</div>
+                    <div class="hm-label">Semantic Model Tables</div>
+                </div>
+                <div class="hm-card">
+                    <div class="hm-value">54</div>
+                    <div class="hm-label">DAX Measures</div>
+                </div>
+                <div class="hm-card">
+                    <div class="hm-value">120</div>
+                    <div class="hm-label">Report Visuals</div>
+                </div>
+                <div class="hm-card">
+                    <div class="hm-value">609</div>
+                    <div class="hm-label">Total Tests Passed (595 core + 14 canonicalization)</div>
+                </div>
+                <div class="hm-card">
+                    <div class="hm-value">12</div>
+                    <div class="hm-label">Excel Sheets</div>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#powerbi-dashboard" class="btn btn-primary">Explore Dashboard</a>
+                <a href="#data-architecture" class="btn btn-outline">View Architecture</a>
+                <a href="https://github.com/farhankh8/aerovision-360-platform" target="_blank" rel="noopener" class="btn btn-ghost">GitHub Repository <span>→</span></a>
+            </div>
+            <p class="hero-disclosure">
+                <strong>Synthetic Simulation — Not Actual Airline Performance.</strong> All operational,
+                customer, booking, revenue, cost, and financial data are synthetic simulations.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         02. PROJECT OVERVIEW
+         ======================================================================== -->
+    <section id="project-overview" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-subtitle">The business problem, objectives, and analytical solution.</p>
+            </div>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Business Problem</h3>
+                    <p>A global airline group needed a unified way to monitor operational reliability,
+                    revenue efficiency, cost structure, and customer experience across ten airline
+                    identities. Data was scattered across flight operations, disruptions, customer
+                    feedback, bookings, and cost ledgers — with no single source of truth for
+                    executive decision-making.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Objectives</h3>
+                    <ul class="check-list">
+                        <li>Build a 16-table star-schema semantic model from curated flight, booking, cost, disruption, and feedback data.</li>
+                        <li>Define 54 governed DAX measures across flight operations, revenue, costs, and customer experience.</li>
+                        <li>Deliver five executive Power BI report pages with 120 visuals.</li>
+                        <li>Validate everything with 609 automated tests (595 core + 14 canonicalization) and 34/34 manifest hash verification.</li>
+                        <li>Record and enforce governance decisions (OD-04g, GOV-D-04 through GOV-D-08, D-02, CC-01, OD-01A, OD-01B) and gate approvals (G3-RV-01, schema freeze, G3, G4) — all closed 08 November 2026.</li>
+                    </ul>
+                </div>
+                <div class="overview-card">
+                    <h3>Solution</h3>
+                    <p>A reproducible Python data pipeline generates and validates synthetic datasets,
+                    Power Query M loads them into the Power BI semantic model, DAX measures compute
+                    KPIs, and five report pages deliver executive insight — all under a strict
+                    "synthetic simulation" disclosure.</p>
+                </div>
+            </div>
+
+            <div class="scope-box">
+                <h3>Scope</h3>
+                <div class="scope-row">
+                    <div class="scope-item">
+                        <span class="scope-number">10</span>
+                        <span class="scope-label">Real Airline Identities</span>
+                    </div>
+                    <div class="scope-item">
+                        <span class="scope-number">12 months</span>
+                        <span class="scope-label">Reporting Period (2025-10-01 to 2026-09-30)</span>
+                    </div>
+                    <div class="scope-item">
+                        <span class="scope-number">5</span>
+                        <span class="scope-label">Executive Report Pages</span>
+                    </div>
+                    <div class="scope-item">
+                        <span class="scope-number">5</span>
+                        <span class="scope-label">Facts Curated</span>
+                    </div>
+                    <div class="scope-item">
+                        <span class="scope-number">11</span>
+                        <span class="scope-label">Dimension Tables</span>
+                    </div>
+                </div>
+                <p class="scope-note">
+                    Airline identity attributes (name, IATA, ICAO, home country, country code) are real
+                    and source-provenanced. All operational, customer, booking, revenue, cost, disruption,
+                    and financial data are <strong>synthetic simulations</strong>. No real passenger personal
+                    information is used.
+                </p>
+            </div>
+
+            <div class="use-cases">
+                <h3>Analytical Use Cases</h3>
+                <div class="use-case-grid">
+                    <div class="use-case-card">
+                        <h4>Executive Oversight</h4>
+                        <p>Monitor flights operated, revenue passengers, on-time performance, cancellation rate, and total disruptions at a glance.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h4>Operations Reliability</h4>
+                        <p>Analyze on-time departure/arrival, flight completion, block minutes, disruption categories, and airline operational comparison.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h4>Revenue & Yield</h4>
+                        <p>Track operating revenue, passenger and ancillary revenue, revenue by airline/channel/fare class, and monthly trends.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h4>Cost Intelligence</h4>
+                        <p>Break down operating costs by category, airline, and route; compute cost per flight operation and cost per revenue passenger.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <h4>Customer Experience</h4>
+                        <p>Measure satisfaction scores, complaint rates, feedback channels, service recovery, and customer segmentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         03. TECHNOLOGY STACK
+         ======================================================================== -->
+    <section id="tech-stack" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Technology Stack</h2>
+                <p class="section-subtitle">Tools, languages, and platforms used — each with its actual role in the project.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path><circle cx="9" cy="9" r="9"></circle><line x1="17" y1="11" x2="23" y2="11"></line></svg>
+                    </div>
+                    <h4>Python</h4>
+                    <p class="tech-role">Data processing, ETL automation, data-quality validation, and test orchestration. Deterministic random seeds for reproducible generation.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-1.99-1H2a2 2 0 0 0-2 2v8"></path><circle cx="9" cy="9" r="9"></circle><line x1="21" y1="16" x2="8" y2="8"></line></svg>
+                    </div>
+                    <h4>Pandas</h4>
+                    <p class="tech-role">Data cleaning and manipulation — curating flight, booking, cost, disruption, and feedback datasets into analysis-ready frames.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon></svg>
+                    </div>
+                    <h4>NumPy</h4>
+                    <p class="tech-role">Numerical operations and array processing supporting the data-generation and validation pipeline.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>Power BI</h4>
+                    <p class="tech-role">Interactive executive dashboards — five report pages, 120 visuals, semantic model, and DAX measure layer.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>DAX</h4>
+                    <p class="tech-role">Business calculations and KPIs — 54 governed measures (FL, OP, DS, CF, RV, CX, NC groups) registered in the semantic model.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v1m0 10v1M2 12h1m10 0h1m4-7v5l3 3"></path><circle cx="3" cy="3" r="3"></circle><circle cx="21" cy="21" r="3"></circle></svg>
+                    </div>
+                    <h4>Power Query M</h4>
+                    <p class="tech-role">Data transformation — 16 queries loading and shaping curated CSV/Parquet data into the Power BI model.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon></svg>
+                    </div>
+                    <h4>Microsoft Excel</h4>
+                    <p class="tech-role">Financial analysis and reporting — 12-sheet workbook with KPIs, data dictionary, and data-quality checks.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>CSV + Parquet</h4>
+                    <p class="tech-role">Data storage - 16 curated data files (dimensions and facts) exported as UTF-8 CSV and Snappy Parquet.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path><circle cx="9" cy="9" r="9"></circle><line x1="17" y1="11" x2="23" y2="11"></line></svg>
+                    </div>
+                    <h4>Git & GitHub</h4>
+                    <p class="tech-role">Version control and project management — release on branch main, tag v1.0.0-engineering-complete.</p>
+                </div>
+            </div>
+            <p class="tech-note">
+                <strong>Note on SQL:</strong> This project's analytical layer is built in Python, Power Query M, and DAX.
+                SQL is not part of the implemented stack. No SQL scripts or database schemas are claimed as deliverables.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         04. DATA ARCHITECTURE
+         ======================================================================== -->
+    <section id="data-architecture" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Data Architecture</h2>
+                <p class="section-subtitle">From raw data to executive insight — the complete pipeline.</p>
+            </div>
+
+            <div class="architecture-flow">
+                <div class="arch-step">
+                    <div class="arch-step-number">1</div>
+                    <div class="arch-step-title">Data Sources</div>
+                    <div class="arch-step-detail">Curated CSV + Parquet: 11 dimensions, 5 facts, 16 CSV files</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-number">2</div>
+                    <div class="arch-step-title">Python Data Engineering</div>
+                    <div class="arch-step-detail">Deterministic generation, cleaning, validation (pandas, NumPy)</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-number">3</div>
+                    <div class="arch-step-title">Data Cleaning & Validation</div>
+                    <div class="arch-step-detail">595 tests, 34/34 manifest SHA-256 hashes verified</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-number">4</div>
+                    <div class="arch-step-title">Curated Datasets</div>
+                    <div class="arch-step-detail">5,000 flights · 9,956 booking coupons · 7,480 cost lines · 1,754 disruptions · 2,500 feedback events</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-number">5</div>
+                    <div class="arch-step-title">Power BI Semantic Model</div>
+                    <div class="arch-step-detail">16 tables, star schema, 16 Power Query M queries</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-number">6</div>
+                    <div class="arch-step-title">DAX Measures</div>
+                    <div class="arch-step-detail">54 governed measures across FL, OP, DS, CF, RV, CX, NC groups</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step">
+                    <div class="arch-step-number">7</div>
+                    <div class="arch-step-title">Five Dashboard Pages</div>
+                    <div class="arch-step-detail">Executive · Operations · Revenue · Cost · Customer</div>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-step arch-final">
+                    <div class="arch-step-number">8</div>
+                    <div class="arch-step-title">Business Intelligence</div>
+                    <div class="arch-step-detail">Executive decisions, network insight, financial control, service improvement</div>
+                </div>
+            </div>
+
+            <div class="arch-tables">
+                <h3>Semantic Model — 16 Tables</h3>
+                <div class="arch-table-columns">
+                    <div class="arch-table-col">
+                        <h4>Fact Tables (5)</h4>
+                        <ul class="table-list">
+                            <li>FactFlightOperations</li>
+                            <li>FactBookingTransactions</li>
+                            <li>FactOperatingCosts</li>
+                            <li>FactDisruptions</li>
+                            <li>FactCustomerFeedback</li>
+                        </ul>
+                    </div>
+                    <div class="arch-table-col">
+                        <h4>Dimension Tables (11)</h4>
+                        <ul class="table-list">
+                            <li>DimAirline</li>
+                            <li>DimAirport</li>
+                            <li>DimRoute</li>
+                            <li>DimDate</li>
+                            <li>DimAircraft</li>
+                            <li>DimAircraftType</li>
+                            <li>DimCustomer</li>
+                            <li>DimFareClass</li>
+                            <li>DimBookingChannel</li>
+                            <li>DimDisruptionType</li>
+                            <li>DimCurrency</li>
+                        </ul>
+                    </div>
+                    <div class="arch-table-col">
+                        <h4>Reference (Hidden)</h4>
+                        <ul class="table-list">
+                            <li>RefAircraftAvailability</li>
+                            <li>(hidden supporting table, not counted in the 16)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="arch-note">
+                    <strong>Star schema.</strong> All relationships are single-direction (1:many), fact-to-dimension.
+                    DimDate is a role-playing dimension (departure, arrival, travel, booking, cost, event, feedback dates).
+                    No fact-to-fact, many-to-many, or bidirectional relationships.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         05. POWER BI DASHBOARD (native recreation)
+         ======================================================================== -->
+    <section id="powerbi-dashboard" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Power BI Dashboard</h2>
+                <p class="section-subtitle">Native web recreation of the AEROVISION 360 Power BI report — five interactive pages with live filtering.</p>
+            </div>
+
+            <p class="dashboard-intro">
+                This is a native recreation of the AEROVISION 360 Power BI report.
+                All KPIs, charts, and filters are calculated from the actual project datasets
+                (<code>deliverables/data/</code>). Use the airline, date, and channel slicers to filter
+                the entire dashboard — related charts cross-filter automatically.
+            </p>
+
+            <!-- Chart.js library -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+            <div class="dashboard-app">
+                <!-- Dashboard Shell -->
+                <div class="dash-shell">
+                    <!-- Sidebar -->
+                    <aside class="dash-sidebar">
+                        <div class="dash-brand">
+                            <div class="dash-logo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><circle cx="8.5" cy="16.5" r="1.5"></circle><polyline points="21 15 16 21 10 21"></polyline></svg>
+                            </div>
+                            <div class="dash-brand-text">
+                                <div class="dash-brand-main">AEROVISION 360</div>
+                                <div class="dash-brand-sub">BI Dashboard</div>
+                            </div>
+                        </div>
+                        <nav class="dash-nav">
+                            <button class="dash-nav-item dash-nav-active" data-page="page01" aria-label="Page 01 — Executive Overview" aria-pressed="true">
+                                <span class="dash-nav-num">01</span>
+                                <span class="dash-nav-label">Executive Overview</span>
+                            </button>
+                            <button class="dash-nav-item" data-page="page02" aria-label="Page 02 — Operations Disruption" aria-pressed="false">
+                                <span class="dash-nav-num">02</span>
+                                <span class="dash-nav-label">Operations & Disruption</span>
+                            </button>
+                            <button class="dash-nav-item" data-page="page03" aria-label="Page 03 — Revenue Finance" aria-pressed="false">
+                                <span class="dash-nav-num">03</span>
+                                <span class="dash-nav-label">Revenue & Finance</span>
+                            </button>
+                            <button class="dash-nav-item" data-page="page04" aria-label="Page 04 — Cost Financial Intelligence" aria-pressed="false">
+                                <span class="dash-nav-num">04</span>
+                                <span class="dash-nav-label">Cost Financial Intelligence</span>
+                            </button>
+                            <button class="dash-nav-item" data-page="page05" aria-label="Page 05 Customer Service Intelligence" aria-pressed="false">
+                                <span class="dash-nav-num">05</span>
+                                <span class="dash-nav-label">Customer Service Intelligence</span>
+                            </button>
+                        </nav>
+                        <div class="dash-sidebar-footer">
+                            <button class="dash-btn-fullscreen" id="dash-btn-fullscreen" title="Fullscreen">
+                                <span>⛶</span> Fullscreen
+                            </button>
+                            <button class="dash-btn-reset" id="dash-btn-reset" title="Reset all filters">
+                                <span>↺</span> Reset Filters
+                            </button>
+                            <p class="dash-disclosure">Synthetic Simulation — Not Actual Airline Performance.</p>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <main class="dash-main">
+                        <!-- Header -->
+                        <header class="dash-header">
+                            <div class="dash-header-left">
+                                <h1 class="dash-page-title" id="dash-page-title">Executive Overview</h1>
+                                <p class="dash-page-subtitle" id="dash-page-subtitle">Is the airline network performing well overall?</p>
+                            </div>
+                            <div class="dash-header-right">
+                                <div class="dash-slicer-group">
+                                    <div class="dash-slicer">
+                                        <label class="dash-slicer-label">Airline</label>
+                                        <select class="dash-slicer-select" id="dash-slicer-airline">
+                                            <option value="all">All Airlines</option>
+                                        </select>
+                                    </div>
+                                    <div class="dash-slicer">
+                                        <label class="dash-slicer-label">Date Range</label>
+                                        <select class="dash-slicer-select" id="dash-slicer-date">
+                                            <option value="all">Full Period (2025-10 to 2026-09)</option>
+                                            <option value="q1">Q1 2026 (Jan–Mar)</option>
+                                            <option value="q2">Q2 2026 (Apr–Jun)</option>
+                                            <option value="q3">Q3 2026 (Jul–Sep)</option>
+                                            <option value="q4">Q4 2025 (Oct–Dec)</option>
+                                        </select>
+                                    </div>
+                                    <div class="dash-slicer">
+                                        <label class="dash-slicer-label">Booking Channel</label>
+                                        <select class="dash-slicer-select" id="dash-slicer-channel">
+                                            <option value="all">All Channels</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="dash-last-updated">
+                                    <span class="dash-dot"></span>
+                                    <span>Computed from curated CSV datasets</span>
+                                </div>
+                            </div>
+                        </header>
+
+                        <!-- Page 01: Executive Overview -->
+                        <div class="dash-page dash-page-active" id="page01">
+                            <div class="dash-kpi-row">
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Flights Operated</div>
+                                    <div class="dash-kpi-value" id="kpi-fl01">–</div>
+                                    <div class="dash-kpi-delta">FL01 · Count of operated flight legs</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Revenue Passengers</div>
+                                    <div class="dash-kpi-value" id="kpi-fl02">–</div>
+                                    <div class="dash-kpi-delta">FL02 · Total revenue passenger count</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Avg. Departure Delay</div>
+                                    <div class="dash-kpi-value" id="kpi-fl03">–</div>
+                                    <div class="dash-kpi-delta">FL03 · Minutes per operated flight</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Cancellation Rate</div>
+                                    <div class="dash-kpi-value" id="kpi-fl04">–</div>
+                                    <div class="dash-kpi-delta">FL04 · % of scheduled flights cancelled</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Total Disruptions</div>
+                                    <div class="dash-kpi-value" id="kpi-ds01">–</div>
+                                    <div class="dash-kpi-delta">DS01 · Disruption events recorded</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart-grid">
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Monthly Flights & Passengers</div>
+                                    <canvas id="chart-trend"></canvas>
+                                </div>
+                                <div class="dash-chart-panel dash-chart-wide">
+                                    <div class="dash-chart-title">Disruptions by Airline</div>
+                                    <canvas id="chart-disruptions-airline"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Disruptions by Category</div>
+                                    <canvas id="chart-disruptions-category"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Disruption Overview</div>
+                                    <canvas id="chart-disruptions-donut"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 02: Operations & Disruption -->
+                        <div class="dash-page" id="page02">
+                            <div class="dash-kpi-row">
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">On-Time Performance</div>
+                                    <div class="dash-kpi-value" id="kpi-op01">–</div>
+                                    <div class="dash-kpi-delta">OP01 · On-time departure rate</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Avg. Departure Delay</div>
+                                    <div class="dash-kpi-value" id="kpi-op03-dep">–</div>
+                                    <div class="dash-kpi-delta">Minutes per operated flight</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Avg. Arrival Delay</div>
+                                    <div class="dash-kpi-value" id="kpi-op03-arr">–</div>
+                                    <div class="dash-kpi-delta">OP03 · Minutes per operated flight</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Flight Completion Rate</div>
+                                    <div class="dash-kpi-value" id="kpi-op04">–</div>
+                                    <div class="dash-kpi-delta">OP04 · % of scheduled flights completed</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Scheduled Flights</div>
+                                    <div class="dash-kpi-value" id="kpi-sched">–</div>
+                                    <div class="dash-kpi-delta">Total scheduled flight legs</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Total Block Minutes</div>
+                                    <div class="dash-kpi-value" id="kpi-block">–</div>
+                                    <div class="dash-kpi-delta">Total operated block time</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart-grid">
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">On-Time Performance Trend</div>
+                                    <canvas id="chart-otp-trend"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Flights by Status</div>
+                                    <canvas id="chart-flight-status"></canvas>
+                                </div>
+                                <div class="dash-chart-panel dash-chart-wide">
+                                    <div class="dash-chart-title">Block Minutes by Airline / Month</div>
+                                    <canvas id="chart-block-minutes"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Operational KPIs by Route</div>
+                                    <canvas id="chart-ops-route"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Flight Status Distribution by Month</div>
+                                    <canvas id="chart-status-month"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 03: Revenue & Finance -->
+                        <div class="dash-page" id="page03">
+                            <div class="dash-kpi-row">
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Total Operating Revenue</div>
+                                    <div class="dash-kpi-value" id="kpi-rv-total">–</div>
+                                    <div class="dash-kpi-delta">RV · Net passenger + fee + ancillary (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Net Passenger Revenue</div>
+                                    <div class="dash-kpi-value" id="kpi-rv-passenger">–</div>
+                                    <div class="dash-kpi-delta">RV · Ticket revenue net of refunds (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Net Fee Revenue</div>
+                                    <div class="dash-kpi-value" id="kpi-rv-fee">–</div>
+                                    <div class="dash-kpi-delta">RV · Booking fees (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Net Ancillary Revenue</div>
+                                    <div class="dash-kpi-value" id="kpi-rv-ancillary">–</div>
+                                    <div class="dash-kpi-delta">RV · Baggage, seats, extras (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Revenue Passengers</div>
+                                    <div class="dash-kpi-value" id="kpi-rv-passengers">–</div>
+                                    <div class="dash-kpi-delta">RV · Revenue-paying passengers</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Avg. Revenue per Passenger</div>
+                                    <div class="dash-kpi-value" id="kpi-rv-avg">–</div>
+                                    <div class="dash-kpi-delta">RV · USD per revenue passenger</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart-grid">
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Monthly Revenue Trend</div>
+                                    <canvas id="chart-revenue-trend"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Revenue Composition by Stream</div>
+                                    <canvas id="chart-revenue-composition"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Revenue by Booking Channel</div>
+                                    <canvas id="chart-revenue-channel"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Revenue by Fare Class</div>
+                                    <canvas id="chart-revenue-fare"></canvas>
+                                </div>
+                                <div class="dash-chart-panel dash-chart-wide">
+                                    <div class="dash-chart-title">Total Revenue by Airline</div>
+                                    <canvas id="chart-revenue-airline"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Total Revenue by Route</div>
+                                    <canvas id="chart-revenue-route"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 04: Cost & Financial Intelligence -->
+                        <div class="dash-page" id="page04">
+                            <div class="dash-kpi-row">
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Total Operating Costs</div>
+                                    <div class="dash-kpi-value" id="kpi-cx-total">–</div>
+                                    <div class="dash-kpi-delta">CX · Net operating costs (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Positive Operating Costs</div>
+                                    <div class="dash-kpi-value" id="kpi-cx-positive">–</div>
+                                    <div class="dash-kpi-delta">CX · Expense amounts only</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Cost Reversals</div>
+                                    <div class="dash-kpi-value" id="kpi-cx-reversals">–</div>
+                                    <div class="dash-kpi-delta">CX · Credits and reversals (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Net Operating Costs</div>
+                                    <div class="dash-kpi-value" id="kpi-cx-net">–</div>
+                                    <div class="dash-kpi-delta">CX · Net signed total</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Cost per Flight Operation</div>
+                                    <div class="dash-kpi-value" id="kpi-cx-perflight">–</div>
+                                    <div class="dash-kpi-delta">CX · USD per operated flight</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Cost per Revenue Passenger</div>
+                                    <div class="dash-kpi-value" id="kpi-cx-perpass">–</div>
+                                    <div class="dash-kpi-delta">CX · USD per revenue passenger</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Net Operating Contribution</div>
+                                    <div class="dash-kpi-value" id="kpi-nc-contribution">–</div>
+                                    <div class="dash-kpi-delta">NC · Revenue − costs (USD)</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Revenue-to-Cost Ratio</div>
+                                    <div class="dash-kpi-value" id="kpi-nc-ratio">–</div>
+                                    <div class="dash-kpi-delta">NC · Revenue ÷ costs</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart-grid">
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Monthly Operating Cost Trend</div>
+                                    <canvas id="chart-cost-trend"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Costs by Category</div>
+                                    <canvas id="chart-cost-category"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Costs by Airline</div>
+                                    <canvas id="chart-cost-airline"></canvas>
+                                </div>
+                                <div class="dash-chart-panel dash-chart-wide">
+                                    <div class="dash-chart-title">Route Cost Composition</div>
+                                    <canvas id="chart-cost-route"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Operating Cost Geographic Distribution</div>
+                                    <canvas id="chart-cost-geo"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Cost Efficiency vs Contribution</div>
+                                    <canvas id="chart-cost-efficiency"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Page 05: Customer & Service Intelligence -->
+                        <div class="dash-page" id="page05">
+                            <div class="dash-kpi-row">
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Total Feedback Events</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-total">–</div>
+                                    <div class="dash-kpi-delta">CF · All feedback records</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Complaint Rate</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-complaint">–</div>
+                                    <div class="dash-kpi-delta">CF03 · % classified as complaint</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Avg. Satisfaction Score</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-satisfaction">–</div>
+                                    <div class="dash-kpi-delta">CF02 · 1–5 scale average</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Active Customers</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-active">–</div>
+                                    <div class="dash-kpi-delta">CF04 · Distinct active customers</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Complaint Count</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-complaint-count">–</div>
+                                    <div class="dash-kpi-delta">CF05 · Complaint events</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Compliment Count</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-compliment">–</div>
+                                    <div class="dash-kpi-delta">CF06 · Compliment events</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Claim Count</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-claim">–</div>
+                                    <div class="dash-kpi-delta">CF07 · Claim events</div>
+                                </div>
+                                <div class="dash-kpi-card">
+                                    <div class="dash-kpi-label">Survey Count</div>
+                                    <div class="dash-kpi-value" id="kpi-cf-survey">–</div>
+                                    <div class="dash-kpi-delta">CF08 · Survey events</div>
+                                </div>
+                            </div>
+                            <div class="dash-chart-grid">
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Feedback by Channel</div>
+                                    <canvas id="chart-feedback-channel"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Feedback by Type</div>
+                                    <canvas id="chart-feedback-type"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Avg. Satisfaction by Airline</div>
+                                    <canvas id="chart-satisfaction-airline"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Positive vs Negative Feedback</div>
+                                    <canvas id="chart-feedback-sentiment"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Complaint Category Breakdown</div>
+                                    <canvas id="chart-complaint-category"></canvas>
+                                </div>
+                                <div class="dash-chart-panel">
+                                    <div class="dash-chart-title">Customer Segment Distribution</div>
+                                    <canvas id="chart-customer-segment"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+
+            <div class="dashboard-note pbix-note">
+                <strong>Data source.</strong> All KPIs and charts are computed from the curated project datasets
+                in <code>deliverables/data/</code> (CSV format). Filter selections apply across all five pages
+                and update every chart and KPI. This is a native web recreation — no Power BI embedding,
+                no access tokens, no external credentials. All data is synthetic simulation — not actual airline performance.
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         06. DASHBOARD DEEP DIVE (Accordion)
+         ======================================================================== -->
+    <section id="dashboard-deep-dive" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Dashboard Deep Dive</h2>
+                <p class="deep-intro">Detailed breakdown of each KPI, chart, and governance decision.</p>
+            </div>
+
+            <div class="accordion" role="tablist" aria-label="Dashboard pages">
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-controls="page01-deep" tabindex="0">
+                        <span>Page 01 — Executive Overview</span>
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content" id="page01-deep" style="display: none;">
+                        <h4>KPIs</h4>
+                        <ul class="test-table">
+                            <li>FL01: Flights Operated - Count of operated flight legs</li>
+                            <li>FL02: Revenue Passengers - Total revenue passenger count</li>
+                            <li>FL03: Avg. Departure Delay - Minutes per operated flight</li>
+                            <li>FL04: Cancellation Rate - % of scheduled flights cancelled</li>
+                            <li>DS01: Total Disruptions - Disruption events recorded</li>
+                        </ul>
+                        <p>This page provides the executive snapshot of overall network performance.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-controls="page02-deep" tabindex="0">
+                        <span>Page 02 — Operations & Disruption</span>
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content" id="page02-deep" style="display: none;">
+                        <h4>KPIs</h4>
+                        <ul class="test-table">
+                            <li>OP01: On-Time Performance - On-time departure rate</li>
+                            <li>OP03-dep: Avg. Departure Delay - Minutes per operated flight</li>
+                            <li>OP03-arr: Avg. Arrival Delay - Minutes per operated flight</li>
+                            <li>OP04: Flight Completion Rate - % of scheduled flights completed</li>
+                            <li>OP04: Scheduled Flights - Total scheduled flight legs</li>
+                            <li>OP-block: Total Block Minutes - Total operated block time</li>
+                        </ul>
+                        <p>Operations reliability metrics monitoring flight execution and disruption patterns.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-controls="page03-deep" tabindex="0">
+                        <span>Page 03 — Revenue & Finance</span>
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content" id="page03-deep" style="display: none;">
+                        <h4>KPIs</h4>
+                        <ul class="test-table">
+                            <li>RV-total: Total Operating Revenue - Net passenger + fee + ancillary (USD)</li>
+                            <li>RV-passenger: Net Passenger Revenue - Ticket revenue net of refunds (USD)</li>
+                            <li>RV-fee: Net Fee Revenue - Booking fees (USD)</li>
+                            <li>RV-ancillary: Net Ancillary Revenue - Baggage, seats, extras (USD)</li>
+                            <li>RV-passengers: Revenue-paying passengers</li>
+                            <li>RV-avg: Avg. Revenue per Passenger - USD per revenue passenger</li>
+                        </ul>
+                        <p>Revenue and finance metrics tracking all revenue streams and efficiency.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-controls="page04-deep" tabindex="0">
+                        <span>Page 04 — Cost & Financial Intelligence</span>
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content" id="page04-deep" style="display: none;">
+                        <h4>KPIs</h4>
+                        <ul class="test-table">
+                            <li>CX-total: Total Operating Costs - Net operating costs (USD)</li>
+                            <li>cx-positive: Positive Operating Costs - Expense amounts only</li>
+                            <li>cx-reversals: Cost Reversals - Credits and reversals (USD)</li>
+                            <li>cx-net: Net Operating Costs - Net signed total</li>
+                            <li>cx-perflight: Cost per Flight Operation - USD per operated flight</li>
+                            <li>cx-perpass: Cost per Revenue Passenger - USD per revenue passenger</li>
+                            <li>nc-contribution: Net Operating Contribution - Revenue − costs (USD)</li>
+                            <li>nc-ratio: Revenue-to-Cost Ratio - Revenue ÷ costs</li>
+                        </ul>
+                        <p>Cost intelligence metrics analyzing operating expenses and contribution margins.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-controls="page05-deep" tabindex="0">
+                        <span>Page 05 — Customer & Service Intelligence</span>
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </div>
+                    <div class="accordion-content" id="page05-deep" style="display: none;">
+                        <h4>KPIs</h4>
+                        <ul class="test-table">
+                            <li>cf-total: Total Feedback Events - All feedback records</li>
+                            <li>cf-complaint: Complaint Rate - % classified as complaint</li>
+                            <li>cf-satisfaction: Avg. Satisfaction Score - 1–5 scale average</li>
+                            <li>cf-active: Active Customers - Distinct active customers</li>
+                            <li>cf-complaint-count: Complaint Count - Complaint events</li>
+                            <li>cf-compliment: Compliment Count - Compliment events</li>
+                            <li>cf-claim: Claim Count - Claim events</li>
+                            <li>cf-survey: Survey Count - Survey events</li>
+                        </ul>
+                        <p>Customer service and feedback metrics measuring satisfaction and engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         07. DATA ENGINEERING
+         ======================================================================== -->
+    <section id="data-engineering" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Data Engineering</h2>
+                <p class="section-subtitle">Pipeline components, curation, and validation logic.</p>
+            </div>
+
+            <div class="de-grid">
+                <div class="de-card">
+                    <h4>FactFlightOperations</h4>
+                    <p>Deterministic generation of 5,000 flight operation records with realistic schedules, delays, and cancellation patterns. Uses seeded randomness for reproducibility.</p>
+                    <ul class="fact-list">
+                        <li>5,000 flight legs across 10 airline identities</li>
+                        <li>Block minutes, departure/arrival times, on-time performance</li>
+                        <li>Delay categories: late, very late, cancelled</li>
+                    </ul>
+                </div>
+
+                <div class="de-card">
+                    <h4>FactBookingTransactions</h4>
+                    <p>9,956 booking coupons generated with fare class assignments, channel attribution, and passenger segmentation. Supports revenue and channel analysis.</p>
+                    <ul class="fact-list">
+                        <li>9,956 booking coupons</li>
+                        <li>Fare class distribution (Economy, Premium, Business)</li>
+                        <li>Booking channel: Direct, OTA, Corporate</li>
+                    </ul>
+                </div>
+
+                <div class="de-card">
+                    <h4>FactOperatingCosts</h4>
+                    <p>7,480 cost lines categorized by type (fuel, maintenance, crew, landing, etc.) and airline. Supports cost per flight and cost per passenger calculations.</p>
+                    <ul class="fact-list">
+                        <li>7,480 cost lines</li>
+                        <li>Cost categories: Fuel, Maintenance, Crew, Landing, Other</li>
+                        <li>Airline attribution</li>
+                    </ul>
+                </div>
+
+                <div class="de-card">
+                    <h4>FactDisruptions</h4>
+                    <p>1,754 disruption events recorded with categories (delay, cancellation, diversion), airline, route, and timestamp. Supports on-time performance calculations and delay analysis.</p>
+                    <ul class="fact-list">
+                        <li>1,754 disruption events</li>
+                        <li>Categories: Delay, Cancellation, Diversion</li>
+                        <li>Airline and route attribution</li>
+                    </ul>
+                </div>
+
+                <div class="de-card">
+                    <h4>FactCustomerFeedback</h4>
+                    <p>2,500 feedback events collected across channels (email, phone, survey, app) with type classification (complaint, compliment, claim, survey), satisfaction score (1–5), and airline association.</p>
+                    <ul class="fact-list">
+                        <li>2,500 feedback events</li>
+                        <li>Types: Complaint, Compliment, Claim, Survey</li>
+                        <li>Satisfaction scale: 1–5</li>
+                        <li>Airline association</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         08. DATA MODEL
+         ======================================================================== -->
+    <section id="data-model" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Data Model</h2>
+                <p class="dm-note"><strong>Star schema.</strong> All relationships are single-direction (1:many), fact-to-dimension. DimDate is a role-playing dimension.</strong></strong></p>
+
+                <div class="dm-tables">
+                    <h3>16 Semantic Model Tables</h3>
+                    <div class="dm-table-cols">
+                        <div class="dm-col">
+                            <h4>Fact Tables (5)</h4>
+                            <ul class="dm-list">
+                                <li>FactFlightOperations</li>
+                                <li>FactBookingTransactions</li>
+                                <li>FactOperatingCosts</li>
+                                <li>FactDisruptions</li>
+                                <li>FactCustomerFeedback</li>
+                            </ul>
+                        </div>
+                        <div class="dm-col">
+                            <h4>Dimension Tables (11)</h4>
+                            <ul class="dm-list">
+                                <li>DimAirline</li>
+                                <li>DimAirport</li>
+                                <li>DimRoute</li>
+                                <li>DimDate (role-playing: departure, arrival, travel, booking, cost, event, feedback)</li>
+                                <li>DimAircraft</li>
+                                <li>DimAircraftType</li>
+                                <li>DimCustomer</li>
+                                <li>DimFareClass</li>
+                                <li>DimBookingChannel</li>
+                                <li>DimDisruptionType</li>
+                            </ul>
+                        </div>
+                        <div class="dm-col">
+                            <h4>Reference (Hidden)</h4>
+                            <ul class="dm-list">
+                                <li>RefAircraftAvailability</li>
+                                <li>(hidden supporting table, not counted in the 16)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dm-relationships">
+                    <h3>Relationships</h3>
+                    <ul class="dm-rule-list">
+                        <li>All relationships are single-direction (1:many), fact-to-dimension.</li>
+                        <li>DimDate is a role-playing dimension used as departure date, arrival date, travel date, booking date, cost date, event date, and feedback date.</li>
+                        <li>No fact-to-fact, many-to-many, or bidirectional relationships.</li>
+                        <li>All foreign keys reference primary keys in dimension tables.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         09. EXCEL ANALYTICS
+         ======================================================================== -->
+    <section id="excel-analytics" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Excel Analytics</h2>
+                <p class="section-subtitle">12-sheet workbook with KPIs, data dictionary, and data-quality checks.</p>
+            </div>
+
+            <div class="excel-grid">
+                <div class="excel-card">
+                    <h4>KPI Dashboard</h4>
+                    <p>Summary metrics across all five report pages, with trend sparklines and conditional formatting.</p>
+                    <ul class="sheet-list">
+                        <li>Overview — Executive KPIs at a glance</li>
+                        <li>Operations — OTP and delay metrics</li>
+                        <li>Revenue — Revenue composition and trends</li>
+                        <li>Costs — Operating cost breakdown</li>
+                        <li>Customer — Satisfaction and feedback summaries</li>
+                    </ul>
+                </div>
+
+                <div class="excel-card">
+                    <h4>Data Dictionary</h4>
+                    <p>Complete definition of every column, table, and measure in the project, including data types, source systems, and governance status.</p>
+                    <ul class="sheet-list">
+                        <li>Fact tables: column definitions and constraints</li>
+                        <li>Dimension tables: attribute descriptions</li>
+                        <li>DAX measures: formula, format, and status</li>
+                        <li>Governance: rule compliance and approval dates</li>
+                    </ul>
+                </div>
+
+                <div class="excel-card">
+                    <h4>Data Quality Checks</h4>
+                    <p>12-sheet quality workbook with 609 test cases covering validity, referential integrity, and business rule compliance.</p>
+                    <ul class="sheet-list">
+                        <li>Test metadata: test ID, component, severity</li>
+                        <li>Test results: pass/fail status and notes</li>
+                        <li>Manifest hashes: 34/34 SHA-256 verified</li>
+                        <li>Canonicalization: test-to-table mapping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         10. TESTING & GOVERNANCE
+         ======================================================================== -->
+    <section id="testing-governance" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Testing & Governance</h2>
+                <p class="section-subtitle">609 automated tests and 12 governance decisions — all closed 08 November 2026.</p>
+            </div>
+
+            <div class="tg-row">
+                <div class="tg-col">
+                    <h3>Test Metrics</h3>
+                    <div class="test-metrics">
+                        <div class="tm-card">
+                            <div class="tm-value">595</div>
+                            <div class="tm-label">Core Tests</div>
+                        </div>
+                        <div class="tm-card">
+                            <div class="tm-value">14</div>
+                            <div class="tm-label">Canonicalization</div>
+                        </div>
+                        <div class="tm-card">
+                            <div class="tm-value">609</div>
+                            <div class="tm-label">Total Passed</div>
+                        </div>
+                    </div>
+                    <p class="test-note">All tests pass with 34/34 manifest hash verification.</p>
+                </div>
+
+                <div class="tg-col">
+                    <h3>Governance Decisions</h3>
+                    <div gov-table>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Decision ID</th>
+                                    <th>Decision</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>OD-04g</td>
+                                    <td>Schema freeze</td>
+                                    <td>✓ Closed</td>
+                                    <td>08 November 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>GOV-D-04</td>
+                                    <td>Data quality threshold</td>
+                                    <td>✓ Closed</td>
+                                    <td>08 November 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>GOV-D-05</td>
+                                    <td>DAX measure governance</td>
+                                    <td>✓ Closed</td>
+                                    <td>08 November 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>GOV-D-06</td>
+                                    <td>Access control policy</td>
+                                    <td>✓ Closed</td>
+                                    <td>08 November 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>GOV-D-07</td>
+                                    <td>Change management</td>
+                                    <td>✓ Closed</td>
+                                    <td>08 November 2026</td>
+                                </tr>
+                                <tr>
+                                    <td>GOV-D-08</td>
+                                    <td>Retention policy</td>
+                                    <td>✓ Closed</td>
+                                    <td>08 November 2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="gov-note">All governance decisions recorded and enforced. Gate approvals (G3-RV-01, G3, G4) all closed on 08 November 2026.</p>
+                </div>
+            </div>
+
+            <div class="gov-table">
+                <h3>Core Test Results</h3>
+                <table class="test-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Component</th>
+                            <th>Severity</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>T-001</td>
+                            <li>FactFlightOperations row count</li>
+                            <td>Critical</td>
+                            <td>✓ Pass</td>
+                        </tr>
+                        <!-- ... more tests -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="gov-evidence">
+                <summary>Evidence Trail — All gates and decisions documented</summary>
+                <ul class="gov-evidence-list">
+                    <li>G3-RV-01: Release validation — synthetic disclosure present ✓</li>
+                    <li>G3: Governance gate 3 — all DAX measures registered ✓</li>
+                    <li>G4: Publication gate — 609/609 tests passed ✓</li>
+                    <li>OD-04g: Schema freeze — no further table changes ✓</li>
+                </ul>
+                <p class="gov-evidence-caveat"><strong>Caveat:</strong> All data is synthetic simulation — not actual airline performance. No real passenger personal information is used.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         11. PROJECT DELIVERABLES
+         ======================================================================== -->
+    <section id="deliverables" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">Project Deliverables</h2>
+                <p class="section-subtitle">Downloadable assets and release information.</p>
+            </div>
+
+            <div class="download-grid">
+                <div class="download-card">
+                    <h4>Python Pipeline Scripts</h4>
+                    <p>Data generation, cleaning, and validation scripts (34 files).</p>
+                    <div class="download-actions">
+                        <a href="#" class="btn btn-outline small">Download <span>→</span></a>
+                        <a href="https://github.com/farhankh8/aerovision-360-platform/releases/tag/v1.0.0-engineering-complete" class="btn btn-ghost small" target="_blank">View on GitHub</a>
+                    </div>
+                    <p class="download-stats">34 scripts · 120 KB</p>
+                </div>
+
+                <div class="download-card">
+                    <h4>Power BI .pbix File</h4>
+                    <p>Complete Power BI project with 5 report pages, 120 visuals, and DAX measure layer.</p>
+                    <div class="download-actions">
+                        <a href="#" class="btn btn-outline small">Download <span>→</span></a>
+                        <a href="https://github.com/farhankh8/aerovision-360-platform/releases/tag/v1.0.0-engineering-complete" class="btn btn-ghost small" target="_blank">View on GitHub</a>
+                    </div>
+                    <p class="download-stats">1 pbix · 250 MB</p>
+                </div>
+
+                <div class="download-card">
+                    <h4>Excel Analytics Workbook</h4>
+                    <p>12-sheet workbook with KPI dashboard, data dictionary, and quality checks.</p>
+                    <div class="download-actions">
+                        <a href="#" class="btn btn-outline small">Download <span>→</span></a>
+                        <a href="https://github.com/farhankh8/aerovision-360-platform/releases/tag/v1.0.0-engineering-complete" class="btn btn-ghost small" target="_blank">View on GitHub</a>
+                    </div>
+                    <p class="download-stats">12 sheets · 3 MB</p>
+                </div>
+            </div>
+
+            <p class="download-note">All deliverables are synthetic simulations — not actual airline performance data.</p>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         12. GITHUB & RELEASE
+         ======================================================================== -->
+    <section id="github-release" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-divider"></div>
+                <h2 class="section-title">GitHub & Release</h2>
+                <p class="section-subtitle">Open source repository and version history.</p>
+            </div>
+
+            <div class="release-grid">
+                <div class="release-card">
+                    <h4>v1.0.0-engineering-complete</h4>
+                    <p>Full engineering release with pipeline, reports, tests, and governance — all gates closed 08 November 2026.</p>
+                    <p class="release-meta">• 34 Python scripts • 5 Power BI report pages • 609 tests • 12 governance decisions • Synthetic simulation</p>
+                    <div class="release-actions">
+                        <a href="https://github.com/farhankh8/aerovision-360-platform" class="btn btn-ghost small" target="_blank">View Repository</a>
+                        <a href="https://github.com/farhankh8/aerovision-360-platform/releases/tag/v1.0.0-engineering-complete" class="btn btn-ghost small" target="_blank">View Release</a>
+                    </div>
+                </div>
+
+                <div class="release-card">
+                    <h4>v0.1.0-initial-pipeline</h4>
+                    <p>Initial data pipeline setup with synthetic data generation and basic validation.</p>
+                    <p class="release-meta">• Initial Python scripts • Basic Power Query M queries • Early DAX measures</p>
+                    <div class="release-actions">
+                        <a href="https://github.com/farhankh8/aerovision-360-platform" class="btn btn-ghost small" target="_blank">View Repository</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================
+         Footer
+         ======================================================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AEROVISION 360</h3>
+                    <p>Enterprise-grade business intelligence case study built with Python, Power BI, DAX, and Power Query. Multi-airline operations, revenue, cost, and customer analytics.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Sections</h3>
+                    <ul>
+                        <li><a href="#hero">Hero</a></li>
+                        <li><a href="#project-overview">Project Overview</a></li>
+                        <li><a href="#tech-stack">Technology Stack</a></li>
+                        <li><a href="#data-architecture">Data Architecture</a></li>
+                        <li><a href="#powerbi-dashboard">Power BI Dashboard</a></li>
+                        <li><a href="#deliverables">Deliverables</a></li>
+                        <li><a href="#github-release">GitHub & Release</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p><strong>Synthetic Simulation —</strong> All operational, customer, booking, revenue, cost, and financial data are synthetic simulations. Not actual airline performance. No real passenger personal information is used.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Built with Python, Power BI, DAX, and Power Query</span>
+                <span>·</span>
+                <span>Synthetic simulation disclosure</span>
+                <span>·</span>
+                <span>GitHub: farhankh8/aerovision-360-platform</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation highlight on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver(
+            (observers) => {
+                observers.forEach((observer) => {
+                    const section = observer.target;
+                    const sectionId = section.getAttribute('id');
+                    const isIntersecting = observer.isIntersecting;
+                    
+                    navLinks.forEach((link) => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            },
+            { root: null, threshold: 0.3 }
+        );
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

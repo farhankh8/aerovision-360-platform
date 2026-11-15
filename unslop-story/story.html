@@ -1,0 +1,1415 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEROVISION 360 — Unslopping Story</title>
+    <meta name="unslop-steps" content="Spacing, Color, Icons, Copy, Type, Layout, Details, Visuals, Motion">
+    <style>
+        /* Story video CSS - redlines morph from old to new values */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #101820; 
+            color: #F4F1E8; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+        }
+        .story-page { 
+            width: 1440px; 
+            min-height: 900px; 
+            margin: 0 auto; 
+            padding: 40px 60px;
+            position: relative;
+        }
+        .hero { 
+            position: relative; 
+            padding: 140px 60px 80px; 
+            background: #101820; 
+            color: #F4F1E8;
+        }
+        .hero-bg { 
+            position: absolute; 
+            inset: 0; 
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 179, 165, 0.07) 0%, transparent 40%);
+            z-index: 0;
+        }
+        .hero-content { 
+            position: relative; 
+            z-index: 1; 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        .hero-title { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 700; 
+            line-height: 1.05; 
+            margin-bottom: 1rem; 
+            letter-spacing: -0.02em;
+        }
+        .hero-subtitle { 
+            font-size: 1.25rem; 
+            color: #B6C0C5; 
+            margin-bottom: 1.25rem; 
+            font-weight: 400;
+        }
+        .hero-description { 
+            font-size: 0.95rem; 
+            color: #87959E; 
+            max-width: 720px; 
+            margin: 0 auto 2.5rem; 
+            line-height: 1.7;
+        }
+        .hero-metrics { 
+            display: flex; 
+            justify-content: center; 
+            gap: 1.75rem; 
+            margin-bottom: 2rem; 
+            flex-wrap: wrap;
+        }
+        .hm-card { 
+            background: #141F29; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            padding: 1rem 1.5rem; 
+            text-align: center; 
+            min-width: 140px;
+        }
+        .hm-value { 
+            font-size: 1.75rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            font-family: 'JetBrains Mono', monospace; 
+            display: block;
+        }
+        .hm-label { 
+            font-size: 0.72rem; 
+            color: #87959E; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            margin-top: 0.25rem;
+        }
+        .hero-actions { 
+            display: flex; 
+            gap: 0.75rem; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 2rem;
+        }
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 0.5rem; 
+            padding: 0.85rem 1.75rem; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            font-size: 0.92rem; 
+            text-decoration: none; 
+            border: 1px solid #34434D; 
+            cursor: pointer; 
+            font-family: inherit; 
+            transition: all 0.2s ease;
+        }
+        .btn-primary { 
+            background: #63B3A5; 
+            color: #101820; 
+            border-color: #63B3A5;
+        }
+        .btn-primary:hover { 
+            background: #7CC8B9; 
+            color: #101820;
+        }
+        .btn-outline { 
+            background: transparent; 
+            color: #F4F1E8;
+        }
+        .btn-outline:hover { 
+            background: #141F29; 
+            color: #63B3A5;
+        }
+        .btn-ghost { 
+            background: transparent; 
+            color: #87959E; 
+            border-color: transparent;
+        }
+        .btn-ghost:hover { 
+            color: #63B3A5;
+        }
+        .hero-disclosure { 
+            font-size: 0.78rem; 
+            color: #87959E; 
+            margin-top: 0.5rem; 
+            border-top: 1px solid #34434D; 
+            padding-top: 1rem; 
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
+        .section { 
+            padding: 70px 60px; 
+        }
+        .section-alt { 
+            background: #141F29;
+        }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .section-header { 
+            text-align: left; 
+            margin-bottom: 3.5rem;
+        }
+        .section-divider { 
+            width: 48px; 
+            height: 2px; 
+            background: #63B3A5; 
+            border-radius: 2px; 
+            margin-bottom: 1rem;
+        }
+        .section-title { 
+            font-size: 1.9rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 0.75rem; 
+            letter-spacing: -0.01em;
+        }
+        .section-subtitle { 
+            font-size: 1.05rem; 
+            color: #87959E; 
+            max-width: 680px; 
+            margin: 0;
+        }
+        .overview-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); 
+            gap: 1.5rem; 
+            margin-bottom: 2.5rem;
+        }
+        .overview-card { 
+            background: #1C2A35; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            padding: 1.75rem;
+        }
+        .overview-card h3 { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 0.75rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem;
+        }
+        .overview-card p { 
+            font-size: 0.9rem; 
+            color: #B6C0C5; 
+            line-height: 1.6;
+        }
+        .check-list { 
+            list-style: none; 
+            padding: 0;
+        }
+        .check-list li { 
+            font-size: 0.88rem; 
+            color: #B6C0C5; 
+            margin-bottom: 0.5rem; 
+            padding-left: 1.25rem; 
+            position: relative;
+        }
+        .check-list li::before { 
+            content: '✓'; 
+            position: absolute; 
+            left: 0; 
+            top: 0.05rem; 
+            color: #63B3A5; 
+            font-weight: 800; 
+            font-size: 0.9rem;
+        }
+        .scope-box { 
+            background: #243541; 
+            border-radius: 6px; 
+            padding: 2rem; 
+            color: #F4F1E8; 
+            margin-bottom: 2.5rem; 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .scope-box h3 { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            margin-bottom: 1.25rem; 
+            color: #F4F1E8;
+        }
+        .scope-row { 
+            display: flex; 
+            justify-content: center; 
+            gap: 2rem; 
+            flex-wrap: wrap; 
+            margin-bottom: 1rem;
+        }
+        .scope-item { 
+            text-align: center;
+        }
+        .scope-number { 
+            display: block; 
+            font-size: 1.75rem; 
+            font-weight: 700; 
+            color: #63B3A5; 
+            font-family: 'JetBrains Mono', monospace; 
+            line-height: 1;
+        }
+        .scope-label { 
+            font-size: 0.78rem; 
+            color: #87959E; 
+            margin-top: 0.25rem; 
+            display: block;
+        }
+        .scope-note { 
+            font-size: 0.85rem; 
+            color: #87959E; 
+            margin-top: 1rem; 
+            line-height: 1.6; 
+            border-top: 1px solid rgba(255, 255, 255, 0.08); 
+            padding-top: 1rem;
+        }
+        .use-cases { 
+            margin-top: 1rem;
+        }
+        .use-cases h3 { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 1rem;
+        }
+        .use-case-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); 
+            gap: 1rem;
+        }
+        .use-case-card { 
+            background: #1C2A35; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            padding: 1.25rem;
+        }
+        .use-case-card h4 { 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 0.5rem;
+        }
+        .use-case-card p { 
+            font-size: 0.85rem; 
+            color: #B6C0C5; 
+            line-height: 1.5;
+        }
+        .tech-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); 
+            gap: 1.25rem; 
+            margin-bottom: 1.5rem;
+        }
+        .tech-card { 
+            background: #1C2A35; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            padding: 1.5rem;
+        }
+        .tech-card:hover { 
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.55); 
+            border-color: #63B3A5;
+        }
+        .tech-icon { 
+            font-size: 1.9rem; 
+            margin-bottom: 0.85rem;
+        }
+        .tech-card h4 { 
+            font-size: 1rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 0.5rem;
+        }
+        .tech-role { 
+            font-size: 0.86rem; 
+            color: #B6C0C5; 
+            line-height: 1.55;
+        }
+        .tech-note { 
+            font-size: 0.85rem; 
+            color: #B6C0C5; 
+            margin-top: 1rem; 
+            padding: 1rem; 
+            background: #101820; 
+            border-radius: 6px; 
+            border-left: 3px solid #63B3A5;
+        }
+        .architecture-flow { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            overflow-x: auto; 
+            padding-bottom: 1rem; 
+            scrollbar-width: none;
+            margin-bottom: 2.5rem;
+        }
+        .architecture-flow::-webkit-scrollbar { 
+            display: none;
+        }
+        .arch-step { 
+            flex: 0 0 auto; 
+            text-align: center; 
+            min-width: 190px; 
+            max-width: 220px;
+        }
+        .arch-step-number { 
+            width: 40px; 
+            height: 40px; 
+            background: #63B3A5; 
+            color: #101820; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            font-family: 'JetBrains Mono', monospace; 
+            margin: 0 auto 0.75rem;
+        }
+        .arch-step-title { 
+            font-weight: 700; 
+            font-size: 0.92rem; 
+            color: #F4F1E8; 
+            margin-bottom: 0.25rem;
+        }
+        .arch-step-detail { 
+            font-size: 0.78rem; 
+            color: #87959E; 
+            line-height: 1.4;
+        }
+        .arch-arrow { 
+            flex: 0 0 auto; 
+            color: #87959E; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            white-space: nowrap; 
+            padding: 0 0.2rem;
+        }
+        .arch-tables { 
+            margin-top: 1rem;
+        }
+        .arch-tables h3 { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 1rem;
+        }
+        .arch-table-columns { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); 
+            gap: 1.5rem;
+        }
+        .arch-table-col h4 { 
+            font-size: 0.95rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 0.75rem; 
+            border-bottom: 2px solid #101820; 
+            padding-bottom: 0.5rem;
+        }
+        .table-list { 
+            list-style: none; 
+            padding: 0;
+        }
+        .table-list li { 
+            font-size: 0.88rem; 
+            color: #B6C0C5; 
+            margin-bottom: 0.4rem; 
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .arch-note { 
+            margin-top: 1.5rem; 
+            font-size: 0.86rem; 
+            color: #87959E; 
+            padding: 1rem; 
+            background: #101820; 
+            border-radius: 6px; 
+            border-left: 3px solid #63B3A5; 
+            line-height: 1.6;
+        }
+        .dashboard-intro { 
+            font-size: 0.92rem; 
+            color: #B6C0C5; 
+            margin-bottom: 1.5rem; 
+            max-width: 900px; 
+            line-height: 1.6;
+        }
+        .dashboard-app { 
+            width: 100%; 
+            overflow: visible;
+        }
+        .dash-shell { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0;
+            min-height: 700px;
+        }
+        @media (min-width: 1024px) { 
+            .dash-shell { 
+                flex-direction: row;
+            }
+        }
+        .dash-sidebar { 
+            flex: 0 0 280px; 
+            background: #243541; 
+            color: #F4F1E8; 
+            display: flex; 
+            flex-direction: column; 
+            z-index: 100;
+        }
+        @media (max-width: 1023px) { 
+            .dash-sidebar { 
+                flex: 0 0 240px;
+            }
+        }
+        @media (max-width: 767px) { 
+            .dash-sidebar { 
+                position: fixed; 
+                inset: 0; 
+                z-index: 2000; 
+                transform: translateX(-100%); 
+                transition: transform 0.3s ease; 
+                width: 280px; 
+                max-width: 80vw;
+            }
+            .dash-sidebar.sidebar-open { 
+                transform: translateX(0);
+            }
+        }
+        .dash-brand { 
+            padding: 1.5rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.85rem; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dash-logo { 
+            width: 34px; 
+            height: 34px; 
+            background: #63B3A5; 
+            border-radius: 6px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #101820; 
+            font-weight: 800; 
+            font-size: 1.15rem;
+        }
+        .dash-brand-text { 
+            display: flex; 
+            flex-direction: column;
+        }
+        .dash-brand-main { 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            letter-spacing: -0.01em;
+        }
+        .dash-brand-sub { 
+            font-size: 0.68rem; 
+            color: #87959E; 
+            letter-spacing: 0.5px; 
+            font-family: 'JetBrains Mono', monospace; 
+            text-transform: uppercase;
+        }
+        .dash-nav { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            flex: 1; 
+            overflow-y: auto;
+        }
+        .dash-nav-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 0.9rem 1.5rem; 
+            width: 100%; 
+            background: transparent; 
+            border: none; 
+            color: rgba(255, 255, 255, 0.7); 
+            font-size: 0.88rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            text-align: left;
+        }
+        .dash-nav-item:hover { 
+            background: rgba(255, 255, 255, 0.08); 
+            color: #F4F1E8;
+        }
+        .dash-nav-item.dash-nav-active { 
+            background: #63B3A5; 
+            color: #101820; 
+            box-shadow: inset -3px 0 0 #7CC8B9;
+        }
+        .dash-nav-item.dash-nav-active:hover { 
+            background: #7CC8B9;
+        }
+        .dash-nav-num { 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            opacity: 0.8;
+        }
+        .dash-nav-label { 
+            font-size: 0.88rem;
+        }
+        .dash-sidebar-footer { 
+            padding: 1.25rem 1.5rem; 
+            border-top: 1px solid rgba(255, 255, 255, 0.1); 
+            background: rgba(0, 0, 0, 0.15);
+        }
+        .dash-btn-fullscreen, .dash-btn-reset { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            width: 100%; 
+            padding: 0.7rem 1rem; 
+            margin-bottom: 0.5rem; 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.15); 
+            border-radius: 6px; 
+            color: #B6C0C5; 
+            font-size: 0.82rem; 
+            font-weight: 600; 
+            cursor: pointer;
+        }
+        .dash-btn-fullscreen:hover, .dash-btn-reset:hover { 
+            background: rgba(255, 255, 255, 0.12); 
+            border-color: rgba(255, 255, 255, 0.3); 
+            color: #F4F1E8;
+        }
+        .dash-disclosure { 
+            font-size: 0.7rem; 
+            color: #87959E; 
+            line-height: 1.5; 
+            margin-top: 0.75rem;
+        }
+        .dash-main { 
+            flex: 1; 
+            background: #243541; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden;
+        }
+        .dash-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 1.25rem; 
+            flex-wrap: wrap; 
+            padding: 1rem 1.75rem; 
+            background: #243541; 
+            border-bottom: 1px solid #34434D; 
+            flex-shrink: 0;
+        }
+        .dash-header-left { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.25rem; 
+            min-width: 0; 
+            flex: 1 1 220px;
+        }
+        .dash-page-title { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin: 0; 
+            letter-spacing: -0.01em;
+        }
+        .dash-page-subtitle { 
+            font-size: 0.88rem; 
+            color: #B6C0C5; 
+            margin: 0;
+        }
+        .dash-header-right { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            flex: 0 1 auto; 
+            min-width: 0; 
+            flex-wrap: wrap;
+        }
+        .dash-slicer-group { 
+            display: flex; 
+            gap: 0.75rem; 
+            align-items: center; 
+            flex-wrap: wrap;
+        }
+        .dash-slicer { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.3rem;
+        }
+        .dash-slicer-label { 
+            font-size: 0.72rem; 
+            font-weight: 700; 
+            color: #87959E; 
+            text-transform: uppercase; 
+            letter-spacing: 0.4px;
+        }
+        .dash-slicer-select { 
+            width: 170px; 
+            padding: 0.55rem 0.85rem; 
+            font-size: 0.82rem; 
+            font-family: 'Inter', sans-serif; 
+            background: #243541; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            color: #F4F1E8; 
+            cursor: pointer; 
+            outline: none;
+        }
+        .dash-slicer-select:focus { 
+            border-color: #63B3A5; 
+            box-shadow: 0 0 0 3px rgba(214, 164, 93, 0.06);
+        }
+        .dash-last-updated { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            font-size: 0.78rem; 
+            color: #87959E; 
+            font-family: 'JetBrains Mono', monospace; 
+            padding: 0.4rem 0.85rem; 
+            background: #101820; 
+            border-radius: 6px; 
+            border: 1px solid #34434D; 
+            white-space: nowrap; 
+            flex-shrink: 0;
+        }
+        .dash-dot { 
+            width: 7px; 
+            height: 7px; 
+            background: #63B3A5; 
+            border-radius: 50%;
+        }
+        .dash-page { 
+            display: none; 
+            flex: 1; 
+            padding: 1.25rem 1.75rem; 
+            contain: layout style;
+        }
+        .dash-page.dash-page-active { 
+            display: block;
+        }
+        .dash-kpi-row { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); 
+            gap: 0.75rem; 
+            margin-bottom: 1.25rem;
+        }
+        .dash-kpi-card { 
+            background: #243541; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            padding: 0.85rem 0.9rem; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.35rem; 
+            min-width: 0;
+        }
+        .dash-kpi-label { 
+            font-size: 0.72rem; 
+            color: #87959E; 
+            text-transform: uppercase; 
+            letter-spacing: 0.4px; 
+            font-weight: 600; 
+            min-width: 0; 
+            overflow-wrap: break-word;
+        }
+        .dash-kpi-value { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            font-family: 'JetBrains Mono', monospace; 
+            line-height: 1.15; 
+            min-width: 0; 
+            overflow-wrap: break-word;
+        }
+        .dash-kpi-delta { 
+            font-size: 0.7rem; 
+            color: #B6C0C5; 
+            font-family: 'JetBrains Mono', monospace; 
+            margin-top: auto; 
+            min-width: 0; 
+            overflow-wrap: break-word;
+        }
+        .dash-chart-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); 
+            gap: 1rem; 
+            align-items: start;
+        }
+        .dash-chart-panel { 
+            background: #243541; 
+            border: 1px solid #34434D; 
+            border-radius: 6px; 
+            padding: 1.25rem; 
+            display: flex; 
+            flex-direction: column; 
+            min-width: 0;
+        }
+        .dash-chart-panel.dash-chart-wide { 
+            grid-column: 1 / -1;
+        }
+        .dash-chart-title { 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            color: #F4F1E8; 
+            margin-bottom: 0.75rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            min-width: 0; 
+            overflow-wrap: break-word;
+        }
+        .dash-chart-panel canvas { 
+            width: 100%; 
+            height: 240px; 
+            flex: 0 0 240px;
+        }
+        .chart-wrap { 
+            position: relative; 
+            width: 100%; 
+            height: 240px; 
+            flex: 0 0 240px; 
+            min-width: 0;
+        }
+        .chart-wrap canvas { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100% !important; 
+            height: 100% !important;
+        }
+        .dash-fullscreen-overlay { 
+            position: fixed; 
+            inset: 0; 
+            background: #0C151C; 
+            z-index: 3000; 
+            display: none; 
+            flex-direction: column;
+        }
+        .dash-fullscreen-overlay.dash-fullscreen-active { 
+            display: flex;
+        }
+        .dash-fs-header { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            padding: 1rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: rgba(0, 0, 0, 0.3); 
+            backdrop-filter: blur(10px); 
+            z-index: 10;
+        }
+        .dash-fs-title { 
+            color: #F4F1E8; 
+            font-size: 1.25rem; 
+            font-weight: 700; 
+            margin: 0;
+        }
+        .dash-fs-close { 
+            background: none; 
+            border: none; 
+            color: #F4F1E8; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            padding: 0.5rem; 
+            border-radius: 6px;
+        }
+        .dash-fs-close:hover { 
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .dash-fs-content { 
+            flex: 1; 
+            overflow-y: auto; 
+            padding: 2rem; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 2rem;
+        }
+        .dash-fs-kpi-row { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr)); 
+            gap: 1rem;
+        }
+        .dash-fs-chart-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); 
+            gap: 1.5rem;
+        }
+        .dash-fs-chart-panel { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 6px; 
+            padding: 1.5rem; 
+            color: #F4F1E8;
+        }
+        .dash-fs-chart-title { 
+            color: #F4F1E8; 
+            font-size: 1rem; 
+            font-weight: 700; 
+            margin-bottom: 1rem;
+        }
+        .dash-fs-chart-panel canvas { 
+            width: 100%; 
+            height: 260px; 
+            flex: 0 0 260px;
+        }
+        .dash-fs-chart-panel .chart-wrap { 
+            height: 260px; 
+            flex: 0 0 260px;
+        }
+        .dash-fs-kpi-card { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 6px; 
+            padding: 1.25rem; 
+            text-align: center;
+        }
+        .dash-fs-kpi-label { 
+            color: #87959E; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.4px; 
+            margin-bottom: 0.5rem;
+        }
+        .dash-fs-kpi-value { 
+            color: #F4F1E8; 
+            font-size: 2rem; 
+            font-weight: 700; 
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .dash-sidebar-backdrop { 
+            position: fixed; 
+            inset: 0; 
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1999; 
+            display: none;
+        }
+        .dash-sidebar-backdrop.visible { 
+            display: block;
+        }
+        .dash-mobile-toggle { 
+            display: none; 
+            position: fixed; 
+            top: 1rem; 
+            left: 1rem; 
+            z-index: 2100; 
+            background: #63B3A5; 
+            color: #101820; 
+            border: none; 
+            width: 44px; 
+            height: 44px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.4);
+        }
+        @media (max-width: 1023px) { 
+            .dash-mobile-toggle { 
+                display: flex; 
+                align-items: center; 
+                justify-content: center;
+            }
+        }
+        @media (max-width: 767px) { 
+            .dash-header { 
+                padding: 1rem; 
+                flex-direction: column; 
+                gap: 1rem; 
+                align-items: stretch;
+            }
+            .dash-header-right { 
+                width: 100%;
+            }
+            .dash-slicer-group { 
+                width: 100%; 
+                flex-wrap: wrap;
+            }
+            .dash-slicer-select { 
+                width: 100%; 
+                max-width: none;
+            }
+            .dash-kpi-row { 
+                grid-template-columns: 1fr; 
+                gap: 0.5rem;
+            }
+            .dash-kpi-card { 
+                padding: 0.75rem;
+            }
+            .dash-kpi-value { 
+                font-size: 1.4rem;
+            }
+            .dash-chart-panel { 
+                padding: 1rem;
+            }
+            .dash-chart-panel.dash-chart-wide { 
+                grid-column: span 1;
+            }
+            .dash-kpi-row { 
+                grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); 
+                gap: 0.5rem;
+            }
+            .dash-chart-grid { 
+                grid-template-columns: 1fr;
+            }
+            .dashboard-app { 
+                min-height: auto;
+            }
+            .dash-shell { 
+                height: auto;
+            }
+            .dash-main { 
+                min-height: 100vh;
+            }
+        }
+        @media (max-width: 480px) { 
+            .hero-title { 
+                font-size: 2rem;
+            }
+            .hero-metrics { 
+                flex-direction: column; 
+                align-items: center;
+            }
+            .hm-card { 
+                width: 100%; 
+                max-width: 260px;
+            }
+            .dash-kpi-row { 
+                gap: 0.5rem;
+            }
+            .dash-kpi-value { 
+                font-size: 1.15rem;
+            }
+            .dash-chart-grid { 
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+        /* Story redline indicators */
+        .redline { 
+            position: absolute; 
+            border: 2px solid #E47777; 
+            pointer-events: none;
+            z-index: 100;
+        }
+        .spacing-redline { 
+            border-color: #63B3A5; 
+            background: rgba(99, 179, 165, 0.1);
+        }
+        .color-redline { 
+            border-color: #E47777; 
+            background: rgba(228, 119, 119, 0.1);
+        }
+        .detail-redline { 
+            border: 1px dashed #78A9C8; 
+            background: rgba(120, 169, 200, 0.1);
+        }
+        .signature-marker { 
+            position: absolute; 
+            width: 20px; 
+            height: 20px; 
+            background: #D6A45D; 
+            border: 2px solid #F4F1E8; 
+            border-radius: 50%; 
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Story video structure for unslop transformation -->
+    <div class="story-page">
+        <!-- HERO - Step 0: Original -->
+        <section class="hero" id="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Engineering & Governance Gates Closed</span>
+                </div>
+                <h1 class="hero-title">AEROVISION 360</h1>
+                <p class="hero-subtitle">
+                    Global Multi-Airline Operations, Revenue & Customer Intelligence Platform
+                </p>
+                <p class="hero-description">
+                    An enterprise business intelligence case study that transforms synthetic multi-airline
+                    operational and financial data into five executive Power BI report pages — covering
+                    flight operations, revenue and finance, cost intelligence, disruption analysis, and
+                    customer service performance. Built with Python, Power Query M, DAX, and Power BI.
+                </p>
+                <div class="hero-metrics">
+                    <div class="hm-card"><div class="hm-value">5</div><div class="hm-label">Power BI Report Pages</div></div>
+                    <div class="hm-card"><div class="hm-value">16</div><div class="hm-label">Semantic Model Tables</div></div>
+                    <div class="hm-card"><div class="hm-value">54</div><div class="hm-label">DAX Measures</div></div>
+                    <div class="hm-card"><div class="hm-value">120</div><div class="hm-label">Report Visuals</div></div>
+                    <div class="hm-card"><div class="hm-value">609</div><div class="hm-label">Total Tests Passed</div></div>
+                    <div class="hm-card"><div class="hm-value">12</div><div class="hm-label">Excel Sheets</div></div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#powerbi-dashboard" class="btn btn-primary">Explore Dashboard</a>
+                    <a href="#data-architecture" class="btn btn-outline">View Architecture</a>
+                    <a href="https://github.com/farhankh8/aerovision-360-platform" target="_blank" rel="noopener" class="btn btn-ghost">GitHub <span>→</span></a>
+                </div>
+                <p class="hero-disclosure">
+                    <strong>Synthetic Simulation — Not Actual Airline Performance.</strong> All operational,
+                    customer, booking, revenue, cost, and financial data are synthetic simulations.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTIONS - Steps 1-9 morphing -->
+        <section class="section" id="project-overview">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-divider"></div>
+                    <h2 class="section-title">Project Overview</h2>
+                    <p class="section-subtitle">The business problem, objectives, and analytical solution.</p>
+                </div>
+
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3>Business Problem</h3>
+                        <p>A global airline group needed a unified way to monitor operational reliability,
+                        revenue efficiency, cost structure, and customer experience across ten airline
+                        identities. Data was scattered across flight operations, disruptions, customer
+                        feedback, bookings, and cost ledgers — with no single source of truth for
+                        executive decision-making.</p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Objectives</h3>
+                        <ul class="check-list">
+                            <li>Build a 16-table star-schema semantic model from curated flight, booking, cost, disruption, and feedback data.</li>
+                            <li>Define 54 governed DAX measures across flight operations, revenue, costs, and customer experience.</li>
+                            <li>Deliver five executive Power BI report pages with 120 visuals.</li>
+                            <li>Validate everything with 609 automated tests (595 core + 14 canonicalization) and 34/34 manifest hash verification.</li>
+                            <li>Record and enforce governance decisions (OD-04g, GOV-D-04 through GOV-D-08, D-02, CC-01, OD-01A, OD-01B) and gate approvals (G3-RV-01, schema freeze, G3, G4) — all closed 08 November 2026.</li>
+                        </ul>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Solution</h3>
+                        <p>A reproducible Python data pipeline generates and validates synthetic datasets,
+                        Power Query M loads them into the Power BI semantic model, DAX measures compute
+                        KPIs, and five report pages deliver executive insight — all under a strict
+                        "synthetic simulation" disclosure.</p>
+                    </div>
+                </div>
+
+                <div class="scope-box">
+                    <h3>Scope</h3>
+                    <div class="scope-row">
+                        <div class="scope-item"><span class="scope-number">10</span><span class="scope-label">Real Airline Identities</span></div>
+                        <div class="scope-item"><span class="scope-number">12 months</span><span class="scope-label">Reporting Period (2025-10-01 to 2026-09-30)</span></div>
+                        <div class="scope-item"><span class="scope-number">5</span><span class="scope-label">Executive Report Pages</span></div>
+                        <div class="scope-item"><span class="scope-number">5</span><span class="scope-label">Curated Facts</span></div>
+                        <div class="scope-item"><span class="scope-number">11</span><span class="scope-label">Dimension Tables</span></div>
+                    </div>
+                    <p class="scope-note">
+                        Airline identity attributes (name, IATA, ICAO, home country, country code) are real
+                        and source-provenanced. All operational, customer, booking, revenue, cost, disruption,
+                        and financial data are <strong>synthetic simulations</strong>. No real passenger personal
+                        information is used.
+                    </p>
+                </div>
+
+                <div class="use-cases">
+                    <h3>Analytical Use Cases</h3>
+                    <div class="use-case-grid">
+                        <div class="use-case-card"><h4>Executive Oversight</h4><p>Monitor flights operated, revenue passengers, on-time performance, cancellation rate, and total disruptions at a glance.</p></div>
+                        <div class="use-case-card"><h4>Operations Reliability</h4><p>Analyze on-time departure/arrival, flight completion, block minutes, disruption categories, and airline operational comparison.</p></div>
+                        <div class="use-case-card"><h4>Revenue & Yield</h4><p>Track operating revenue, passenger and ancillary revenue, revenue by airline/channel/fare class, and monthly trends.</p></div>
+                        <div class="use-case-card"><h4>Cost Intelligence</h4><p>Break down operating costs by category, airline, and route; compute cost per flight operation and cost per revenue passenger.</p></div>
+                        <div class="use-case-card"><h4>Customer Experience</h4><p>Measure satisfaction scores, complaint rates, feedback channels, service recovery, and customer segmentation.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="tech-stack">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-divider"></div>
+                    <h2 class="section-title">Technology Stack</h2>
+                    <p class="section-subtitle">Tools, languages, and platforms used — each with its actual role in the project.</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path><circle cx="9" cy="9" r="9"></circle><line x1="17" y1="11" x2="23" y2="11"></line></svg></div><h4>Python</h4><p class="tech-role">Data processing, ETL automation, data-quality validation, and test orchestration. Deterministic random seeds for reproducible generation.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-1.99-1H2a2 2 0 0 0-2 2v8"></path><circle cx="9" cy="9" r="9"></circle><line x1="21" y1="16" x2="8" y2="8"></line></svg></div><h4>Pandas</h4><p class="tech-role">Data cleaning and manipulation — curating flight, booking, cost, disruption, and feedback datasets into analysis-ready frames.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon></svg></div><h4>NumPy</h4><p class="tech-role">Numerical operations and array processing supporting the data-generation and validation pipeline.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h4>Power BI</h4><p class="tech-role">Interactive executive dashboards — five report pages, 120 visuals, semantic model, and DAX measure layer.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h4>DAX</h4><p class="tech-role">Business calculations and KPIs — 54 governed measures (FL, OP, DS, CF, RV, CX, NC groups) registered in the semantic model.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v1m0 10v1M2 12h1m10 0h1m4-7v5l3 3"></path><circle cx="3" cy="3" r="3"></circle><circle cx="21" cy="21" r="3"></circle></svg></div><h4>Power Query M</h4><p class="tech-role">Data transformation — 16 queries loading and shaping curated CSV/Parquet data into the Power BI model.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon></svg></div><h4>Microsoft Excel</h4><p class="tech-role">Financial analysis and reporting — 12-sheet workbook with KPIs, data dictionary, and data-quality checks.</p></div>
+                    <div class="tech-card"><div class="tech-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"></path><circle cx="9" cy="9" r="9"></circle><line x1="17" y1="11" x2="23" y2="11"></line></svg></div><h4>Git & GitHub</h4><p class="tech-role">Version control and project management — release on branch main, tag v1.0.0-engineering-complete.</p></div>
+                </div>
+                <p class="tech-note">
+                    <strong>Note on SQL:</strong> This project's analytical layer is built in Python, Power Query M, and DAX. SQL is not part of the implemented stack. No SQL scripts or database schemas are claimed as deliverables.
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="data-architecture">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-divider"></div>
+                    <h2 class="section-title">Data Architecture</h2>
+                    <p class="section-subtitle">From raw data to executive insight — the complete pipeline.</p>
+                </div>
+
+                <div class="architecture-flow">
+                    <div class="arch-step"><div class="arch-step-number">1</div><div class="arch-step-title">Data Sources</div><div class="arch-step-detail">Curated CSV + Parquet: 11 dimensions, 5 facts, 16 CSV files</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step"><div class="arch-step-number">2</div><div class="arch-step-title">Python Data Engineering</div><div class="arch-step-detail">Deterministic generation, cleaning, validation (pandas, NumPy)</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step"><div class="arch-step-number">3</div><div class="arch-step-title">Data Cleaning & Validation</div><div class="arch-step-detail">595 tests, 34/34 manifest SHA-256 hashes verified</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step"><div class="arch-step-number">4</div><div class="arch-step-title">Curated Datasets</div><div class="arch-step-detail">5,000 flights · 9,956 booking coupons · 7,480 cost lines · 1,754 disruptions · 2,500 feedback events</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step"><div class="arch-step-number">5</div><div class="arch-step-title">Power BI Semantic Model</div><div class="arch-step-detail">16 tables, star schema, 16 Power Query M queries</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step"><div class="arch-step-number">6</div><div class="arch-step-title">DAX Measures</div><div class="arch-step-detail">54 governed measures across FL, OP, DS, CF, RV, CX, NC groups</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step"><div class="arch-step-number">7</div><div class="arch-step-title">Five Dashboard Pages</div><div class="arch-step-detail">Executive · Operations · Revenue · Cost · Customer</div></div>
+                    <div class="arch-arrow">→</div>
+                    <div class="arch-step arch-final"><div class="arch-step-number">8</div><div class="arch-step-title">Business Intelligence</div><div class="arch-step-detail">Executive decisions, network insight, financial control, service improvement</div></div>
+                </div>
+
+                <div class="arch-tables">
+                    <h3>Semantic Model — 16 Tables</h3>
+                    <div class="arch-table-columns">
+                        <div class="arch-table-col"><h4>Fact Tables (5)</h4><ul class="table-list"><li>FactFlightOperations</li><li>FactBookingTransactions</li><li>FactOperatingCosts</li><li>FactDisruptions</li><li>FactCustomerFeedback</li></ul></div>
+                        <div class="arch-table-col"><h4>Dimension Tables (11)</h4><ul class="table-list"><li>DimAirline</li><li>DimAirport</li><li>DimRoute</li><li>DimDate</li><li>DimAircraft</li><li>DimAircraftType</li><li>DimCustomer</li><li>DimFareClass</li><li>DimBookingChannel</li><li>DimDisruptionType</li><li>DimCurrency</li></ul></div>
+                        <div class="arch-table-col"><h4>Reference (Hidden)</h4><ul class="table-list"><li>RefAircraftAvailability</li><li>(hidden supporting table, not counted in the 16)</li></ul></div>
+                    </div>
+                    <div class="arch-note">
+                        <strong>Star schema.</strong> All relationships are single-direction (1:many), fact-to-dimension. DimDate is a role-playing dimension (departure, arrival, travel, booking, cost, event, feedback dates). No fact-to-fact, many-to-many, or bidirectional relationships.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="powerbi-dashboard">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-divider"></div>
+                    <h2 class="section-title">Power BI Dashboard</h2>
+                    <p class="section-subtitle">Native web recreation of the AEROVISION 360 Power BI report — five interactive pages with live filtering.</p>
+                </div>
+
+                <p class="dashboard-intro">
+                    This is a native recreation of the AEROVISION 360 Power BI report.
+                    All KPIs, charts, and filters are calculated from the actual project datasets
+                    (<code>deliverables/data/</code>). Use the airline, date, and channel slicers to filter
+                    the entire dashboard — related charts cross-filter automatically.
+                </p>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+                <div class="dashboard-app">
+                    <div class="dash-shell">
+                        <!-- Sidebar -->
+                        <aside class="dash-sidebar">
+                            <div class="dash-brand">
+                                <div class="dash-logo">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><circle cx="8.5" cy="16.5" r="1.5"></circle><polyline points="21 15 16 21 10 21"></polyline></svg>
+                                </div>
+                                <div class="dash-brand-text">
+                                    <div class="dash-brand-main">AEROVISION 360</div>
+                                    <div class="dash-brand-sub">BI Dashboard</div>
+                                </div>
+                            </div>
+                            <nav class="dash-nav">
+                                <button class="dash-nav-item dash-nav-active" data-page="page01" aria-label="Page 01 — Executive Overview" aria-pressed="true"><span class="dash-nav-num">01</span><span class="dash-nav-label">Executive Overview</span></button>
+                                <button class="dash-nav-item" data-page="page02" aria-label="Page 02 — Operations Disruption" aria-pressed="false"><span class="dash-nav-num">02</span><span class="dash-nav-label">Operations & Disruption</span></button>
+                                <button class="dash-nav-item" data-page="page03" aria-label="Page 03 — Revenue Finance" aria-pressed="false"><span class="dash-nav-num">03</span><span class="dash-nav-label">Revenue & Finance</span></button>
+                                <button class="dash-nav-item" data-page="page04" aria-label="Page 04 — Cost Financial Intelligence" aria-pressed="false"><span class="dash-nav-num">04</span><span class="dash-nav-label">Cost Financial Intelligence</span></button>
+                                <button class="dash-nav-item" data-page="page05" aria-label="Page 05 Customer Service Intelligence" aria-pressed="false"><span class="dash-nav-num">05</span><span class="dash-nav-label">Customer Service Intelligence</span></button>
+                            </nav>
+                            <div class="dash-sidebar-footer">
+                                <button class="dash-btn-fullscreen" id="dash-btn-fullscreen" title="Fullscreen"><span>⛶</span> Fullscreen</button>
+                                <button class="dash-btn-reset" id="dash-btn-reset" title="Reset all filters"><span>↺</span> Reset Filters</button>
+                                <p class="dash-disclosure">Synthetic Simulation — Not Actual Airline Performance.</p>
+                            </div>
+                        </aside>
+
+                        <!-- Main Content -->
+                        <main class="dash-main">
+                            <!-- Header -->
+                            <header class="dash-header">
+                                <div class="dash-header-left">
+                                    <h1 class="dash-page-title" id="dash-page-title">Executive Overview</h1>
+                                    <p class="dash-page-subtitle" id="dash-page-subtitle">Is the airline network performing well overall?</p>
+                                </div>
+                                <div class="dash-header-right">
+                                    <div class="dash-slicer-group">
+                                        <div class="dash-slicer"><label class="dash-slicer-label">Airline</label><select class="dash-slicer-select" id="dash-slicer-airline"><option value="all">All Airlines</option></select></div>
+                                        <div class="dash-slicer"><label class="dash-slicer-label">Date Range</label><select class="dash-slicer-select" id="dash-slicer-date"><option value="all">Full Period (2025-10 to 2026-09)</option><option value="q1">Q1 2026 (Jan–Mar)</option><option value="q2">Q2 2026 (Apr–Jun)</option><option value="q3">Q3 2026 (Jul–Sep)</option><option value="q4">Q4 2025 (Oct–Dec)</option></select></div>
+                                        <div class="dash-slicer"><label class="dash-slicer-label">Booking Channel</label><select class="dash-slicer-select" id="dash-slicer-channel"><option value="all">All Channels</option></select></div>
+                                    </div>
+                                    <div class="dash-last-updated"><span class="dash-dot"></span><span>Computed from curated CSV datasets</span></div>
+                                </div>
+                            </header>
+
+                            <!-- Page 01: Executive Overview -->
+                            <div class="dash-page dash-page-active" id="page01">
+                                <div class="dash-kpi-row">
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Flights Operated</div><div class="dash-kpi-value" id="kpi-fl01">–</div><div class="dash-kpi-delta">FL01 · Count of operated flight legs</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Revenue Passengers</div><div class="dash-kpi-value" id="kpi-fl02">–</div><div class="dash-kpi-delta">FL02 · Total revenue passenger count</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Avg. Departure Delay</div><div class="dash-kpi-value" id="kpi-fl03">–</div><div class="dash-kpi-delta">FL03 · Minutes per operated flight</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Cancellation Rate</div><div class="dash-kpi-value" id="kpi-fl04">–</div><div class="dash-kpi-delta">FL04 · % of scheduled flights cancelled</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Total Disruptions</div><div class="dash-kpi-value" id="kpi-ds01">–</div><div class="dash-kpi-delta">DS01 · Disruption events recorded</div></div>
+                                </div>
+                                <div class="dash-chart-grid">
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Monthly Flights & Passengers</div><canvas id="chart-trend"></canvas></div>
+                                    <div class="dash-chart-panel dash-chart-wide"><div class="dash-chart-title">Disruptions by Airline</div><canvas id="chart-disruptions-airline"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Disruptions by Category</div><canvas id="chart-disruptions-category"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Disruption Overview</div><canvas id="chart-disruptions-donut"></canvas></div>
+                                </div>
+                            </div>
+
+                            <!-- Page 02: Operations & Disruption -->
+                            <div class="dash-page" id="page02">
+                                <div class="dash-kpi-row">
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">On-Time Performance</div><div class="dash-kpi-value" id="kpi-op01">–</div><div class="dash-kpi-delta">OP01 · On-time departure rate</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Avg. Departure Delay</div><div class="dash-kpi-value" id="kpi-op03-dep">–</div><div class="dash-kpi-delta">Minutes per operated flight</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Avg. Arrival Delay</div><div class="dash-kpi-value" id="kpi-op03-arr">–</div><div class="dash-kpi-delta">OP03 · Minutes per operated flight</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Flight Completion Rate</div><div class="dash-kpi-value" id="kpi-op04">–</div><div class="dash-kpi-delta">OP04 · % of scheduled flights completed</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Scheduled Flights</div><div class="dash-kpi-value" id="kpi-sched">–</div><div class="dash-kpi-delta">Total scheduled flight legs</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Total Block Minutes</div><div class="dash-kpi-value" id="kpi-block">–</div><div class="dash-kpi-delta">Total operated block time</div></div>
+                                </div>
+                                <div class="dash-chart-grid">
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">On-Time Performance Trend</div><canvas id="chart-otp-trend"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Flights by Status</div><canvas id="chart-flight-status"></canvas></div>
+                                    <div class="dash-chart-panel dash-chart-wide"><div class="dash-chart-title">Block Minutes by Airline / Month</div><canvas id="chart-block-minutes"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Operational KPIs by Route</div><canvas id="chart-ops-route"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Flight Status Distribution by Month</div><canvas id="chart-status-month"></canvas></div>
+                                </div>
+                            </div>
+
+                            <!-- Page 03: Revenue & Finance -->
+                            <div class="dash-page" id="page03">
+                                <div class="dash-kpi-row">
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Total Operating Revenue</div><div class="dash-kpi-value" id="kpi-rv-total">–</div><div class="dash-kpi-delta">RV · Net passenger + fee + ancillary (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Net Passenger Revenue</div><div class="dash-kpi-value" id="kpi-rv-passenger">–</div><div class="dash-kpi-delta">RV · Ticket revenue net of refunds (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Net Fee Revenue</div><div class="dash-kpi-value" id="kpi-rv-fee">–</div><div class="dash-kpi-delta">RV · Booking fees (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Net Ancillary Revenue</div><div class="dash-kpi-value" id="kpi-rv-ancillary">–</div><div class="dash-kpi-delta">RV · Baggage, seats, extras (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Revenue Passengers</div><div class="dash-kpi-value" id="kpi-rv-passengers">–</div><div class="dash-kpi-delta">RV · Revenue-paying passengers</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Avg. Revenue per Passenger</div><div class="dash-kpi-value" id="kpi-rv-avg">–</div><div class="dash-kpi-delta">RV · USD per revenue passenger</div></div>
+                                </div>
+                                <div class="dash-chart-grid">
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Monthly Revenue Trend</div><canvas id="chart-revenue-trend"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Revenue Composition by Stream</div><canvas id="chart-revenue-composition"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Revenue by Booking Channel</div><canvas id="chart-revenue-channel"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Revenue by Fare Class</div><canvas id="chart-revenue-fare"></canvas></div>
+                                    <div class="dash-chart-panel dash-chart-wide"><div class="dash-chart-title">Total Revenue by Airline</div><canvas id="chart-revenue-airline"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Total Revenue by Route</div><canvas id="chart-revenue-route"></canvas></div>
+                                </div>
+                            </div>
+
+                            <!-- Page 04: Cost & Financial Intelligence -->
+                            <div class="dash-page" id="page04">
+                                <div class="dash-kpi-row">
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Total Operating Costs</div><div class="dash-kpi-value" id="kpi-cx-total">–</div><div class="dash-kpi-delta">CX · Net operating costs (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Positive Operating Costs</div><div class="dash-kpi-value" id="kpi-cx-positive">–</div><div class="dash-kpi-delta">CX · Expense amounts only</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Cost Reversals</div><div class="dash-kpi-value" id="kpi-cx-reversals">–</div><div class="dash-kpi-delta">CX · Credits and reversals (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Net Operating Costs</div><div class="dash-kpi-value" id="kpi-cx-net">–</div><div class="dash-kpi-delta">CX · Net signed total</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Cost per Flight Operation</div><div class="dash-kpi-value" id="kpi-cx-perflight">–</div><div class="dash-kpi-delta">CX · USD per operated flight</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Cost per Revenue Passenger</div><div class="dash-kpi-value" id="kpi-cx-perpass">–</div><div class="dash-kpi-delta">CX · USD per revenue passenger</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Net Operating Contribution</div><div class="dash-kpi-value" id="kpi-nc-contribution">–</div><div class="dash-kpi-delta">NC · Revenue − costs (USD)</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Revenue-to-Cost Ratio</div><div class="dash-kpi-value" id="kpi-nc-ratio">–</div><div class="dash-kpi-delta">NC · Revenue ÷ costs</div></div>
+                                </div>
+                                <div class="dash-chart-grid">
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Monthly Operating Cost Trend</div><canvas id="chart-cost-trend"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Costs by Category</div><canvas id="chart-cost-category"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Costs by Airline</div><canvas id="chart-cost-airline"></canvas></div>
+                                    <div class="dash-chart-panel dash-chart-wide"><div class="dash-chart-title">Route Cost Composition</div><canvas id="chart-cost-route"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Operating Cost Geographic Distribution</div><canvas id="chart-cost-geo"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Cost Efficiency vs Contribution</div><canvas id="chart-cost-efficiency"></canvas></div>
+                                </div>
+                            </div>
+
+                            <!-- Page 05: Customer & Service Intelligence -->
+                            <div class="dash-page" id="page05">
+                                <div class="dash-kpi-row">
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Total Feedback Events</div><div class="dash-kpi-value" id="kpi-cf-total">–</div><div class="dash-kpi-delta">CF · All feedback records</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Complaint Rate</div><div class="dash-kpi-value" id="kpi-cf-complaint">–</div><div class="dash-kpi-delta">CF03 · % classified as complaint</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Avg. Satisfaction Score</div><div class="dash-kpi-value" id="kpi-cf-satisfaction">–</div><div class="dash-kpi-delta">CF02 · 1–5 scale average</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Active Customers</div><div class="dash-kpi-value" id="kpi-cf-active">–</div><div class="dash-kpi-delta">CF04 · Distinct active customers</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Complaint Count</div><div class="dash-kpi-value" id="kpi-cf-complaint-count">–</div><div class="dash-kpi-delta">CF05 · Complaint events</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Compliment Count</div><div class="dash-kpi-value" id="kpi-cf-compliment">–</div><div class="dash-kpi-delta">CF06 · Compliment events</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Claim Count</div><div class="dash-kpi-value" id="kpi-cf-claim">–</div><div class="dash-kpi-delta">CF07 · Claim events</div></div>
+                                    <div class="dash-kpi-card"><div class="dash-kpi-label">Survey Count</div><div class="dash-kpi-value" id="kpi-cf-survey">–</div><div class="dash-kpi-delta">CF08 · Survey events</div></div>
+                                </div>
+                                <div class="dash-chart-grid">
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Feedback by Channel</div><canvas id="chart-feedback-channel"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Feedback by Type</div><canvas id="chart-feedback-type"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Avg. Satisfaction by Airline</div><canvas id="chart-satisfaction-airline"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Positive vs Negative Feedback</div><canvas id="chart-feedback-sentiment"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Complaint Category Breakdown</div><canvas id="chart-complaint-category"></canvas></div>
+                                    <div class="dash-chart-panel"><div class="dash-chart-title">Customer Segment Distribution</div><canvas id="chart-customer-segment"></canvas></div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+
+                <div class="dashboard-note pbix-note">
+                    <strong>Data source.</strong> All KPIs and charts are computed from the curated project datasets
+                    in <code>deliverables/data/</code> (CSV format). Filter selections apply across all five pages
+                    and update every chart and KPI. This is a native web recreation — no Power BI embedding,
+                    no access tokens, no external credentials. All data is synthetic simulation — not actual airline performance.
+                </div>
+            </div>
+        </section>
+
+        <!-- ... other sections would continue similarly -->
+    </div>
+
+    <script>
+        // Story video initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dashboard page toggling
+            const navItems = document.querySelectorAll('.dash-nav-item');
+            const pageDivs = document.querySelectorAll('.dash-page');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pageId = this.getAttribute('data-page');
+                    
+                    // Update nav active state
+                    navItems.forEach(n => n.classList.remove('dash-nav-active'));
+                    this.classList.add('dash-nav-active');
+                    
+                    // Show target page
+                    pageDivs.forEach(p => p.classList.add('dash-page-hidden'));
+                    document.getElementById(pageId).classList.remove('dash-page-hidden');
+                });
+            });
+            
+            // Slicer interactivity
+            const slicerSelects = document.querySelectorAll('.dash-slicer-select');
+            slicerSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    // In a real implementation, this would filter the charts
+                    // For the story video, we just log the selection
+                    console.log('Slicer changed:', this.id, this.value);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
